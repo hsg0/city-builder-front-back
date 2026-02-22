@@ -1,0 +1,51 @@
+{
+  "expo": {
+    "name": "City-Builder",
+    "slug": "City-Builder",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/City-Builder-assets/image.png",
+    "scheme": "citybuilder",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.hsg-001.City-Builder"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/images/City-Builder-assets/image.png",
+        "backgroundImage": "./assets/images/City-Builder-assets/image.png",
+        "monochromeImage": "./assets/images/City-Builder-assets/image.png"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "package": "com.hsg001.CityBuilder"
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/images/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/City-Builder-assets/City-Builder-Splash-Dark-2732.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff",
+          "dark": {
+            "backgroundColor": "#000000"
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}

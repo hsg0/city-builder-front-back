@@ -1,0 +1,15 @@
+.DS_Store
+
+# secrets anywhere
+.env
+.env.*
+
+# dependencies anywhere
+**/node_modules/
+
+# expo caches
+**/.expo/
+**/.expo-shared/
+
+# logs
+**/*.log
