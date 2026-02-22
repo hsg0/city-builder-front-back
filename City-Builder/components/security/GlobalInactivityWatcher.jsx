@@ -1,93 +1,80 @@
-import { useEffect, useRef } from "react";
-import { AppState, Pressable, View } from "react-native";
+// components/security/GlobalInactivityWatcher.jsx
+import { useEffect, useRef, useCallback } from "react";
+import { AppState, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { usePathname, useRouter } from "expo-router";
 
-import {
-  markActive,
-  setInactive,
-} from "../../reduxToolKit/reduxState/globalState/activitySlice";
+import { markActive } from "../../reduxToolKit/reduxState/globalState/activitySlice";
 import { logout } from "../../reduxToolKit/reduxState/globalState/authSlice";
-import {
-  selectIsInactive,
-  selectTimeoutMs,
-} from "../../reduxToolKit/reduxState/globalState/activitySelectors";
-
-// optional: if you want auto-logout
-// import { logout } from "../../reduxToolKit/reduxState/globalState/authSlice";
+import { selectTimeoutMs } from "../../reduxToolKit/reduxState/globalState/activitySelectors";
 
 export default function GlobalInactivityWatcher({ children }) {
   const dispatch = useDispatch();
   const router = useRouter();
   const pathname = usePathname();
 
-  const isInactive = useSelector(selectIsInactive);
   const timeoutMs = useSelector(selectTimeoutMs);
 
-  const timerRef = useRef(null);
+  const inactivityTimerRef = useRef(null);
+  const appStateRef = useRef(AppState.currentState); // "active" | "background" | "inactive"
 
-  const resetTimer = () => {
-    console.log("🕒 resetTimer()");
-    dispatch(markActive());
+  const clearInactivityTimer = useCallback(() => {
+    if (inactivityTimerRef.current) {
+      clearTimeout(inactivityTimerRef.current);
+      inactivityTimerRef.current = null;
+    }
+  }, []);
 
-    if (timerRef.current) clearTimeout(timerRef.current);
+  const startInactivityTimer = useCallback(() => {
+    clearInactivityTimer();
 
-    timerRef.current = setTimeout(() => {
-      console.log("⛔ Inactive timeout reached -> setInactive(true)");
-      dispatch(setInactive(true));
+    inactivityTimerRef.current = setTimeout(() => {
+      dispatch(logout());
+      if (pathname !== "/(security)/(public)/login") {
+        router.replace("/(security)/(public)/login");
+      }
     }, timeoutMs);
-  };
+  }, [clearInactivityTimer, dispatch, pathname, router, timeoutMs]);
 
-  // 1) Start timer + handle app state changes (background/foreground)
+  const resetInactivityTimer = useCallback(() => {
+    // Only track inactivity while app is active
+    if (appStateRef.current !== "active") return;
+
+    dispatch(markActive());
+    startInactivityTimer();
+  }, [dispatch, startInactivityTimer]);
+
   useEffect(() => {
-    console.log("🌍 GlobalInactivityWatcher mounted. timeoutMs:", timeoutMs);
+    // Start timer on mount
+    startInactivityTimer();
 
-    resetTimer();
+    const subscription = AppState.addEventListener("change", (nextState) => {
+      appStateRef.current = nextState;
 
-    const sub = AppState.addEventListener("change", (nextState) => {
-      console.log("📲 AppState changed:", nextState);
-
-      // If app goes background -> lock
+      // If app leaves active state, pause timer (do NOT logout)
       if (nextState !== "active") {
-        dispatch(setInactive(true));
+        clearInactivityTimer();
+        return;
       }
 
-      // When coming back active -> restart timer (you can keep locked until user unlocks)
-      if (nextState === "active") {
-        resetTimer();
-      }
+      // App became active again -> restart timer
+      startInactivityTimer();
     });
 
     return () => {
-      console.log("🧹 GlobalInactivityWatcher unmounted");
-      if (timerRef.current) clearTimeout(timerRef.current);
-      sub.remove();
+      clearInactivityTimer();
+      subscription.remove();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [timeoutMs]);
+  }, [clearInactivityTimer, startInactivityTimer]);
 
-  // 2) When inactive becomes true -> log out and navigate to login
-  useEffect(() => {
-    console.log("🔐 isInactive changed:", isInactive, "current path:", pathname);
-
-    if (isInactive) {
-      dispatch(logout());
-
-      // Prevent infinite loops if already on login
-      if (pathname !== "/(security)/login") {
-        router.replace("/(security)/login");
-      }
-    }
-  }, [isInactive, pathname]);
-
-  // 3) Capture user touches anywhere to reset timer
+  // ✅ Does NOT block ScrollView drag gestures
   return (
-    <Pressable
+    <View
       style={{ flex: 1 }}
-      onPressIn={resetTimer}
-      onTouchStart={resetTimer}
+      onTouchStartCapture={resetInactivityTimer}
+      onTouchMoveCapture={resetInactivityTimer}
     >
-      <View style={{ flex: 1 }}>{children}</View>
-    </Pressable>
+      {children}
+    </View>
   );
 }
