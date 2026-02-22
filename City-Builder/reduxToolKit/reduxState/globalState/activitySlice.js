@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   isInactive: false,
-  lastActiveAt: Date.now(), // optional but useful
-  timeoutMs: 5 * 60 * 1000, // optional default: 5 minutes
+  lastActiveAt: Date.now(),
+  timeoutMs: 5 * 60 * 1000,
 };
 
 const activitySlice = createSlice({
@@ -12,23 +12,22 @@ const activitySlice = createSlice({
   initialState,
   reducers: {
     setInactive: (state, action) => {
-      console.log("⏸️ setInactive()", action.payload);
       state.isInactive = Boolean(action.payload);
     },
 
     markActive: (state) => {
-      console.log("✅ markActive()");
       state.isInactive = false;
       state.lastActiveAt = Date.now();
     },
 
     setTimeoutMs: (state, action) => {
-      console.log("⏱️ setTimeoutMs()", action.payload);
-      state.timeoutMs = Number(action.payload) || state.timeoutMs;
+      const nextTimeoutMs = Number(action.payload);
+      if (!Number.isNaN(nextTimeoutMs) && nextTimeoutMs > 0) {
+        state.timeoutMs = nextTimeoutMs;
+      }
     },
 
     resetActivity: (state) => {
-      console.log("🔄 resetActivity()");
       state.isInactive = false;
       state.lastActiveAt = Date.now();
     },

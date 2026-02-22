@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const lock = () => {
+const demo = () => {
   return (
     <View>
-      <Text>locggggg</Text>
+      <Text>demo</Text>
     </View>
   )
 }
 
-export default lock
+export default demo
 
 const styles = StyleSheet.create({})
