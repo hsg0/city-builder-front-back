@@ -292,7 +292,7 @@ export default function Index() {
                   fontSize: isTablet ? 17 : 15,
                 }}
               >
-                ✨ Start a New Build
+                ✨Build
               </Text>
             </Pressable>
 
