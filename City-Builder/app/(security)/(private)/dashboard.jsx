@@ -210,7 +210,7 @@ export default function Dashboard() {
         showsVerticalScrollIndicator={false}
       >
         {/* ── Header ── */}
-        <View style={styles.brandRow}>
+        <View style={styles.brandRow} className="mt-6">
           <Image
             source={LOGO_SOURCE}
             style={styles.brandLogo}
@@ -222,16 +222,25 @@ export default function Dashboard() {
           </View>
         </View>
 
-        <Text style={styles.subtitle}>
-          Pick the mode that matches what you're doing. You can switch later.
+        <Text style={styles.subtitle} className="mt-6" >
+          Pick one, are you building a home or maintaining one you already have?
         </Text>
 
         {/* ── Buyer Card ── */}
-        <View style={styles.card}>
+
+        <Pressable
+          onPress={navigateToBuyerDashboard}
+          className="mt-4 rounded-3xl border-2 border-blue-600 bg-transparent px-4 py-4"
+        >
           <View style={styles.cardHeaderRow}>
             <View style={styles.iconBadgeBuyer}>
-              <Ionicons name="home-outline" size={22} color={styles.accentBuyer} />
+              <Ionicons
+                name="home-outline"
+                size={22}
+                color={styles.accentBuyer}
+              />
             </View>
+
             <View style={{ flex: 1 }}>
               <Text style={styles.cardTitle}>Home Buyer</Text>
               <Text style={styles.cardDesc}>
@@ -255,24 +264,29 @@ export default function Dashboard() {
             />
           </View>
 
-          <Pressable
-            onPress={navigateToBuyerDashboard}
-            style={({ pressed }) => [
-              styles.primaryButton,
-              { opacity: pressed ? 0.85 : 1 },
-            ]}
-          >
-            <Text style={styles.primaryButtonText}>Continue as Buyer</Text>
-            <Ionicons name="arrow-forward" size={16} color="#FFFFFF" />
-          </Pressable>
-        </View>
+          <View className="mt-4 flex-row items-center justify-between">
+            <Text className="text-blue-600 font-extrabold text-base">
+              Continue as Buyer
+            </Text>
+            <Ionicons name="arrow-forward" size={18} color="#2563EB" />
+            {/* #2563EB == blue-600 */}
+          </View>
+        </Pressable>
 
         {/* ── Builder Card ── */}
-        <View style={styles.card}>
+        <Pressable
+          onPress={navigateToBuilderDashboard}
+          className="mt-4 rounded-3xl border-2 border-green-500 bg-transparent px-4 py-4"
+        >
           <View style={styles.cardHeaderRow}>
             <View style={styles.iconBadgeBuilder}>
-              <Ionicons name="hammer-outline" size={22} color={styles.accentBuilder} />
+              <Ionicons
+                name="hammer-outline"
+                size={22}
+                color={styles.accentBuilder}
+              />
             </View>
+
             <View style={{ flex: 1 }}>
               <Text style={styles.cardTitle}>Home Builder</Text>
               <Text style={styles.cardDesc}>
@@ -296,20 +310,18 @@ export default function Dashboard() {
             />
           </View>
 
-          <Pressable
-            onPress={navigateToBuilderDashboard}
-            style={({ pressed }) => [
-              styles.secondaryButton,
-              pressed && { backgroundColor: `${styles.accentBuilder}14` },
-            ]}
-          >
-            <Text style={styles.secondaryButtonText}>Continue as Builder</Text>
-            <Ionicons name="arrow-forward" size={16} color={styles.accentBuilder} />
-          </Pressable>
-        </View>
+          <View className="mt-4 flex-row items-center justify-between">
+            <Text className="text-green-500 font-extrabold text-base">
+              Continue as Builder
+            </Text>
+            <Ionicons name="arrow-forward" size={18} color="#22C55E" />
+            {/* #22C55E == green-500 */}
+          </View>
+        </Pressable>
 
         <Text style={styles.footerNote}>
-          Tip: Buyer is for homeowners. Builder is for contractors managing client builds.
+          Tip: Buyer is for homeowners. Builder is for contractors managing
+          client builds.
         </Text>
 
         <Text style={styles.debugText}>
