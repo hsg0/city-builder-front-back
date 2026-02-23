@@ -10,7 +10,12 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.hsg-001.City-Builder"
+      "bundleIdentifier": "com.hsg-001.City-Builder",
+      "infoPlist": {
+        "NSCameraUsageDescription": "City-Builder needs access to your camera to take photos for your projects.",
+        "NSPhotoLibraryUsageDescription": "City-Builder needs access to your photo library to select photos for your projects.",
+        "NSPhotoLibraryAddUsageDescription": "City-Builder needs permission to save photos to your photo library."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -21,7 +26,14 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.hsg001.CityBuilder"
+      "package": "com.hsg001.CityBuilder",
+      "permissions": [
+        "CAMERA",
+        "READ_MEDIA_IMAGES",
+        "READ_MEDIA_VIDEO",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
     },
     "web": {
       "output": "static",
@@ -42,7 +54,28 @@
           }
         }
       ],
-      "expo-secure-store"
+      "expo-secure-store",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "City-Builder needs access to your camera to take photos for your projects."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "City-Builder needs access to your photo library to select photos for your projects.",
+          "cameraPermission": "City-Builder needs access to your camera to take photos for your projects."
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "City-Builder needs access to your photo library to select and save photos.",
+          "savePhotosPermission": "City-Builder needs permission to save photos to your photo library.",
+          "isAccessMediaLocationEnabled": true
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,
