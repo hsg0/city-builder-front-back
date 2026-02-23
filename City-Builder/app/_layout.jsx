@@ -11,6 +11,7 @@ import { ThemeProvider } from "../wrappers/providers/ThemeContext.js";
 import GlobalInactivityWatcher from "../components/security/GlobalInactivityWatcher";
 import ScreenSizeProvider from "../components/getScreenSize/screenSizeProvider.jsx";
 import PrivacyOverlayWatcher from "../components/security/PrivacyOverlayWatcher";
+import AppInitializer from "../components/AppInitializer.jsx";
 
 export default function RootLayout() {
   return (
@@ -18,18 +19,20 @@ export default function RootLayout() {
       <SafeAreaProvider>
         <Provider store={store}>
           <ThemeProvider>
-            <PrivacyOverlayWatcher>
-              <GlobalInactivityWatcher>
-                <ScreenSizeProvider>
-                  <Stack screenOptions={{ headerShown: false }}>
-                    <Stack.Screen name="index" />
-                    <Stack.Screen name="(security)/overlay" options={{ presentation: "fullScreenModal" }} />
-                  </Stack>
+            <AppInitializer>
+              <PrivacyOverlayWatcher>
+                <GlobalInactivityWatcher>
+                  <ScreenSizeProvider>
+                    <Stack screenOptions={{ headerShown: false }}>
+                      <Stack.Screen name="index" />
+                      <Stack.Screen name="(security)/overlay" options={{ presentation: "fullScreenModal" }} />
+                    </Stack>
 
-                  <Toast />
-                </ScreenSizeProvider>
-              </GlobalInactivityWatcher>
-            </PrivacyOverlayWatcher>
+                    <Toast />
+                  </ScreenSizeProvider>
+                </GlobalInactivityWatcher>
+              </PrivacyOverlayWatcher>
+            </AppInitializer>
           </ThemeProvider>
         </Provider>
       </SafeAreaProvider>

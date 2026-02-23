@@ -1,5 +1,6 @@
 // reduxToolKit/reduxState/globalState/authSlice.js
 import { createSlice } from "@reduxjs/toolkit";
+import { saveToken, saveUser, clearAuthData } from "../../../services/secureStore";
 
 const initialState = {
   isLoggedIn: false,
@@ -27,6 +28,10 @@ const authSlice = createSlice({
       state.user = user || null;
       state.token = token || null;
       state.error = null;
+      
+      // Persist token and user to secure storage
+      if (token) saveToken(token);
+      if (user) saveUser(user);
     },
 
     authFail: (state, action) => {
@@ -45,6 +50,9 @@ const authSlice = createSlice({
       state.token = null;
       state.loading = false;
       state.error = null;
+      
+      // Clear secure storage
+      clearAuthData();
     },
 
     clearAuthError: (state) => {
