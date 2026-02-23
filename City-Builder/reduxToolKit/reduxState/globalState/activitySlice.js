@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isInactive: false,
   lastActiveAt: Date.now(),
-  timeoutMs: 5 * 60 * 1000,
+  timeoutMs: 30 * 60 * 1000,
 };
 
 const activitySlice = createSlice({
