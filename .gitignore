@@ -8,8 +8,8 @@
 **/node_modules/
 
 # expo caches
-**/.expo/
-**/.expo-shared/
+.expo/
+
 
 # logs
 **/*.log
