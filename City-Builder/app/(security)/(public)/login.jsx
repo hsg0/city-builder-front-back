@@ -12,10 +12,14 @@ import {
 } from "react-native";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
+import { useDispatch } from "react-redux";
+import { authSuccess } from "../../../reduxToolKit/reduxState/globalState/authSlice";
+import { apiLogin, extractErrorMessage } from "../../../services/authApi";
 import { useTheme } from "../../../wrappers/providers/ThemeContext";
 
 export default function Login() {
   const router = useRouter();
+  const dispatch = useDispatch();
   const { theme } = useTheme();
   const safeAreaInsets = useSafeAreaInsets();
 
@@ -189,12 +193,14 @@ export default function Login() {
     try {
       setIsSubmitting(true);
 
-      // demo delay (replace with backend call later)
-      await new Promise((resolve) => setTimeout(resolve, 600));
+      const data = await apiLogin(trimmedEmail, password);
+
+      // Store user + token in Redux
+      dispatch(authSuccess({ user: data.user, token: data.token }));
 
       router.replace("/(security)/(private)/dashboard");
     } catch (error) {
-      setErrorMessage("Login failed. Please try again.");
+      setErrorMessage(extractErrorMessage(error, "Login failed. Please try again."));
     } finally {
       setIsSubmitting(false);
     }
