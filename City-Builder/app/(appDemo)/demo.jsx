@@ -1,14 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import React from 'react'
 
-const demo = () => {
+export default function DemoScreen() {
   return (
-    <View>
-      <Text>demo</Text>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Demo</Text>
     </View>
   )
 }
-
-export default demo
-
-const styles = StyleSheet.create({})

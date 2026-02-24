@@ -1,18 +1,10 @@
 // City-Builder/services/authApi.js
 import axios from "axios";
-import { Platform } from "react-native";
 
-// Android emulator uses 10.0.2.2 to reach host machine's localhost.
-// iOS simulator and web can use localhost directly.
-const getBaseUrl = () => {
-  if (Platform.OS === "android") {
-    return "http://10.0.2.2:4022/api/auth";
-  }
-  return "http://localhost:4022/api/auth";
-};
+const BASE_URL = "https://edf0-192-157-102-137.ngrok-free.app/api/auth";
 
 const api = axios.create({
-  baseURL: getBaseUrl(),
+  baseURL: BASE_URL,
   timeout: 15000,
   headers: { "Content-Type": "application/json" },
 });
