@@ -1,14 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import React from 'react'
 
-const lock = () => {
+export default function LockScreen() {
   return (
-    <View>
-      <Text>locggggg</Text>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Lock Screen</Text>
     </View>
   )
 }
-
-export default lock
-
-const styles = StyleSheet.create({})

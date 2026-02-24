@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Tabs, useRouter } from "expo-router";
+import { Stack, Tabs, useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useSelector } from "react-redux";
@@ -29,59 +29,75 @@ export default function PrivateSecurityLayout() {
   if (!isLoggedIn) return null;
 
   return (
-    <Tabs
-      initialRouteName="dashboard"
-      backBehavior="none"
-      screenOptions={{
-        headerShown: false,
-        gestureEnabled: false,
-
-        tabBarActiveTintColor: theme.colors.primary,
-        tabBarInactiveTintColor: theme.colors.textSecondary,
-        tabBarHideOnKeyboard: true,
-
-        tabBarStyle: {
-          backgroundColor: theme.colors.background,
-          borderTopColor: theme.colors.border,
-          borderTopWidth: 1,
-          height: 56 + safeAreaInsets.bottom,
-          paddingBottom: safeAreaInsets.bottom,
-          paddingTop: 6,
-        },
-
-        tabBarLabelStyle: {
-          fontSize: 12,
-          fontWeight: "700",
-          marginTop: -2,
-        },
-
-        tabBarItemStyle: { flex: 1 },
-      }}
-    >
-      {/* ✅ Only visible tab */}
-      <Tabs.Screen
-        name="dashboard"
-        options={{
-          title: "Dashboard",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="speedometer-outline" size={size} color={color} />
-          ),
-        }}
-      />
-
-      {/* ✅ Hidden routes (no tabs) */}
-      <Tabs.Screen
-        name="(homebuyer)"
-        options={{
-          href: null, // hides from tab bar
-        }}
-      />
-      <Tabs.Screen
-        name="(homebuilder)"
-        options={{
-          href: null, // hides from tab bar
-        }}
-      />
-    </Tabs>
+	<Stack screenOptions={{ headerShown: false }}>
+	  <Stack.Screen name="dashboard" />
+	  <Stack.Screen name="(homebuyer)" options={{ href: null }} />
+	  <Stack.Screen name="(homebuilder)" options={{ href: null }} />
+	</Stack>
   );
 }
+
+
+
+
+
+
+
+
+
+//     <Tabs
+//       initialRouteName="dashboard"
+//       backBehavior="none"
+//       screenOptions={{
+//         headerShown: false,
+//         gestureEnabled: false,
+
+//         tabBarActiveTintColor: theme.colors.primary,
+//         tabBarInactiveTintColor: theme.colors.textSecondary,
+//         tabBarHideOnKeyboard: true,
+
+//         tabBarStyle: {
+//           backgroundColor: theme.colors.background,
+//           borderTopColor: theme.colors.border,
+//           borderTopWidth: 1,
+//           height: 56 + safeAreaInsets.bottom,
+//           paddingBottom: safeAreaInsets.bottom,
+//           paddingTop: 6,
+//         },
+
+//         tabBarLabelStyle: {
+//           fontSize: 12,
+//           fontWeight: "700",
+//           marginTop: -2,
+//         },
+
+//         tabBarItemStyle: { flex: 1 },
+//       }}
+//     >
+//       {/* ✅ Only visible tab */}
+//       <Tabs.Screen
+//         name="dashboard"
+//         options={{
+//           title: "Dashboard",
+//           tabBarIcon: ({ color, size }) => (
+//             <Ionicons name="speedometer-outline" size={size} color={color} />
+//           ),
+//         }}
+//       />
+
+//       {/* ✅ Hidden routes (no tabs) */}
+//       <Tabs.Screen
+//         name="(homebuyer)"
+//         options={{
+//           href: null, // hides from tab bar
+//         }}
+//       />
+//       <Tabs.Screen
+//         name="(homebuilder)"
+//         options={{
+//           href: null, // hides from tab bar
+//         }}
+//       />
+//     </Tabs>
+//   );
+// }
