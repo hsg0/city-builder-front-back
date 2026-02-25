@@ -5,9 +5,13 @@ import authUserModel from "../models/authmodels/auth.js";
 const jsonWebTokenSecret = process.env.JWT_SECRET;
 
 export const checkAuth = async (requestObject, responseObject, nextMiddlewareFunction) => {
+  console.log(`[authMiddleware] 🔐 checkAuth called for: ${requestObject.method} ${requestObject.originalUrl}`);
+  console.log(`[authMiddleware] 🔐 Authorization header present:`, !!requestObject.headers.authorization);
+
   const authorizationHeaderValue = requestObject.headers.authorization;
 
   if (!authorizationHeaderValue) {
+    console.log('[authMiddleware] ❌ No authorization header — returning 401');
     return responseObject.status(401).json({
       success: false,
       message: "Unauthorized - no token - please login",
@@ -69,6 +73,7 @@ export const checkAuth = async (requestObject, responseObject, nextMiddlewareFun
       email: authenticatedUserDocument.email,
     };
 
+    console.log(`[authMiddleware] ✅ Auth passed for user: ${authenticatedUserDocument.email}`);
     return nextMiddlewareFunction();
   } catch (authenticationError) {
     console.log("checkAuth error:", authenticationError?.message);

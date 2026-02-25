@@ -1,7 +1,7 @@
 // City-Builder/services/authApi.js
 import axios from "axios";
 
-const BASE_URL = "https://edf0-192-157-102-137.ngrok-free.app/api/auth";
+const BASE_URL = "https://a86d-192-157-102-137.ngrok-free.app/api/auth";
 
 const api = axios.create({
   baseURL: BASE_URL,

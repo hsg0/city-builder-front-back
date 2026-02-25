@@ -2,12 +2,12 @@
 
 import { Stack } from "expo-router";
 
-export default function SecurityLayout({ children }) {
+export default function SecurityLayout() {
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="lock" options={{ headerShown: false }} />
-      <Stack.Screen name="overlay" options={{ headerShown: false }} />
-      {/* <Stack.Screen name="index" options={{ headerShown: false }} /> */}
+      {/* overlay is no longer a route — PrivacyOverlayWatcher renders it
+          as a component View, avoiding cross-navigator replace crashes. */}
     </Stack>
   );
 }

@@ -25,7 +25,6 @@ export default function RootLayout() {
                   <ScreenSizeProvider>
                     <Stack screenOptions={{ headerShown: false }}>
                       <Stack.Screen name="index" />
-                      <Stack.Screen name="(security)/overlay" options={{ presentation: "fullScreenModal" }} />
                     </Stack>
 
                     <Toast />

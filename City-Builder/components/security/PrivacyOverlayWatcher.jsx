@@ -1,63 +1,73 @@
-import { useEffect, useRef } from "react";
-import { AppState } from "react-native";
-import { usePathname, useRouter } from "expo-router";
-import { useSelector } from "react-redux";
-import { selectIsLoggedIn } from "../../reduxToolKit/reduxState/globalState/authSelectors";
+// PrivacyOverlayWatcher
+//
+// Renders a full-screen privacy overlay ON TOP of the app when it goes to
+// background.  This is done with a simple View + absolute positioning —
+// **no navigation is involved**, which avoids the expo-router crash that
+// occurs when you router.replace() across nested navigator boundaries.
+//
+// The overlay is hidden again as soon as AppState returns to "active".
+
+import { useEffect, useState } from "react";
+import { AppState, View, Image, StyleSheet } from "react-native";
+import { useTheme } from "../../wrappers/providers/ThemeContext";
+
+import splashImage from "../../assets/images/City-Builder-assets/image.png";
 
 export default function PrivacyOverlayWatcher({ children }) {
-  const router = useRouter();
-  const pathname = usePathname();
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-
-  const lastNonOverlayPathRef = useRef("/");
-
-  // Track whether THIS watcher actually navigated to overlay
-  const overlayWasShownByWatcherRef = useRef(false);
-
-  useEffect(() => {
-    // Remember last “real” screen so we can return after overlay
-    if (pathname && pathname !== "/(security)/overlay") {
-      lastNonOverlayPathRef.current = pathname;
-    }
-  }, [pathname]);
+  const { theme } = useTheme();
+  const [showOverlay, setShowOverlay] = useState(false);
 
   useEffect(() => {
     const subscription = AppState.addEventListener("change", (nextState) => {
-      console.log("PrivacyOverlayWatcher => AppState:", nextState, "pathname:", pathname);
+      console.log("PrivacyOverlayWatcher => AppState:", nextState);
 
-      // Only show overlay when app goes to background.
-      // Do NOT trigger on "inactive" — iOS permission prompts fire "inactive".
+      // Show overlay only when the app is fully backgrounded.
+      // "inactive" is deliberately ignored — iOS permission dialogs fire
+      // "inactive" and we don't want to flash an overlay for those.
       if (nextState === "background") {
-        if (pathname !== "/(security)/overlay") {
-          console.log("PrivacyOverlayWatcher => navigating to overlay");
-          overlayWasShownByWatcherRef.current = true;
-          router.replace("/(security)/overlay");
-        }
+        setShowOverlay(true);
         return;
       }
 
-      // Coming back to foreground
       if (nextState === "active") {
-        // If user is logged out, go to login
-        if (!isLoggedIn) {
-          console.log("PrivacyOverlayWatcher => not logged in, going to login");
-          overlayWasShownByWatcherRef.current = false;
-          router.replace("/(security)/(public)/login");
-          return;
-        }
-
-        // If we showed overlay, always restore (don't rely on pathname being updated)
-        if (overlayWasShownByWatcherRef.current) {
-          const lastPath = lastNonOverlayPathRef.current || "/";
-          console.log("PrivacyOverlayWatcher => restoring to:", lastPath);
-          overlayWasShownByWatcherRef.current = false;
-          router.replace(lastPath);
-        }
+        setShowOverlay(false);
       }
     });
 
     return () => subscription.remove();
-  }, [router, pathname, isLoggedIn]);
+  }, []);
 
-  return children;
+  return (
+    <View style={styles.wrapper}>
+      {children}
+
+      {showOverlay && (
+        <View
+          style={[
+            StyleSheet.absoluteFill,
+            styles.overlay,
+            { backgroundColor: theme.colors.background },
+          ]}
+          pointerEvents="none"
+        >
+          <Image
+            source={splashImage}
+            style={styles.logo}
+            resizeMode="contain"
+          />
+        </View>
+      )}
+    </View>
+  );
 }
+
+const styles = StyleSheet.create({
+  wrapper: { flex: 1 },
+  overlay: {
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 9999,
+    elevation: 9999, // Android
+  },
+  logo: { width: 140, height: 140 },
+});

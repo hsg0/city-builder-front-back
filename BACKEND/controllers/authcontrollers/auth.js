@@ -3,21 +3,15 @@ import authUserModel from '../../models/authmodels/auth.js';
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import nodemailer from 'nodemailer';
+// import nodemailer from 'nodemailer';
+import cityBuilderEmailTransporter from '../../config/mailTransporter.js';
 
 const JWT_SECRET = process.env.JWT_SECRET;
+
 const sign = jwt.sign;
 
 // Email transporter setup (Brevo / SMTP relay)
-const emailTransporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT) || 587,
-    secure: process.env.SMTP_SECURE === 'true',
-    auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-    },
-});
+const emailTransporter = cityBuilderEmailTransporter; // imported from config/email.js, configured with Brevo SMTP details
 
 // -------------------------------------------------------------
 // ----------------------------- register -----------------------------
@@ -130,7 +124,7 @@ export const login = async (req, res) => {
                 email: checkUserExists.email,
             },
             JWT_SECRET,
-            { expiresIn: '31 days' }
+            { expiresIn: process.env.JWT_EXPIRES_IN || '31 days' }
         );
         return res.status(200).json({
             success: true,

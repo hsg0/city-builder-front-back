@@ -7,7 +7,7 @@ import axios from "axios";
 import { getToken } from "./secureStore";
 
 // ── Base URL (ngrok tunnel → backend) ──────────────────────────────
-const BASE_URL = "https://edf0-192-157-102-137.ngrok-free.app";
+const BASE_URL = "https://a86d-192-157-102-137.ngrok-free.app";
 
 const callBackend = axios.create({
   baseURL: BASE_URL,
@@ -22,10 +22,14 @@ callBackend.interceptors.request.use(
       const token = await getToken();
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
+        console.log(`[callBackend] 🔑 Token attached (length: ${token.length})`);
+      } else {
+        console.log('[callBackend] ⚠️ No token found in SecureStore');
       }
     } catch (err) {
       console.warn("[callBackend] Could not retrieve token:", err?.message);
     }
+    console.log(`[callBackend] ➡️  ${config.method?.toUpperCase()} ${config.baseURL}${config.url}`);
     return config;
   },
   (error) => Promise.reject(error)
