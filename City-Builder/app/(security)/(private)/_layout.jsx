@@ -26,7 +26,8 @@ export default function PrivateSecurityLayout() {
     }
   }, [authLoading, isLoggedIn, router]);
 
-  if (!isLoggedIn) return null;
+  // While auth is restoring OR user is not logged in, render nothing
+  if (authLoading || !isLoggedIn) return null;
 
   return (
 	<Stack screenOptions={{ headerShown: false }}>

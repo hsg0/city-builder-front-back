@@ -16,7 +16,13 @@ export default function GlobalInactivityWatcher({ children }) {
   const timeoutMs = useSelector(selectTimeoutMs);
 
   const inactivityTimerRef = useRef(null);
-  const appStateRef = useRef(AppState.currentState); // "active" | "background" | "inactive"
+  const appStateRef = useRef(AppState.currentState);
+
+  // ── Use a ref for pathname so the timer callback never holds a stale value ──
+  const pathnameRef = useRef(pathname);
+  useEffect(() => {
+    pathnameRef.current = pathname;
+  }, [pathname]);
 
   const clearInactivityTimer = useCallback(() => {
     if (inactivityTimerRef.current) {
@@ -30,11 +36,13 @@ export default function GlobalInactivityWatcher({ children }) {
 
     inactivityTimerRef.current = setTimeout(() => {
       dispatch(logout());
-      if (pathname !== "/(security)/(public)/login") {
+      // Read current pathname from ref — always fresh
+      if (pathnameRef.current !== "/login") {
         router.replace("/(security)/(public)/login");
       }
     }, timeoutMs);
-  }, [clearInactivityTimer, dispatch, pathname, router, timeoutMs]);
+  }, [clearInactivityTimer, dispatch, router, timeoutMs]);
+  // ↑ pathname removed from deps — read from pathnameRef inside the timer
 
   const resetInactivityTimer = useCallback(() => {
     // Only track inactivity while app is active

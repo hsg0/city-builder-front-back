@@ -5,7 +5,10 @@ import cookieParser from 'cookie-parser';
 
 import universalMongoDB from './config/mongoDB.js';
 import authRouter from './routes/authroutes/auth.js';
+import newBuildIntakeRouter from './routes/buildroutes/newBuildIntake.js';
 
+//image setup
+import imageKitRouter from "./routes/imageKitRoutes.js";
 
 const app = express();
 const PORT = process.env.PORT || 4022;
@@ -49,12 +52,32 @@ app.use(cookieParser());
 
 //health check
 app.get('/health', (req, res) => {
+    console.log('[server.js] ✅ /health hit');
     res.status(200).json({ message: 'Server is running' });
 });
 
+// ── Global request logger — logs EVERY incoming request ──
+app.use((req, res, next) => {
+    console.log(`[server.js] ➡️  ${req.method} ${req.originalUrl}`);
+    next();
+});
+
 // routes
+//imageKit routes
+console.log('[server.js] 🔌 Mounting imageKitRouter at /api/imagekit');
+app.use("/api/imagekit", imageKitRouter);
 // auth routes
+console.log('[server.js] 🔌 Mounting authRouter at /api/auth');
 app.use('/api/auth', authRouter);
+// new build intake route
+console.log('[server.js] 🔌 Mounting newBuildIntakeRouter at /api/builds');
+app.use('/api/builds', newBuildIntakeRouter);
+
+// ── Catch-all: logs any request that didn't match a route ──
+app.use((req, res) => {
+    console.log(`[server.js] ❌ No route matched: ${req.method} ${req.originalUrl}`);
+    res.status(404).json({ success: false, message: `Route not found: ${req.method} ${req.originalUrl}` });
+});
 
 // start server — await DB before listening
 async function startServer() {

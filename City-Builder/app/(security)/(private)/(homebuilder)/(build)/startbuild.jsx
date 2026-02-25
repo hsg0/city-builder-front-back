@@ -7,12 +7,13 @@
 // - Enforces a strict MAX of 8 photos total.
 // - Uses reliable margin-based spacing (no `gap`) for consistent layout across RN versions.
 // - Validates required fields with user-facing Alerts.
-// - "Backend wiring": the save function is wired to send a multipart/form-data request (payload + images) to a backend endpoint.
-//   ✅ It will be ready once you add the endpoint on your backend (we'll set that up next).
 //
-// IMPORTANT:
-// - This does NOT assume your backend is already implemented.
-// - Update `BUILD_CREATE_ENDPOINT_PATH` to match your server route when we create it.
+// Backend wiring (current flow):
+//   1. Photos upload directly to ImageKit from the app (via uploadImagesToImageKit).
+//      Auth params (token, signature, expire) are fetched from GET /api/imagekit/auth.
+//   2. Build metadata + ImageKit photo URLs are sent as JSON to POST /api/builds/create.
+//      Bearer token is auto-attached by callBackend (axios interceptor).
+//   3. On success the form resets and the user is navigated to the Active builds tab.
 
 import React, { useMemo, useState } from "react";
 import {
@@ -34,31 +35,206 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import * as ImagePicker from "expo-image-picker";
+import * as FileSystem from "expo-file-system/legacy";
+import * as ImageManipulator from "expo-image-manipulator";
 import { useTheme } from "../../../../../wrappers/providers/ThemeContext";
+import callBackend from "../../../../../services/callBackend";
+import { uploadImagesToImageKit } from "../../../../../services/imageKitUpload";
 
 const MAXIMUM_LOT_PHOTOS_ALLOWED = 8;
+const MAXIMUM_BYTES_PER_IMAGE = 1.6 * 1024 * 1024; // 1.6 MB
 
-// ✅ Update this once we implement the backend route
-const BUILD_CREATE_ENDPOINT_PATH = "/api/builds/create";
+/**
+ * Reads the file at the given URI and returns its size in bytes.
+ * Uses expo-file-system to query the file system for metadata.
+ * Returns 0 if the file does not exist or the size cannot be determined.
+ */
+async function getFileSizeInBytes(fileUriStringValue) {
+  const fileSystemInfoResult = await FileSystem.getInfoAsync(fileUriStringValue, { size: true });
+  return Number(fileSystemInfoResult?.size || 0);
+}
+
+/**
+ * Compress + resize image until it is <= maxBytes.
+ * Output is always JPEG (best for consistent uploads).
+ *
+ * Strategy:
+ * 1) Start with width ~1600px (good quality, much smaller)
+ * 2) Reduce JPEG quality gradually
+ * 3) If still too large, reduce width step-by-step
+ */
+async function compressImageToMaxBytes({
+  originalImageUriStringValue,
+  maximumBytesAllowed,
+}) {
+  // ── Early exit: check if the original image is already under the size limit ──
+  // If so, skip all compression work and return the original URI unchanged.
+  const originalSizeBytes = await getFileSizeInBytes(originalImageUriStringValue);
+  if (originalSizeBytes > 0 && originalSizeBytes <= maximumBytesAllowed) {
+    console.log("compressImageToMaxBytes => already under limit:", originalSizeBytes, "bytes");
+    return originalImageUriStringValue;
+  }
+
+  // ── Track the URI we are currently working with (may change each attempt) ──
+  let currentUriStringValue = originalImageUriStringValue;
+
+  // ── Initial compression settings ──
+  // Start with a generous width (1600px) and high JPEG quality (0.82).
+  // These produce good-looking images that are already much smaller than raw camera output.
+  let currentTargetWidth = 1600;
+  let currentJpegQuality = 0.82;
+
+  // ── Hard safety floors so we never over-compress ──
+  // We will never go below 900px width or 0.45 JPEG quality.
+  const minimumTargetWidth = 900;
+  const minimumJpegQuality = 0.45;
+
+  // ── Iterative compression loop (up to 8 attempts) ──
+  // Each pass resizes + re-encodes as JPEG, then checks the resulting file size.
+  // If still over the limit, we progressively reduce quality first, then width.
+  for (let attemptIndex = 0; attemptIndex < 8; attemptIndex += 1) {
+
+    // Build the resize action for ImageManipulator (only resizes width; height scales proportionally)
+    const manipulationActions = [{ resize: { width: currentTargetWidth } }];
+
+    // Run the manipulation: resize + compress + convert to JPEG (handles HEIC/PNG/etc automatically)
+    const manipulationResult = await ImageManipulator.manipulateAsync(
+      currentUriStringValue,
+      manipulationActions,
+      {
+        compress: currentJpegQuality,
+        format: ImageManipulator.SaveFormat.JPEG,
+      }
+    );
+
+    // If the manipulator returned no URI, something went wrong — return the last known good URI
+    const nextUriStringValue = manipulationResult?.uri;
+    if (!nextUriStringValue) return currentUriStringValue;
+
+    // Measure the new file size after this compression pass
+    const nextSizeBytes = await getFileSizeInBytes(nextUriStringValue);
+
+    console.log(
+      "compressImageToMaxBytes => attempt:",
+      attemptIndex + 1,
+      "width:",
+      currentTargetWidth,
+      "quality:",
+      currentJpegQuality.toFixed(2),
+      "size(bytes):",
+      nextSizeBytes
+    );
+
+    // ── Success check: if the file is now under the limit, return it immediately ──
+    if (nextSizeBytes > 0 && nextSizeBytes <= maximumBytesAllowed) {
+      return nextUriStringValue;
+    }
+
+    // ── Still too large — adjust settings for the next attempt ──
+    // Priority 1: reduce JPEG quality in steps of 0.12 (visual impact is minimal)
+    // Priority 2: once quality is at minimum, reduce width by 15% and reset quality slightly
+    // Priority 3: if both are at their floors, return what we have (best effort)
+    if (currentJpegQuality > minimumJpegQuality) {
+      currentJpegQuality = Math.max(minimumJpegQuality, currentJpegQuality - 0.12);
+    } else if (currentTargetWidth > minimumTargetWidth) {
+      currentTargetWidth = Math.max(minimumTargetWidth, Math.floor(currentTargetWidth * 0.85));
+      currentJpegQuality = 0.78; // bump quality back up slightly after reducing width
+    } else {
+      // Both width and quality are at their minimums — return best effort result
+      return nextUriStringValue;
+    }
+
+    // Use the output of this pass as the input for the next pass
+    currentUriStringValue = nextUriStringValue;
+  }
+
+  // ── Fallback: if all 8 attempts ran without meeting the target, return the last result ──
+  return currentUriStringValue;
+}
+
+/**
+ * Compress a list of image URIs to <= MAXIMUM_BYTES_PER_IMAGE each.
+ * Uses small concurrency (2 at a time) to avoid freezing on phones.
+ */
+async function compressImageUriListForUpload({
+  imageUriStringList,
+  maximumBytesAllowedPerImage,
+}) {
+  // ── Results array: each slot will hold the compressed URI for that index ──
+  const compressedImageUriResultList = [];
+
+  // ── Concurrency limit: process 2 images at a time to balance speed vs phone memory ──
+  const maximumConcurrentWorkers = 2;
+
+  // ── Shared index counter: workers pull the next unprocessed image from this index ──
+  let currentImageIndex = 0;
+
+  /**
+   * Each worker runs in a loop, grabbing the next available image index,
+   * compressing it, and storing the result. Multiple workers run in parallel
+   * so we process 2 images at a time instead of one-by-one.
+   */
+  async function compressionWorkerTask() {
+    while (currentImageIndex < imageUriStringList.length) {
+      // Claim the next image index before incrementing (prevents two workers from processing the same image)
+      const imageIndexToProcess = currentImageIndex;
+      currentImageIndex += 1;
+
+      // Get the original uncompressed image URI from the list
+      const originalImageUriStringValue = imageUriStringList[imageIndexToProcess];
+
+      // Compress this single image down to the maximum allowed bytes
+      const compressedImageUriStringValue = await compressImageToMaxBytes({
+        originalImageUriStringValue: originalImageUriStringValue,
+        maximumBytesAllowed: maximumBytesAllowedPerImage,
+      });
+
+      // Store the compressed URI at the same index so the output order matches the input order
+      compressedImageUriResultList[imageIndexToProcess] = compressedImageUriStringValue;
+    }
+  }
+
+  // ── Spawn the worker tasks (up to maximumConcurrentWorkers, but never more than the image count) ──
+  const compressionWorkerTaskList = Array.from(
+    { length: Math.min(maximumConcurrentWorkers, imageUriStringList.length) },
+    () => compressionWorkerTask()
+  );
+
+  // ── Wait for all workers to finish processing every image in the list ──
+  await Promise.all(compressionWorkerTaskList);
+
+  // ── Return only the valid (non-null/undefined) compressed URIs ──
+  return compressedImageUriResultList.filter(Boolean);
+}
 
 export default function StartBuildScreen() {
+  // ── Theme and navigation hooks ──
   const { theme } = useTheme();
   const expoRouter = useRouter();
+
+  // ── Device dimensions for responsive layout ──
   const { width: deviceScreenWidth, height: deviceScreenHeight } = useWindowDimensions();
 
-  const isSmallPhoneDevice = deviceScreenWidth < 380;
-  const isLargePhoneDevice = deviceScreenWidth >= 430;
+  // ── Screen size breakpoints for adaptive styling ──
+  const isSmallPhoneDevice = deviceScreenWidth < 380;   // e.g. iPhone SE, older small phones
+  const isLargePhoneDevice = deviceScreenWidth >= 430;  // e.g. iPhone Pro Max, large Android phones
 
+  // ── Modal visibility: controls whether the New Build Intake form is shown ──
   const [isNewBuildIntakeModalVisible, setIsNewBuildIntakeModalVisible] = useState(false);
 
+  // ── Form field state: text inputs for lot details ──
   const [lotAddressTextValue, setLotAddressTextValue] = useState("");
   const [lotSizeDimensionsTextValue, setLotSizeDimensionsTextValue] = useState("");
   const [lotPriceTextValue, setLotPriceTextValue] = useState("");
 
+  // ── Form field state: terrain type segmented control and demolition toggle ──
   const [lotTerrainTypeValue, setLotTerrainTypeValue] = useState("flat"); // "flat" | "sloped" | "mountain"
   const [doesLotHaveOldHouseToDemolish, setDoesLotHaveOldHouseToDemolish] = useState(false);
 
+  // ── Photo state: list of local image URIs the user has selected or captured ──
   const [selectedLotImageUriList, setSelectedLotImageUriList] = useState([]);
+
+  // ── Save-in-progress flag: disables the Save button and shows a spinner while saving ──
   const [isSavingBuildProjectToBackend, setIsSavingBuildProjectToBackend] = useState(false);
 
   const styles = useMemo(() => {
@@ -285,21 +461,30 @@ export default function StartBuildScreen() {
     };
   }, [theme, isSmallPhoneDevice, isLargePhoneDevice, deviceScreenHeight]);
 
+  // ── Opens the bottom-sheet modal so the user can fill in new build details ──
   function openNewBuildIntakeModal() {
     console.log("StartBuildScreen => openNewBuildIntakeModal");
     setIsNewBuildIntakeModalVisible(true);
   }
 
+  // ── Closes the bottom-sheet modal (called by the X button, Cancel button, or after a successful save) ──
   function closeNewBuildIntakeModal() {
     console.log("StartBuildScreen => closeNewBuildIntakeModal");
     setIsNewBuildIntakeModalVisible(false);
   }
 
+  // ── Updates the terrain type when the user taps one of the segmented buttons (Flat / Sloped / Mountain) ──
   function updateLotTerrainType(terrainTypeStringValue) {
     console.log("StartBuildScreen => updateLotTerrainType:", terrainTypeStringValue);
     setLotTerrainTypeValue(terrainTypeStringValue);
   }
 
+  /**
+   * Merges newly selected image URIs into the existing selected list.
+   * - Combines the previous list with the new URIs.
+   * - Removes duplicate URIs (in case the user picks the same photo twice).
+   * - Enforces the maximum photo limit by slicing to MAXIMUM_LOT_PHOTOS_ALLOWED.
+   */
   function addImageUrisToSelectedList(nextImageUriList) {
     setSelectedLotImageUriList((previousImageUriList) => {
       const mergedImageUriList = [...previousImageUriList, ...nextImageUriList];
@@ -308,23 +493,37 @@ export default function StartBuildScreen() {
     });
   }
 
+  /**
+   * Opens the device's photo library so the user can pick one or more lot photos.
+   *
+   * Flow:
+   * 1. Check if we have already reached the maximum photo limit — show alert if so.
+   * 2. Request media library permission from the OS.
+   * 3. Launch the image picker with multi-select enabled and a selection cap
+   *    equal to the remaining available slots.
+   * 4. Extract the URIs from the selected assets and merge them into state.
+   */
   async function selectLotPhotosFromCameraRoll() {
     try {
       console.log("StartBuildScreen => selectLotPhotosFromCameraRoll pressed");
 
+      // Guard: prevent opening the picker if the user already has the max number of photos
       if (selectedLotImageUriList.length >= MAXIMUM_LOT_PHOTOS_ALLOWED) {
         Alert.alert("Limit reached", `You can add up to ${MAXIMUM_LOT_PHOTOS_ALLOWED} photos.`);
         return;
       }
 
+      // Request permission to access the device's photo library
       const mediaLibraryPermissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (!mediaLibraryPermissionResult?.granted) {
         Alert.alert("Permission needed", "Please allow photo library access.");
         return;
       }
 
+      // Calculate how many more photos the user is allowed to pick
       const remainingPhotoSlots = MAXIMUM_LOT_PHOTOS_ALLOWED - selectedLotImageUriList.length;
 
+      // Launch the image library picker (multi-select, images only, capped at remaining slots)
       const imageLibraryPickerResult = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ["images"],
         quality: 0.9,
@@ -332,17 +531,20 @@ export default function StartBuildScreen() {
         selectionLimit: remainingPhotoSlots,
       });
 
+      // If the user pressed Cancel, do nothing
       if (imageLibraryPickerResult.canceled) {
         console.log("StartBuildScreen => user canceled image library");
         return;
       }
 
+      // Extract the file URIs from the returned asset objects
       const newlySelectedImageUriList = (imageLibraryPickerResult.assets || [])
         .map((assetObject) => assetObject?.uri)
         .filter(Boolean);
 
       console.log("StartBuildScreen => images selected from library:", newlySelectedImageUriList.length);
 
+      // Merge the newly selected URIs into the existing list (deduped + capped)
       addImageUrisToSelectedList(newlySelectedImageUriList);
     } catch (error) {
       console.log("StartBuildScreen => selectLotPhotosFromCameraRoll error:", error);
@@ -350,32 +552,46 @@ export default function StartBuildScreen() {
     }
   }
 
+  /**
+   * Opens the device camera so the user can take a single lot photo.
+   *
+   * Flow:
+   * 1. Check if we have already reached the maximum photo limit — show alert if so.
+   * 2. Request camera permission from the OS.
+   * 3. Launch the camera (single capture, no editing).
+   * 4. Extract the captured image URI and add it to the selected list.
+   */
   async function takeSingleLotPhotoWithCamera() {
     try {
       console.log("StartBuildScreen => takeSingleLotPhotoWithCamera pressed");
 
+      // Guard: prevent opening the camera if the user already has the max number of photos
       if (selectedLotImageUriList.length >= MAXIMUM_LOT_PHOTOS_ALLOWED) {
         Alert.alert("Limit reached", `You can add up to ${MAXIMUM_LOT_PHOTOS_ALLOWED} photos.`);
         return;
       }
 
+      // Request permission to use the device camera
       const cameraPermissionResult = await ImagePicker.requestCameraPermissionsAsync();
       if (!cameraPermissionResult?.granted) {
         Alert.alert("Permission needed", "Please allow camera access.");
         return;
       }
 
+      // Launch the camera to capture a single image (no cropping/editing)
       const cameraCaptureResult = await ImagePicker.launchCameraAsync({
         mediaTypes: ["images"],
         quality: 0.9,
         allowsEditing: false,
       });
 
+      // If the user pressed Cancel in the camera UI, do nothing
       if (cameraCaptureResult.canceled) {
         console.log("StartBuildScreen => user canceled camera");
         return;
       }
 
+      // Extract the file URI from the first (and only) captured asset
       const capturedImageUri = cameraCaptureResult?.assets?.[0]?.uri;
       if (!capturedImageUri) {
         Alert.alert("Error", "No image was captured. Please try again.");
@@ -384,6 +600,7 @@ export default function StartBuildScreen() {
 
       console.log("StartBuildScreen => captured image uri:", capturedImageUri);
 
+      // Add the captured photo URI to the selected list
       addImageUrisToSelectedList([capturedImageUri]);
     } catch (error) {
       console.log("StartBuildScreen => takeSingleLotPhotoWithCamera error:", error);
@@ -391,6 +608,7 @@ export default function StartBuildScreen() {
     }
   }
 
+  // ── Removes a single photo from the selected list when the user taps its thumbnail ──
   function removeSelectedLotImageByUri(imageUriToRemove) {
     console.log("StartBuildScreen => removeSelectedLotImageByUri:", imageUriToRemove);
     setSelectedLotImageUriList((previousImageUriList) =>
@@ -398,26 +616,17 @@ export default function StartBuildScreen() {
     );
   }
 
-  function inferMimeTypeFromUri(imageUriStringValue) {
-    const lowercaseUri = String(imageUriStringValue || "").toLowerCase();
-    if (lowercaseUri.endsWith(".png")) return "image/png";
-    if (lowercaseUri.endsWith(".webp")) return "image/webp";
-    if (lowercaseUri.endsWith(".heic")) return "image/heic";
-    // default to jpeg (most common from camera)
-    return "image/jpeg";
-  }
-
-  function inferFileNameFromUri(imageUriStringValue, fallbackIndexNumber) {
-    const uriString = String(imageUriStringValue || "");
-    const lastSlashIndex = uriString.lastIndexOf("/");
-    const rawFileName = lastSlashIndex >= 0 ? uriString.slice(lastSlashIndex + 1) : "";
-    if (rawFileName && rawFileName.includes(".")) return rawFileName;
-    return `lot-photo-${fallbackIndexNumber + 1}.jpg`;
-  }
-
+  /**
+   * Validates the form, compresses photos, uploads them to ImageKit,
+   * then sends the build metadata + photo URLs to the backend.
+   *
+   * Full save flow:
+   *   Validate → Compress → Upload to ImageKit → POST to backend → Reset form → Navigate
+   */
   async function saveNewBuildProjectToBackend() {
     console.log("StartBuildScreen => saveNewBuildProjectToBackend pressed");
 
+    // ── Validation: trim whitespace and check all required fields ──
     const trimmedLotAddress = lotAddressTextValue.trim();
     const trimmedLotSizeDimensions = lotSizeDimensionsTextValue.trim();
     const trimmedLotPriceText = lotPriceTextValue.trim();
@@ -436,10 +645,12 @@ export default function StartBuildScreen() {
       return;
     }
 
+    // ── Lock the UI: disable Save button and show the "Saving..." spinner ──
     setIsSavingBuildProjectToBackend(true);
 
     try {
-      // ✅ Build the JSON payload that describes the build.
+      // ── Step 1: Build the JSON metadata object that describes this new build ──
+      // This is the data that will be stored in MongoDB alongside the photo URLs.
       const buildMetadataPayload = {
         lotAddress: trimmedLotAddress,
         lotSizeDimensions: trimmedLotSizeDimensions,
@@ -452,61 +663,72 @@ export default function StartBuildScreen() {
       console.log("StartBuildScreen => buildMetadataPayload:", buildMetadataPayload);
       console.log("StartBuildScreen => image count:", selectedLotImageUriList.length);
 
-      // ✅ Prepare multipart/form-data:
-      // - "metadata" => JSON string
-      // - "lotPhotos" => multiple image files
-      const multipartFormData = new FormData();
-      multipartFormData.append("metadata", JSON.stringify(buildMetadataPayload));
+      // ── Step 2: Compress all selected images to <= 1.6 MB each ──
+      // This ensures the total upload payload stays well under 16 MB (8 × 1.6 MB = 12.8 MB max).
+      // Images that are already under the limit are returned unchanged (no wasted work).
+      let compressedLotImageUriList = selectedLotImageUriList;
 
-      selectedLotImageUriList.forEach((imageUriStringValue, imageIndexNumber) => {
-        const fileName = inferFileNameFromUri(imageUriStringValue, imageIndexNumber);
-        const mimeType = inferMimeTypeFromUri(imageUriStringValue);
-
-        multipartFormData.append("lotPhotos", {
-          uri: imageUriStringValue,
-          name: fileName,
-          type: mimeType,
+      if (selectedLotImageUriList.length > 0) {
+        console.log("StartBuildScreen => compressing images before upload...");
+        compressedLotImageUriList = await compressImageUriListForUpload({
+          imageUriStringList: selectedLotImageUriList,
+          maximumBytesAllowedPerImage: MAXIMUM_BYTES_PER_IMAGE,
         });
+        console.log("StartBuildScreen => compression complete:", compressedLotImageUriList.length, "images");
+      }
+
+      // ── Step 3: Upload compressed images directly to ImageKit from the app ──
+      // The uploadImagesToImageKit helper fetches auth params (token, signature, expire)
+      // from GET /api/imagekit/auth (Bearer token auto-attached by callBackend),
+      // then POSTs each image to ImageKit's upload endpoint.
+      // Returns an array of metadata objects: { imageKitFileId, url, thumbnailUrl, name }
+      let uploadedPhotoMetadataArray = [];
+      if (compressedLotImageUriList.length > 0) {
+        console.log("StartBuildScreen => uploading compressed images to ImageKit...");
+        uploadedPhotoMetadataArray = await uploadImagesToImageKit(compressedLotImageUriList);
+        console.log("StartBuildScreen => ImageKit upload complete:", uploadedPhotoMetadataArray.length, "photos");
+      }
+
+      // ── Step 4: Send the build metadata + photo URLs as JSON to the backend ──
+      // callBackend (axios) auto-attaches the Authorization: Bearer <token> header.
+      // The backend creates a BuildProject + initial BuildStep (LOT_INTAKE) in MongoDB.
+      console.log("StartBuildScreen => POST JSON to /api/builds/create");
+
+      const backendResponse = await callBackend.post("/api/builds/create", {
+        metadata: buildMetadataPayload,
+        photos: uploadedPhotoMetadataArray,
       });
 
-      // ✅ Backend call (wired, but endpoint must exist)
-      // Use EXPO_PUBLIC_API_BASE_URL (recommended) like: https://your-server.com
-      const apiBaseUrl =
-        process.env.EXPO_PUBLIC_API_BASE_URL || "http://localhost:4022";
-
-      const fullEndpointUrl = `${apiBaseUrl}${BUILD_CREATE_ENDPOINT_PATH}`;
-
-      console.log("StartBuildScreen => POST multipart to:", fullEndpointUrl);
-
-      const backendResponse = await fetch(fullEndpointUrl, {
-        method: "POST",
-        body: multipartFormData,
-        // IMPORTANT: do NOT set Content-Type manually for FormData in React Native.
-        // RN will set the correct boundary automatically.
-      });
-
-      const responseText = await backendResponse.text();
       console.log("StartBuildScreen => backendResponse status:", backendResponse.status);
-      console.log("StartBuildScreen => backendResponse text:", responseText);
+      console.log("StartBuildScreen => backendResponse data:", backendResponse.data);
 
-      if (!backendResponse.ok) {
+      // ── Check for backend-level failure (HTTP 200 but success: false) ──
+      if (!backendResponse.data?.success) {
         Alert.alert(
           "Save failed",
-          "We could not save your build. Please try again."
+          backendResponse.data?.message || "We could not save your build. Please try again."
         );
         return;
       }
 
-      // ✅ Once backend is implemented, you'll likely return JSON with buildId, image URLs, etc.
-      // For now, we just proceed.
-      closeNewBuildIntakeModal();
+      // ── Step 5: Success — reset every form field back to its initial value ──
+      // This ensures the next time the user opens "New Build", they start with a clean form.
+      setLotAddressTextValue("");
+      setLotSizeDimensionsTextValue("");
+      setLotPriceTextValue("");
+      setLotTerrainTypeValue("flat");
+      setDoesLotHaveOldHouseToDemolish(false);
+      setSelectedLotImageUriList([]);
 
-      // Navigate to Active builds (your existing route)
+      // ── Step 6: Close the modal and navigate to the Active/In-Progress builds tab ──
+      closeNewBuildIntakeModal();
       expoRouter.push("/(security)/(private)/(homebuilder)/(active)/inprogress");
     } catch (error) {
+      // ── Error handling: show a user-friendly alert for any unexpected failures ──
       console.log("StartBuildScreen => saveNewBuildProjectToBackend error:", error);
       Alert.alert("Error", "Could not save build. Please try again.");
     } finally {
+      // ── Always unlock the UI, whether the save succeeded or failed ──
       setIsSavingBuildProjectToBackend(false);
     }
   }
@@ -623,6 +845,7 @@ export default function StartBuildScreen() {
               <ScrollView
                 showsVerticalScrollIndicator={false}
                 keyboardShouldPersistTaps="handled"
+                keyboardDismissMode="interactive"
                 contentContainerStyle={{ paddingBottom: 40 }}
               >
                 <Text style={styles.fieldLabelText}>LOT ADDRESS</Text>
@@ -913,7 +1136,7 @@ export default function StartBuildScreen() {
                   </TouchableOpacity>
 
                   <Text style={styles.helperHint}>
-                    Backend route expected: <Text style={{ fontWeight: "900" }}>{BUILD_CREATE_ENDPOINT_PATH}</Text>
+                    Photos upload to ImageKit, then metadata saves to your account.
                   </Text>
                 </View>
               </ScrollView>

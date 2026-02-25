@@ -37,7 +37,7 @@ const authSlice = createSlice({
     authFail: (state, action) => {
       console.log("❌ authFail()", action.payload);
       state.loading = false;
-      state.error = action.payload || "Auth failed";
+      state.error = action.payload || null;   // null = no error, just not authenticated
       state.isLoggedIn = false;
       state.user = null;
       state.token = null;
