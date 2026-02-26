@@ -81,9 +81,76 @@ export async function getBuildStepsByProjectId(req, res) {
 
 /**
  * POST /api/builds/steps/add
+ *
+ * Body: { projectId, title, stepNumber, stepType?, startDate?, endDate?, cost?, notes?, photos? }
+ * - title is required
+ * - everything else is optional
  */
 export async function addBuildStepToProject(req, res) {
-  return res.status(501).json({ success: false, message: "Not implemented yet" });
+  try {
+    const authenticatedUserId = req.user?.userId;
+    const {
+      projectId,
+      title,
+      stepNumber,
+      stepType,
+      startDate,
+      endDate,
+      cost,
+      notes,
+      photos,
+    } = req.body;
+
+    // ── Validate required fields ──
+    if (!projectId) {
+      return res.status(400).json({ success: false, message: "projectId is required" });
+    }
+    if (!title || !title.trim()) {
+      return res.status(400).json({ success: false, message: "title is required" });
+    }
+
+    // ── Verify the project exists and belongs to this user ──
+    const buildProject = await BuildProject.findOne({
+      _id: projectId,
+      ownerUserId: authenticatedUserId,
+    }).lean();
+
+    if (!buildProject) {
+      return res.status(404).json({ success: false, message: "Build project not found" });
+    }
+
+    // ── Parse cost safely ──
+    let parsedCost = 0;
+    if (cost !== undefined && cost !== null && cost !== "") {
+      parsedCost = parseFloat(cost);
+      if (isNaN(parsedCost)) parsedCost = 0;
+    }
+
+    // ── Create the step document ──
+    const newStep = await BuildStep.create({
+      projectId,
+      ownerUserId: authenticatedUserId,
+      title: title.trim(),
+      stepNumber: stepNumber || 1,
+      stepType: stepType || "GENERAL",
+      dateStart: startDate || "",
+      dateEnd: endDate || "",
+      costAmount: parsedCost,
+      notes: notes || "",
+      photos: Array.isArray(photos) ? photos : [],
+    });
+
+    console.log("[addBuildStepToProject] Created step:", newStep._id, "for project:", projectId);
+
+    return res.status(201).json({
+      success: true,
+      message: "Step added successfully",
+      step: newStep,
+    });
+  } catch (error) {
+    console.log("addBuildStepToProject error:", error);
+    return res.status(500).json({ success: false, message: "Server error" });
+  }
 }
 
 /**

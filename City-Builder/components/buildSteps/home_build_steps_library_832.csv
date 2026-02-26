@@ -1,0 +1,833 @@
+id,title,category
+1,Define goals and scope,Planning & Feasibility
+2,Set target budget range,Planning & Feasibility
+3,Create must-have feature list,Planning & Feasibility
+4,Create nice-to-have feature list,Planning & Feasibility
+5,Choose build type (new build/teardown/addition/ADU),Planning & Feasibility
+6,Choose delivery method (GC/design-build/owner-builder),Planning & Feasibility
+7,Create preliminary schedule timeline,Planning & Feasibility
+8,Set quality and performance targets,Planning & Feasibility
+9,Decide number of stories and layout concept,Planning & Feasibility
+10,Select construction style (stick-built/modular/prefab/SIPs/ICF),Planning & Feasibility
+11,Decide energy strategy (standard/high-performance/passive),Planning & Feasibility
+12,Identify key risks and constraints,Planning & Feasibility
+13,Create decision log and change control plan,Planning & Feasibility
+14,Select project management tool and file storage,Planning & Feasibility
+15,Hire owner's rep (optional),Planning & Feasibility
+16,Hire construction attorney (optional),Planning & Feasibility
+17,Hire cost estimator (optional),Planning & Feasibility
+18,Initial neighborhood/HOA research,Planning & Feasibility
+19,Initial utility availability research,Planning & Feasibility
+20,Initial environmental risk screening,Planning & Feasibility
+21,Confirm access for deliveries and cranes,Planning & Feasibility
+22,Confirm wildfire/flood/hazard considerations,Planning & Feasibility
+23,Confirm school district and services (optional),Planning & Feasibility
+24,Select target move-in date,Planning & Feasibility
+25,Create communication plan with builder and trades,Planning & Feasibility
+26,"Set documentation standards (photos, receipts, permits)",Planning & Feasibility
+27,Create contingency budget,Planning & Feasibility
+28,Identify temporary housing plan (if needed),Planning & Feasibility
+29,Confirm material lead-time strategy,Planning & Feasibility
+30,Define finishes level (builder grade/mid/high-end),Planning & Feasibility
+31,Decide accessibility needs (aging-in-place/ADA features),Planning & Feasibility
+32,Decide smart home scope,Planning & Feasibility
+33,Decide outdoor scope (deck/patio/pool/ADU),Planning & Feasibility
+34,Decide garage/shop needs,Planning & Feasibility
+35,Search for suitable lot,Land & Acquisition
+36,Shortlist candidate properties,Land & Acquisition
+37,Tour properties,Land & Acquisition
+38,Request seller disclosures,Land & Acquisition
+39,Review zoning and land use,Land & Acquisition
+40,Review setbacks and height limits,Land & Acquisition
+41,Review easements and rights-of-way,Land & Acquisition
+42,Review deed restrictions/CC&Rs,Land & Acquisition
+43,Check floodplain maps,Land & Acquisition
+44,Check wildfire hazard zones,Land & Acquisition
+45,Check landslide risk zones,Land & Acquisition
+46,Check soil type maps,Land & Acquisition
+47,Check access/driveway feasibility,Land & Acquisition
+48,Check road dedication requirements,Land & Acquisition
+49,Check snow load/wind exposure,Land & Acquisition
+50,Order boundary survey,Land & Acquisition
+51,Order topographic survey,Land & Acquisition
+52,Order ALTA survey (optional),Land & Acquisition
+53,Order geotechnical/soil report,Land & Acquisition
+54,Order percolation test (septic),Land & Acquisition
+55,Order wetland delineation (optional),Land & Acquisition
+56,Order arborist report (optional),Land & Acquisition
+57,Order environmental site assessment (Phase I) (optional),Land & Acquisition
+58,Order environmental remediation plan (if needed),Land & Acquisition
+59,Verify water rights (if applicable),Land & Acquisition
+60,Verify timber/mineral rights (if applicable),Land & Acquisition
+61,Verify shoreline/stream buffers (if applicable),Land & Acquisition
+62,Confirm utility distances and capacity,Land & Acquisition
+63,Confirm power pole/transformer needs,Land & Acquisition
+64,Confirm telecom/fiber availability,Land & Acquisition
+65,Confirm water service availability,Land & Acquisition
+66,Confirm sewer availability,Land & Acquisition
+67,Confirm gas service availability,Land & Acquisition
+68,Confirm hydrant proximity (fire flow),Land & Acquisition
+69,Negotiate purchase agreement,Land & Acquisition
+70,Open escrow,Land & Acquisition
+71,Title search and title insurance,Land & Acquisition
+72,Obtain lender appraisal (if needed),Land & Acquisition
+73,Close on land purchase,Land & Acquisition
+74,Record deed,Land & Acquisition
+75,Set up property tax account,Land & Acquisition
+76,Obtain landowner insurance,Land & Acquisition
+77,Select architect/designer,Design & Engineering
+78,Select stock plan (optional),Design & Engineering
+79,Site plan concepting,Design & Engineering
+80,Concept floor plan options,Design & Engineering
+81,Concept exterior elevations,Design & Engineering
+82,Schematic design approval,Design & Engineering
+83,Design development phase,Design & Engineering
+84,Finalize room dimensions,Design & Engineering
+85,Kitchen layout planning,Design & Engineering
+86,Bathroom layout planning,Design & Engineering
+87,Stair design,Design & Engineering
+88,Roof design and pitch selection,Design & Engineering
+89,Window schedule planning,Design & Engineering
+90,Door schedule planning,Design & Engineering
+91,Select structural system,Design & Engineering
+92,Structural engineering design,Design & Engineering
+93,Civil engineering design (grading/drainage),Design & Engineering
+94,MEP engineering design,Design & Engineering
+95,Truss engineering package,Design & Engineering
+96,Energy code compliance documentation,Design & Engineering
+97,HVAC load calculation (Manual J),Design & Engineering
+98,Duct design (Manual D),Design & Engineering
+99,Ventilation design (ERV/HRV),Design & Engineering
+100,Plumbing design and fixture count,Design & Engineering
+101,Electrical load calculation,Design & Engineering
+102,Panel schedule design,Design & Engineering
+103,Lighting plan design,Design & Engineering
+104,Low-voltage plan design,Design & Engineering
+105,Fire sprinkler design (if required/desired),Design & Engineering
+106,Septic system design (if needed),Design & Engineering
+107,Well design (if needed),Design & Engineering
+108,Retaining wall engineering (if needed),Design & Engineering
+109,Deck/porch engineering (if needed),Design & Engineering
+110,Pool engineering (if needed),Design & Engineering
+111,Landscape design (optional),Design & Engineering
+112,Irrigation design (optional),Design & Engineering
+113,Interior design selections (optional),Design & Engineering
+114,Finalize construction documents,Design & Engineering
+115,Prepare specification book,Design & Engineering
+116,Create finish schedule,Design & Engineering
+117,Create appliance schedule,Design & Engineering
+118,Create hardware schedule,Design & Engineering
+119,Create tile schedule,Design & Engineering
+120,Create paint schedule,Design & Engineering
+121,Create flooring schedule,Design & Engineering
+122,Create cabinetry drawings,Design & Engineering
+123,Create countertop templates (later),Design & Engineering
+124,Create as-built plan baseline (set up),Design & Engineering
+125,Pre-application meeting (planning),Permits & Approvals
+126,HOA/architectural review submission,Permits & Approvals
+127,HOA approval received,Permits & Approvals
+128,Apply for building permit,Permits & Approvals
+129,Apply for demolition permit,Permits & Approvals
+130,Apply for grading permit,Permits & Approvals
+131,Apply for tree removal permit,Permits & Approvals
+132,Apply for driveway/approach permit,Permits & Approvals
+133,Apply for right-of-way permit,Permits & Approvals
+134,Apply for septic permit,Permits & Approvals
+135,Apply for well permit,Permits & Approvals
+136,Apply for stormwater permit,Permits & Approvals
+137,Apply for shoreline/stream permit,Permits & Approvals
+138,Apply for environmental permit (if needed),Permits & Approvals
+139,Apply for utility connection permits,Permits & Approvals
+140,Plan check review cycle,Permits & Approvals
+141,Respond to plan check comments,Permits & Approvals
+142,Resubmit revised plans,Permits & Approvals
+143,Pay permit fees,Permits & Approvals
+144,Permit issued,Permits & Approvals
+145,Post permit card on site,Permits & Approvals
+146,Schedule required inspections (baseline),Permits & Approvals
+147,Obtain temporary power permit,Permits & Approvals
+148,Obtain temporary water permit (if needed),Permits & Approvals
+149,Choose lender (construction loan),Financing & Insurance
+150,Construction loan pre-approval,Financing & Insurance
+151,Finalize construction loan underwriting,Financing & Insurance
+152,Finalize draw schedule,Financing & Insurance
+153,Open construction escrow account,Financing & Insurance
+154,Set up lien release process,Financing & Insurance
+155,Set up payment approvals,Financing & Insurance
+156,Obtain builder’s risk insurance,Financing & Insurance
+157,Obtain general liability insurance,Financing & Insurance
+158,Obtain workers comp proof (as applicable),Financing & Insurance
+159,Obtain flood insurance (if needed),Financing & Insurance
+160,Obtain wildfire insurance (if needed),Financing & Insurance
+161,Confirm warranty coverage terms,Financing & Insurance
+162,Set up contingency reserve account,Financing & Insurance
+163,Set up cost tracking spreadsheet/app,Financing & Insurance
+164,Secure performance bond (optional),Financing & Insurance
+165,Select general contractor,Procurement & Contracts
+166,Sign construction contract,Procurement & Contracts
+167,Define allowances and alternates,Procurement & Contracts
+168,Define change order procedure,Procurement & Contracts
+169,Bid major trades,Procurement & Contracts
+170,Award excavation contract,Procurement & Contracts
+171,Award concrete contract,Procurement & Contracts
+172,Award framing contract,Procurement & Contracts
+173,Award roofing contract,Procurement & Contracts
+174,Award siding/exterior contract,Procurement & Contracts
+175,Award window/door supplier,Procurement & Contracts
+176,Award plumbing contract,Procurement & Contracts
+177,Award electrical contract,Procurement & Contracts
+178,Award HVAC contract,Procurement & Contracts
+179,Award insulation contract,Procurement & Contracts
+180,Award drywall contract,Procurement & Contracts
+181,Award painting contract,Procurement & Contracts
+182,Award flooring contract,Procurement & Contracts
+183,Award tile contract,Procurement & Contracts
+184,Award cabinetry contract,Procurement & Contracts
+185,Award countertop contract,Procurement & Contracts
+186,Award landscaping contract,Procurement & Contracts
+187,Award driveway contract,Procurement & Contracts
+188,Order long-lead windows,Procurement & Contracts
+189,Order trusses/joists,Procurement & Contracts
+190,Order structural steel (if any),Procurement & Contracts
+191,Order garage door(s),Procurement & Contracts
+192,Order exterior doors,Procurement & Contracts
+193,Order plumbing fixtures,Procurement & Contracts
+194,Order lighting fixtures,Procurement & Contracts
+195,Order electrical devices,Procurement & Contracts
+196,Order HVAC equipment,Procurement & Contracts
+197,Order ERV/HRV unit,Procurement & Contracts
+198,Order water heater,Procurement & Contracts
+199,Order appliances,Procurement & Contracts
+200,Order fireplace unit (if any),Procurement & Contracts
+201,Order solar equipment (if any),Procurement & Contracts
+202,Order battery storage (if any),Procurement & Contracts
+203,Order smart home hubs (if any),Procurement & Contracts
+204,Order security system (if any),Procurement & Contracts
+205,Order elevator (if any),Procurement & Contracts
+206,Order generator (if any),Procurement & Contracts
+207,Order specialty glazing (if any),Procurement & Contracts
+208,Confirm delivery schedule for all long-leads,Procurement & Contracts
+209,Create procurement tracker,Procurement & Contracts
+210,Confirm storage plan for deliveries,Procurement & Contracts
+211,Confirm returns/warranty policy with suppliers,Procurement & Contracts
+212,Install temporary fencing,Site Setup & Safety
+213,Install jobsite signage,Site Setup & Safety
+214,Set up jobsite rules and safety plan,Site Setup & Safety
+215,Deliver dumpster(s),Site Setup & Safety
+216,Set up jobsite trailer (optional),Site Setup & Safety
+217,Set up material laydown area,Site Setup & Safety
+218,Establish site access route,Site Setup & Safety
+219,Install construction entrance (rock pad),Site Setup & Safety
+220,Install erosion control (silt fence),Site Setup & Safety
+221,Install sediment basin (if needed),Site Setup & Safety
+222,Set up temporary power pole,Site Setup & Safety
+223,Set up temporary power meter,Site Setup & Safety
+224,Set up temporary water supply,Site Setup & Safety
+225,Set up portable toilet,Site Setup & Safety
+226,Set up temporary internet (optional),Site Setup & Safety
+227,Set up site lighting (optional),Site Setup & Safety
+228,Establish survey control points,Site Setup & Safety
+229,Pre-construction walkthrough meeting,Site Setup & Safety
+230,Utility disconnects for demo,Demolition & Remediation
+231,Hazardous material survey (asbestos/lead),Demolition & Remediation
+232,Asbestos abatement (if needed),Demolition & Remediation
+233,Lead paint abatement (if needed),Demolition & Remediation
+234,Mold remediation (if needed),Demolition & Remediation
+235,Demolish existing structure,Demolition & Remediation
+236,Remove foundation (if needed),Demolition & Remediation
+237,Remove underground tanks (if needed),Demolition & Remediation
+238,Remove debris and haul-off,Demolition & Remediation
+239,Site contamination cleanup (if needed),Demolition & Remediation
+240,Confirm compaction after removals,Demolition & Remediation
+241,Clear trees and brush,Clearing & Earthwork
+242,Stump removal,Clearing & Earthwork
+243,Grub topsoil and organics,Clearing & Earthwork
+244,Strip and stockpile topsoil,Clearing & Earthwork
+245,Rough grading,Clearing & Earthwork
+246,Cut/fill operations,Clearing & Earthwork
+247,Import fill (if needed),Clearing & Earthwork
+248,Export spoils (if needed),Clearing & Earthwork
+249,Rock excavation (if needed),Clearing & Earthwork
+250,Blasting (if needed),Clearing & Earthwork
+251,Install temporary drainage swales,Clearing & Earthwork
+252,Install construction stormwater controls,Clearing & Earthwork
+253,Excavate building pad,Clearing & Earthwork
+254,Excavate for footings,Clearing & Earthwork
+255,Excavate for basement (if any),Clearing & Earthwork
+256,Excavate for crawlspace (if any),Clearing & Earthwork
+257,Trench for utilities,Clearing & Earthwork
+258,Install retaining wall subgrade (if needed),Clearing & Earthwork
+259,Compaction testing,Clearing & Earthwork
+260,Proof roll subgrade,Clearing & Earthwork
+261,Install temporary shoring (if needed),Clearing & Earthwork
+262,Install excavation dewatering (if needed),Clearing & Earthwork
+263,Install soil nails (if needed),Clearing & Earthwork
+264,Install slope stabilization matting (optional),Clearing & Earthwork
+265,Install construction access road (temporary),Clearing & Earthwork
+266,Apply for electric service,Utilities & Off-Grid
+267,Install conduit for power service,Utilities & Off-Grid
+268,Set transformer/pull box locations,Utilities & Off-Grid
+269,Trench and install electrical service conduit,Utilities & Off-Grid
+270,Pull service conductors,Utilities & Off-Grid
+271,Install main service meter base,Utilities & Off-Grid
+272,Apply for gas service,Utilities & Off-Grid
+273,Trench and install gas line (if needed),Utilities & Off-Grid
+274,Apply for municipal water service,Utilities & Off-Grid
+275,Trench and install water service line,Utilities & Off-Grid
+276,Install water meter box,Utilities & Off-Grid
+277,Apply for sewer connection,Utilities & Off-Grid
+278,Install sewer lateral,Utilities & Off-Grid
+279,Install cleanouts,Utilities & Off-Grid
+280,Install backwater valve (if needed),Utilities & Off-Grid
+281,Install storm drain connection (if needed),Utilities & Off-Grid
+282,Install onsite stormwater system (infiltration/rain garden),Utilities & Off-Grid
+283,Drill well,Utilities & Off-Grid
+284,Install well casing,Utilities & Off-Grid
+285,Install well pump,Utilities & Off-Grid
+286,Install pressure tank,Utilities & Off-Grid
+287,Disinfect well,Utilities & Off-Grid
+288,Well flow test,Utilities & Off-Grid
+289,Well water quality test,Utilities & Off-Grid
+290,Install water treatment (softener/filtration/UV),Utilities & Off-Grid
+291,Install cistern (optional),Utilities & Off-Grid
+292,Install rainwater harvesting system (optional),Utilities & Off-Grid
+293,Install septic tank,Utilities & Off-Grid
+294,Install drain field/leach field,Utilities & Off-Grid
+295,Install distribution box,Utilities & Off-Grid
+296,Install septic pump (if needed),Utilities & Off-Grid
+297,Septic inspection and approval,Utilities & Off-Grid
+298,Install propane tank (if needed),Utilities & Off-Grid
+299,Install standby generator (optional),Utilities & Off-Grid
+300,Install battery storage (optional),Utilities & Off-Grid
+301,Install off-grid inverter system (optional),Utilities & Off-Grid
+302,Install telecom conduit,Utilities & Off-Grid
+303,Install fiber/cable drop,Utilities & Off-Grid
+304,Install satellite internet (optional),Utilities & Off-Grid
+305,Install trenchless utility boring (optional),Utilities & Off-Grid
+306,Install whole-house water shutoff (smart) (optional),Utilities & Off-Grid
+307,Install graywater system (optional),Utilities & Off-Grid
+308,Install composting toilet system (optional),Utilities & Off-Grid
+309,Install wood stove chimney (optional),Utilities & Off-Grid
+310,Install pellet stove venting (optional),Utilities & Off-Grid
+311,Form footings,Foundations & Concrete
+312,Place footing rebar,Foundations & Concrete
+313,Footing inspection,Foundations & Concrete
+314,Pour footings,Foundations & Concrete
+315,Cure footings,Foundations & Concrete
+316,Form foundation walls,Foundations & Concrete
+317,Place wall rebar,Foundations & Concrete
+318,Install anchor bolts/hold-downs,Foundations & Concrete
+319,Foundation wall inspection,Foundations & Concrete
+320,Pour foundation walls,Foundations & Concrete
+321,Strip forms,Foundations & Concrete
+322,Damp-proof foundation,Foundations & Concrete
+323,Waterproof foundation (full),Foundations & Concrete
+324,Install perimeter drain (weeping tile),Foundations & Concrete
+325,Install drain rock and filter fabric,Foundations & Concrete
+326,Install sump pit and pump (if needed),Foundations & Concrete
+327,Install radon rough-in (if needed),Foundations & Concrete
+328,Install under-slab plumbing,Foundations & Concrete
+329,Install under-slab electrical grounding,Foundations & Concrete
+330,Install vapor barrier,Foundations & Concrete
+331,Install under-slab insulation,Foundations & Concrete
+332,Install slab reinforcement (rebar/mesh),Foundations & Concrete
+333,Under-slab inspection,Foundations & Concrete
+334,Pour slab,Foundations & Concrete
+335,Finish slab surface,Foundations & Concrete
+336,Saw-cut control joints,Foundations & Concrete
+337,Cure slab,Foundations & Concrete
+338,Build crawlspace piers (if any),Foundations & Concrete
+339,Install crawlspace vapor barrier (if any),Foundations & Concrete
+340,Install crawlspace insulation (if any),Foundations & Concrete
+341,Backfill foundation,Foundations & Concrete
+342,Final foundation elevation check,Foundations & Concrete
+343,Deliver framing lumber package,Structural Framing
+344,Frame sill plates,Structural Framing
+345,Frame first-floor system,Structural Framing
+346,Install subfloor,Structural Framing
+347,Frame exterior walls,Structural Framing
+348,Frame interior walls,Structural Framing
+349,Install beams and headers,Structural Framing
+350,Install shear walls,Structural Framing
+351,Install metal connectors and straps,Structural Framing
+352,Set floor trusses/I-joists (if any),Structural Framing
+353,Frame second floor (if any),Structural Framing
+354,Set roof trusses,Structural Framing
+355,Frame roof rafters (if any),Structural Framing
+356,Install roof sheathing,Structural Framing
+357,Install wall sheathing,Structural Framing
+358,Install house framing blocking,Structural Framing
+359,Frame stairs,Structural Framing
+360,Frame decks/porches (rough),Structural Framing
+361,Install framing punch corrections,Structural Framing
+362,Framing inspection,Structural Framing
+363,Structural engineer site visit (optional),Structural Framing
+364,Install roof underlayment,Roofing
+365,Install ice & water shield,Roofing
+366,Install roof flashing (valleys/walls),Roofing
+367,Install drip edge,Roofing
+368,Install roofing material (shingles),Roofing
+369,Install roofing material (metal),Roofing
+370,Install roofing material (tile),Roofing
+371,Install ridge vent,Roofing
+372,Install roof vents,Roofing
+373,Install skylight rough openings,Roofing
+374,Install skylights,Roofing
+375,Install roof gutters,Roofing
+376,Install downspouts,Roofing
+377,Install rain chains (optional),Roofing
+378,Install snow guards (optional),Roofing
+379,Roofing inspection (if required),Roofing
+380,Install WRB/housewrap,Exterior Envelope
+381,Tape and seal WRB seams,Exterior Envelope
+382,Install exterior air barrier membrane (optional),Exterior Envelope
+383,Install exterior rigid insulation (optional),Exterior Envelope
+384,Install furring/rainscreen battens,Exterior Envelope
+385,Install exterior flashing tape,Exterior Envelope
+386,Install window pan flashing prep,Exterior Envelope
+387,Install exterior corner beads (as needed),Exterior Envelope
+388,Install exterior foam trim (optional),Exterior Envelope
+389,Install siding (fiber cement),Exterior Envelope
+390,Install siding (wood),Exterior Envelope
+391,Install siding (vinyl),Exterior Envelope
+392,Install siding (metal),Exterior Envelope
+393,Install stucco base coat,Exterior Envelope
+394,Install stucco finish coat,Exterior Envelope
+395,Install brick veneer,Exterior Envelope
+396,Install stone veneer,Exterior Envelope
+397,Install exterior trim,Exterior Envelope
+398,Install soffit and fascia,Exterior Envelope
+399,Install exterior caulking/sealants,Exterior Envelope
+400,Install exterior vents (dryer/bath/hood),Exterior Envelope
+401,Install exterior hose bibbs,Exterior Envelope
+402,Install exterior electrical boxes (rough),Exterior Envelope
+403,Install exterior paint/stain,Exterior Envelope
+404,Install exterior masonry seal (optional),Exterior Envelope
+405,Install brick ties (brick veneer),Exterior Envelope
+406,Install weep screed (stucco),Exterior Envelope
+407,Install rainscreen vent strips,Exterior Envelope
+408,Install exterior foam board seams taped,Exterior Envelope
+409,Install kick-out flashing,Exterior Envelope
+410,Set windows,Windows & Exterior Doors
+411,Flash windows,Windows & Exterior Doors
+412,Air seal window gaps,Windows & Exterior Doors
+413,Install exterior doors,Windows & Exterior Doors
+414,Install door thresholds,Windows & Exterior Doors
+415,Install sliding/patio doors,Windows & Exterior Doors
+416,Install multi-panel door systems (optional),Windows & Exterior Doors
+417,Install garage door tracks,Windows & Exterior Doors
+418,Install garage door opener,Windows & Exterior Doors
+419,Install storm doors (optional),Windows & Exterior Doors
+420,Install window screens,Windows & Exterior Doors
+421,Install window trim (exterior),Windows & Exterior Doors
+422,Layout plumbing runs,Rough Plumbing
+423,Install DWV (drain/waste/vent) rough-in,Rough Plumbing
+424,Install water supply rough-in (PEX/copper),Rough Plumbing
+425,Install tub/shower rough-ins,Rough Plumbing
+426,Install toilet rough-ins,Rough Plumbing
+427,Install hose bibb rough-ins,Rough Plumbing
+428,Install gas piping rough-in (if applicable),Rough Plumbing
+429,Install manifold system (if applicable),Rough Plumbing
+430,Install pressure test plumbing,Rough Plumbing
+431,Rough plumbing inspection,Rough Plumbing
+432,Install exterior sewer line to main/septic,Rough Plumbing
+433,Install cleanouts and vents through roof,Rough Plumbing
+434,Install water heater rough location prep,Rough Plumbing
+435,Install recirculation loop rough-in (optional),Rough Plumbing
+436,Install radiant floor piping (optional),Rough Plumbing
+437,Install fire sprinkler piping rough-in (if combined contractor),Rough Plumbing
+438,Rough-in plumbing for Kitchen,Rough Plumbing
+439,Rough-in plumbing for Primary bath,Rough Plumbing
+440,Rough-in plumbing for Guest bath,Rough Plumbing
+441,Rough-in plumbing for Powder room,Rough Plumbing
+442,Rough-in plumbing for Laundry,Rough Plumbing
+443,Rough-in plumbing for Mudroom,Rough Plumbing
+444,Rough-in plumbing for Garage,Rough Plumbing
+445,Rough-in plumbing for Basement,Rough Plumbing
+446,Rough-in plumbing for Attic,Rough Plumbing
+447,Rough-in plumbing for Mechanical room,Rough Plumbing
+448,Rough-in plumbing for Outdoor,Rough Plumbing
+449,Electrical layout and box placement,Rough Electrical
+450,Install service panel (rough),Rough Electrical
+451,Install grounding and bonding,Rough Electrical
+452,Run branch circuit wiring,Rough Electrical
+453,Install receptacle boxes,Rough Electrical
+454,Install switch boxes,Rough Electrical
+455,Install ceiling fan boxes,Rough Electrical
+456,Install can light housings (as applicable),Rough Electrical
+457,Install smoke/CO wiring,Rough Electrical
+458,Install exterior lighting rough boxes,Rough Electrical
+459,Install dedicated circuits (kitchen/laundry),Rough Electrical
+460,Install EV charger rough-in (optional),Rough Electrical
+461,Install subpanel (optional),Rough Electrical
+462,Run wiring for appliances,Rough Electrical
+463,Run wiring for well pump (if applicable),Rough Electrical
+464,Run wiring for septic pump (if applicable),Rough Electrical
+465,Rough electrical inspection,Rough Electrical
+466,Temporary power to permanent cutover planning,Rough Electrical
+467,Rough-in electrical for Kitchen,Rough Electrical
+468,Rough-in electrical for Primary bath,Rough Electrical
+469,Rough-in electrical for Guest bath,Rough Electrical
+470,Rough-in electrical for Powder room,Rough Electrical
+471,Rough-in electrical for Laundry,Rough Electrical
+472,Rough-in electrical for Mudroom,Rough Electrical
+473,Rough-in electrical for Garage,Rough Electrical
+474,Rough-in electrical for Basement,Rough Electrical
+475,Rough-in electrical for Attic,Rough Electrical
+476,Rough-in electrical for Mechanical room,Rough Electrical
+477,Rough-in electrical for Outdoor,Rough Electrical
+478,HVAC equipment set (rough placement),Rough HVAC
+479,Install ductwork rough-in,Rough HVAC
+480,Install duct chases and returns,Rough HVAC
+481,Install bath fan ducting,Rough HVAC
+482,Install kitchen hood ducting,Rough HVAC
+483,Install dryer vent ducting,Rough HVAC
+484,Install refrigerant linesets (mini-split),Rough HVAC
+485,Install condensate drains,Rough HVAC
+486,Install ERV/HRV rough ducting,Rough HVAC
+487,Install thermostat wiring,Rough HVAC
+488,Install zoning dampers (optional),Rough HVAC
+489,Rough HVAC inspection (if required),Rough HVAC
+490,Rough-in ventilation for Kitchen,Rough HVAC
+491,Rough-in ventilation for Primary bath,Rough HVAC
+492,Rough-in ventilation for Guest bath,Rough HVAC
+493,Rough-in ventilation for Powder room,Rough HVAC
+494,Rough-in ventilation for Laundry,Rough HVAC
+495,Rough-in ventilation for Mudroom,Rough HVAC
+496,Rough-in ventilation for Garage,Rough HVAC
+497,Rough-in ventilation for Basement,Rough HVAC
+498,Rough-in ventilation for Attic,Rough HVAC
+499,Rough-in ventilation for Mechanical room,Rough HVAC
+500,Rough-in ventilation for Outdoor,Rough HVAC
+501,Run Cat6 ethernet drops,Low Voltage & Smart Home
+502,Run coax drops (optional),Low Voltage & Smart Home
+503,Install structured media panel (rough),Low Voltage & Smart Home
+504,Run speaker wire (whole-home audio),Low Voltage & Smart Home
+505,Run doorbell wiring,Low Voltage & Smart Home
+506,Run security sensor wiring (doors/windows),Low Voltage & Smart Home
+507,Run camera wiring,Low Voltage & Smart Home
+508,Run PoE switch wiring plan,Low Voltage & Smart Home
+509,Run smart shade wiring (optional),Low Voltage & Smart Home
+510,Run intercom wiring (optional),Low Voltage & Smart Home
+511,Run access control wiring (optional),Low Voltage & Smart Home
+512,Run wifi access point wiring (ceiling),Low Voltage & Smart Home
+513,Install conduit for future low-voltage expansion,Low Voltage & Smart Home
+514,Low-voltage rough-in walkthrough,Low Voltage & Smart Home
+515,Fire sprinkler rough-in (if applicable),Fire Protection
+516,Fire sprinkler pressure test,Fire Protection
+517,Fire sprinkler inspection,Fire Protection
+518,Install fire-rated assemblies (as required),Fire Protection
+519,Install fire caulking at penetrations,Fire Protection
+520,Install firestopping at chases,Fire Protection
+521,Install garage-to-house fire separation,Fire Protection
+522,Install fire-rated door (garage entry),Fire Protection
+523,Install fire alarm system rough-in (optional),Fire Protection
+524,Air seal penetrations,Insulation & Air Sealing
+525,Install draft stops,Insulation & Air Sealing
+526,Install fire blocking,Insulation & Air Sealing
+527,Install wall insulation (batts),Insulation & Air Sealing
+528,Install wall insulation (spray foam),Insulation & Air Sealing
+529,Install attic insulation,Insulation & Air Sealing
+530,Install crawlspace insulation,Insulation & Air Sealing
+531,Install rim joist insulation,Insulation & Air Sealing
+532,Install sound insulation (interior walls),Insulation & Air Sealing
+533,Install vapor retarder (as required),Insulation & Air Sealing
+534,Insulation inspection,Insulation & Air Sealing
+535,Blower door test (pre-drywall) (optional),Insulation & Air Sealing
+536,Seal attic hatch,Insulation & Air Sealing
+537,Seal recessed lighting (if needed),Insulation & Air Sealing
+538,Install exterior continuous insulation (optional),Insulation & Air Sealing
+539,Install interior vapor barrier membrane (optional),Insulation & Air Sealing
+540,Seal rim joists (spray foam) (optional),Insulation & Air Sealing
+541,Install acoustic sealant at plates (optional),Insulation & Air Sealing
+542,Install airtight electrical boxes (optional),Insulation & Air Sealing
+543,Install drywall on ceilings,Drywall & Interior Shell
+544,Install drywall on walls,Drywall & Interior Shell
+545,Drywall screw inspection (optional),Drywall & Interior Shell
+546,Tape drywall seams,Drywall & Interior Shell
+547,Apply first coat mud,Drywall & Interior Shell
+548,Apply second coat mud,Drywall & Interior Shell
+549,Apply finish coat mud,Drywall & Interior Shell
+550,Sand drywall,Drywall & Interior Shell
+551,Texture walls/ceilings (optional),Drywall & Interior Shell
+552,Install corner bead,Drywall & Interior Shell
+553,Prime drywall,Drywall & Interior Shell
+554,Install interior doors (slabs),Interior Finishes
+555,Install door jambs and casing,Interior Finishes
+556,Install baseboards,Interior Finishes
+557,Install window casing,Interior Finishes
+558,Install crown molding (optional),Interior Finishes
+559,Install wainscoting (optional),Interior Finishes
+560,Install built-in shelves (optional),Interior Finishes
+561,Install closet systems (optional),Interior Finishes
+562,Install stair treads/risers,Interior Finishes
+563,Install stair railing and balusters,Interior Finishes
+564,Install interior paint (walls),Interior Finishes
+565,Install interior paint (ceilings),Interior Finishes
+566,Install accent walls (optional),Interior Finishes
+567,Install wallpaper (optional),Interior Finishes
+568,Install handrail returns,Interior Finishes
+569,Deliver cabinets to site,Cabinetry & Built-ins
+570,Install kitchen base cabinets,Cabinetry & Built-ins
+571,Install kitchen wall cabinets,Cabinetry & Built-ins
+572,Install bathroom vanities,Cabinetry & Built-ins
+573,Install laundry cabinets (optional),Cabinetry & Built-ins
+574,Install pantry built-ins (optional),Cabinetry & Built-ins
+575,Install mudroom built-ins (optional),Cabinetry & Built-ins
+576,Install garage cabinets (optional),Cabinetry & Built-ins
+577,Install closet built-ins (optional),Cabinetry & Built-ins
+578,Cabinet adjustment and leveling,Cabinetry & Built-ins
+579,Install cabinet hardware (pulls/knobs),Cabinetry & Built-ins
+580,Template countertops,Countertops & Surfaces
+581,Fabricate countertops,Countertops & Surfaces
+582,Install countertops,Countertops & Surfaces
+583,Install backsplash (tile/stone),Countertops & Surfaces
+584,Install undermount sink,Countertops & Surfaces
+585,Install sink faucet holes drilling (if needed),Countertops & Surfaces
+586,Seal stone countertops (optional),Countertops & Surfaces
+587,Install underlayment,Flooring
+588,Install hardwood flooring,Flooring
+589,Install engineered wood flooring,Flooring
+590,Install LVP/LVT flooring,Flooring
+591,Install laminate flooring,Flooring
+592,Install carpet padding,Flooring
+593,Install carpet,Flooring
+594,Install stair nosing,Flooring
+595,Install floor transitions,Flooring
+596,Install base shoe molding,Flooring
+597,Flooring punch and touch-ups,Flooring
+598,Waterproof shower pan,Tile & Stone
+599,Install shower wall waterproofing,Tile & Stone
+600,Install shower niche (optional),Tile & Stone
+601,Tile shower walls,Tile & Stone
+602,Tile shower floor,Tile & Stone
+603,Tile bathroom floors,Tile & Stone
+604,Tile kitchen backsplash,Tile & Stone
+605,Tile laundry/mudroom floors,Tile & Stone
+606,Grout tile,Tile & Stone
+607,Seal grout (optional),Tile & Stone
+608,Install stone thresholds,Tile & Stone
+609,Install tile trim edges,Tile & Stone
+610,Mask and protect surfaces,Painting & Wall Finishes
+611,Spray primer (interior),Painting & Wall Finishes
+612,Spray paint (interior),Painting & Wall Finishes
+613,Roll and cut-in (interior),Painting & Wall Finishes
+614,Paint trim and doors,Painting & Wall Finishes
+615,Stain woodwork (optional),Painting & Wall Finishes
+616,Touch-up paint,Painting & Wall Finishes
+617,Final caulking and paint touch-ups,Painting & Wall Finishes
+618,Install baseboards,Trim & Doors
+619,Install door casing,Trim & Doors
+620,Install window casing,Trim & Doors
+621,Install crown molding,Trim & Doors
+622,Install interior door hardware (handles/locks),Trim & Doors
+623,Install closet door tracks (if any),Trim & Doors
+624,Install pocket door hardware (if any),Trim & Doors
+625,Install barn door hardware (optional),Trim & Doors
+626,Install attic access trim,Trim & Doors
+627,Install stair trim,Trim & Doors
+628,Install toilets,Fixtures & Final MEP
+629,Install sinks and faucets,Fixtures & Final MEP
+630,Install tubs (final trim),Fixtures & Final MEP
+631,Install shower trim,Fixtures & Final MEP
+632,"Install bath accessories (towel bars, etc.)",Fixtures & Final MEP
+633,Install water heater,Fixtures & Final MEP
+634,Start up water heater,Fixtures & Final MEP
+635,Install water softener/filtration (if any),Fixtures & Final MEP
+636,Install garbage disposal,Fixtures & Final MEP
+637,Install dishwasher hook-up,Fixtures & Final MEP
+638,Install final electrical devices (switches/outlets),Fixtures & Final MEP
+639,Install lighting fixtures,Fixtures & Final MEP
+640,Install ceiling fans,Fixtures & Final MEP
+641,Install smoke/CO detectors,Fixtures & Final MEP
+642,Install thermostat(s),Fixtures & Final MEP
+643,Install registers and grilles,Fixtures & Final MEP
+644,Install bath fans (final),Fixtures & Final MEP
+645,HVAC system startup,Fixtures & Final MEP
+646,HVAC air balancing,Fixtures & Final MEP
+647,Commission ERV/HRV,Fixtures & Final MEP
+648,Plumbing final pressure/leak test,Fixtures & Final MEP
+649,Electrical final test and labeling,Fixtures & Final MEP
+650,Label electrical panel,Fixtures & Final MEP
+651,Install surge protection (optional),Fixtures & Final MEP
+652,Install EV charger (final) (optional),Fixtures & Final MEP
+653,Install generator transfer switch (final) (optional),Fixtures & Final MEP
+654,Install final plumbing fixtures in Kitchen,Fixtures & Final MEP
+655,Install final plumbing fixtures in Primary bath,Fixtures & Final MEP
+656,Install final plumbing fixtures in Guest bath,Fixtures & Final MEP
+657,Install final plumbing fixtures in Powder room,Fixtures & Final MEP
+658,Install final plumbing fixtures in Laundry,Fixtures & Final MEP
+659,Install final plumbing fixtures in Mudroom,Fixtures & Final MEP
+660,Install final lighting in Kitchen,Fixtures & Final MEP
+661,Install final lighting in Primary bath,Fixtures & Final MEP
+662,Install final lighting in Guest bath,Fixtures & Final MEP
+663,Install final lighting in Powder room,Fixtures & Final MEP
+664,Install final lighting in Laundry,Fixtures & Final MEP
+665,Install final lighting in Mudroom,Fixtures & Final MEP
+666,Install final lighting in Garage,Fixtures & Final MEP
+667,Install final lighting in Basement,Fixtures & Final MEP
+668,Install final lighting in Attic,Fixtures & Final MEP
+669,Install final lighting in Mechanical room,Fixtures & Final MEP
+670,Install final lighting in Outdoor,Fixtures & Final MEP
+671,Deliver appliances,Appliances
+672,Install range/oven,Appliances
+673,Install cooktop,Appliances
+674,Install range hood,Appliances
+675,Install refrigerator,Appliances
+676,Install microwave,Appliances
+677,Install dishwasher,Appliances
+678,Install washer,Appliances
+679,Install dryer,Appliances
+680,Install wine fridge (optional),Appliances
+681,Appliance testing and startup,Appliances
+682,Install solar racking,Specialty Systems
+683,Install solar panels,Specialty Systems
+684,Install solar inverter,Specialty Systems
+685,Install battery storage,Specialty Systems
+686,Solar commissioning,Specialty Systems
+687,Install radiant floor manifolds,Specialty Systems
+688,Radiant system pressure test,Specialty Systems
+689,Install boiler (radiant),Specialty Systems
+690,Commission radiant heat,Specialty Systems
+691,Install heat pump water heater (optional),Specialty Systems
+692,Install geothermal loop (optional),Specialty Systems
+693,Commission geothermal (optional),Specialty Systems
+694,Install elevator shaft framing,Specialty Systems
+695,Install elevator rails,Specialty Systems
+696,Install elevator cab,Specialty Systems
+697,Elevator inspection,Specialty Systems
+698,Install home automation hub,Specialty Systems
+699,Program smart lighting,Specialty Systems
+700,Program smart thermostats,Specialty Systems
+701,Program smart locks,Specialty Systems
+702,Install smart doorbell,Specialty Systems
+703,Install whole-home audio amps,Specialty Systems
+704,Install theater wiring and projector (optional),Specialty Systems
+705,Install security panel,Specialty Systems
+706,Install sensors and keypads,Specialty Systems
+707,Install cameras and NVR,Specialty Systems
+708,Security system commissioning,Specialty Systems
+709,Install central vacuum rough-in,Specialty Systems
+710,Install central vacuum unit,Specialty Systems
+711,Install water leak sensors (optional),Specialty Systems
+712,Install dehumidifier (whole-house) (optional),Specialty Systems
+713,Install humidifier (whole-house) (optional),Specialty Systems
+714,Install backup sump pump (optional),Specialty Systems
+715,Install radon fan (if needed),Specialty Systems
+716,Radon test (post-build),Specialty Systems
+717,Install lightning protection (optional),Specialty Systems
+718,Install CCTV signage (optional),Specialty Systems
+719,Install roof-mounted snow melt system (optional),Specialty Systems
+720,Install heated driveway system (optional),Specialty Systems
+721,Install radiant ceiling panels (optional),Specialty Systems
+722,Install sauna/steam room rough-in (optional),Specialty Systems
+723,Install home gym flooring (optional),Specialty Systems
+724,Install soundproofing package (optional),Specialty Systems
+725,Install smart glass/tint system (optional),Specialty Systems
+726,Install backup battery for sump (optional),Specialty Systems
+727,Install wildfire ember-resistant vents (optional),Specialty Systems
+728,Build deck framing,Outdoor Structures
+729,Install deck boards,Outdoor Structures
+730,Install deck railing,Outdoor Structures
+731,Build covered porch,Outdoor Structures
+732,Install porch ceiling finish,Outdoor Structures
+733,Build pergola (optional),Outdoor Structures
+734,Build gazebo (optional),Outdoor Structures
+735,Build outdoor kitchen (optional),Outdoor Structures
+736,Install outdoor grill gas line (optional),Outdoor Structures
+737,Build detached garage (optional),Outdoor Structures
+738,Build workshop/shed (optional),Outdoor Structures
+739,Build ADU foundation (optional),Outdoor Structures
+740,Build ADU framing (optional),Outdoor Structures
+741,Build ADU finishes (optional),Outdoor Structures
+742,Pool design finalization,Pools & Water Features
+743,Pool permit approval,Pools & Water Features
+744,Excavate pool,Pools & Water Features
+745,Install pool steel/rebar,Pools & Water Features
+746,Pool plumbing rough-in,Pools & Water Features
+747,Pool electrical rough-in,Pools & Water Features
+748,Shotcrete/gunite pool shell,Pools & Water Features
+749,Pool tile and coping,Pools & Water Features
+750,Pool decking installation,Pools & Water Features
+751,Install pool equipment (pump/filter/heater),Pools & Water Features
+752,Pool startup and balancing,Pools & Water Features
+753,Install hot tub (optional),Pools & Water Features
+754,Install pond/waterfall (optional),Pools & Water Features
+755,Install fountain (optional),Pools & Water Features
+756,Install retaining wall footing,Hardscape & Landscaping
+757,Build retaining wall (block),Hardscape & Landscaping
+758,Build retaining wall (poured concrete),Hardscape & Landscaping
+759,Install retaining wall drainage,Hardscape & Landscaping
+760,Install landscape drainage (French drains),Hardscape & Landscaping
+761,Install yard grading,Hardscape & Landscaping
+762,Install topsoil,Hardscape & Landscaping
+763,Install sod,Hardscape & Landscaping
+764,Seed lawn,Hardscape & Landscaping
+765,Plant trees,Hardscape & Landscaping
+766,Plant shrubs,Hardscape & Landscaping
+767,Install mulch,Hardscape & Landscaping
+768,Install irrigation mainline,Hardscape & Landscaping
+769,Install irrigation valves,Hardscape & Landscaping
+770,Install irrigation sprinkler heads,Hardscape & Landscaping
+771,Program irrigation controller,Hardscape & Landscaping
+772,Install landscape lighting (optional),Hardscape & Landscaping
+773,Install garden edging,Hardscape & Landscaping
+774,Install privacy screening (optional),Hardscape & Landscaping
+775,Install driveway subbase,Driveways & Access
+776,Install gravel driveway,Driveways & Access
+777,Pour concrete driveway,Driveways & Access
+778,Install asphalt driveway,Driveways & Access
+779,Install paver driveway (optional),Driveways & Access
+780,Install walkway pavers,Driveways & Access
+781,Pour concrete walkways,Driveways & Access
+782,Install steps and landings,Driveways & Access
+783,Install curb cut/approach,Driveways & Access
+784,Install gates (optional),Driveways & Access
+785,Install fencing (optional),Driveways & Access
+786,Survey as-built foundation (optional),Testing & Inspections
+787,Rough grading inspection (if required),Testing & Inspections
+788,Footing inspection,Testing & Inspections
+789,Foundation wall inspection,Testing & Inspections
+790,Under-slab inspection,Testing & Inspections
+791,Framing inspection,Testing & Inspections
+792,Shear/hold-down inspection (if required),Testing & Inspections
+793,Rough plumbing inspection,Testing & Inspections
+794,Rough electrical inspection,Testing & Inspections
+795,Rough HVAC inspection,Testing & Inspections
+796,Insulation inspection,Testing & Inspections
+797,Drywall inspection (if required),Testing & Inspections
+798,Fire sprinkler inspection,Testing & Inspections
+799,Fire alarm inspection (optional),Testing & Inspections
+800,Blower door test (final) (if required),Testing & Inspections
+801,Duct leakage test (if required),Testing & Inspections
+802,Final plumbing inspection,Testing & Inspections
+803,Final electrical inspection,Testing & Inspections
+804,Final HVAC inspection,Testing & Inspections
+805,Final building inspection,Testing & Inspections
+806,Certificate of Occupancy issued,Testing & Inspections
+807,Create punch list,Closeout & Handover
+808,Complete punch list items,Closeout & Handover
+809,Final cleaning,Closeout & Handover
+810,Owner walkthrough,Closeout & Handover
+811,Deliver keys and access codes,Closeout & Handover
+812,Deliver manuals and warranties,Closeout & Handover
+813,Deliver as-built drawings (if provided),Closeout & Handover
+814,Close permits,Closeout & Handover
+815,Finalize lien releases,Closeout & Handover
+816,Final payment,Closeout & Handover
+817,Move-in,Closeout & Handover
+818,Submit change order request,Repairs & Change Orders
+819,Approve change order,Repairs & Change Orders
+820,Schedule rework,Repairs & Change Orders
+821,Correct inspection deficiencies,Repairs & Change Orders
+822,Repair damaged materials,Repairs & Change Orders
+823,Address water intrusion issue,Repairs & Change Orders
+824,Address framing correction,Repairs & Change Orders
+825,Address drywall repair,Repairs & Change Orders
+826,Address paint touch-up,Repairs & Change Orders
+827,Address flooring repair,Repairs & Change Orders
+828,Address cabinet adjustment,Repairs & Change Orders
+829,Address countertop repair,Repairs & Change Orders
+830,Address HVAC callback,Repairs & Change Orders
+831,Address plumbing leak callback,Repairs & Change Orders
+832,Address electrical callback,Repairs & Change Orders

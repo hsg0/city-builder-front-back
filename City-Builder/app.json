@@ -75,7 +75,8 @@
           "savePhotosPermission": "City-Builder needs permission to save photos to your photo library.",
           "isAccessMediaLocationEnabled": true
         }
-      ]
+      ],
+      "@react-native-community/datetimepicker"
     ],
     "experiments": {
       "typedRoutes": true

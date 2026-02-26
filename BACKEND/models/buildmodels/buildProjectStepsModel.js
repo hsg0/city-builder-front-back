@@ -22,12 +22,13 @@ const buildStepSchema = new mongoose.Schema(
 
     stepType: {
       type: String,
-      required: true,
-      index: true, // helpful for filtering
-      // enum optional: ["LOT_INTAKE","DEMOLITION","FOUNDATION","FRAMING"]
+      default: "GENERAL",
+      index: true,
     },
 
-    title: { type: String, default: "" },
+    stepNumber: { type: Number, default: 1 },
+
+    title: { type: String, required: true },
 
     status: {
       type: String,
@@ -36,11 +37,11 @@ const buildStepSchema = new mongoose.Schema(
       index: true,
     },
 
-    dateStart: { type: Date, default: null },
-    dateEnd: { type: Date, default: null },
+    dateStart: { type: String, default: "" },
+    dateEnd: { type: String, default: "" },
 
     costAmount: { type: Number, default: 0 },
-    costCurrency: { type: String, default: "CAD" },
+    costCurrency: { type: String, default: "" },
 
     notes: { type: String, default: "" },
 
