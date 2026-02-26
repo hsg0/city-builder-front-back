@@ -10,6 +10,7 @@ import {
   addBuildStepToProject,
   updateBuildStepByStepId,
   uploadPhotosToBuildStepByStepId,
+  getBuildById,
 } from "../../controllers/buildControllers/newBuildIntake.js";
 
 const homeBuilderRouter = express.Router();
@@ -63,6 +64,12 @@ homeBuilderRouter.post(
   checkAuth,
   uploadPhotosToBuildStepByStepId
 );
+
+/**
+ * Get a single build project + all its steps
+ * /:projectId — must come AFTER all literal routes above
+ */
+homeBuilderRouter.get("/:projectId", checkAuth, getBuildById);
 
 export default homeBuilderRouter;
 

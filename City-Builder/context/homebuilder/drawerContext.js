@@ -5,6 +5,7 @@ const HomeDrawerContext = createContext({
   openDrawer: () => {},
   closeDrawer: () => {},
   drawerOpen: false,
+  searchParams: { userId: null, name: null, email: null },
 });
 
 export const useHomeDrawer = () => useContext(HomeDrawerContext);

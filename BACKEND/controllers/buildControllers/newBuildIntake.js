@@ -6,6 +6,7 @@ import BuildStep from "../../models/buildmodels/buildProjectStepsModel.js";
 import cityBuilderEmailTransporter from "../../config/mailTransporter.js";
 
 export {
+  getBuildById,
   getBuildStepsByProjectId,
   addBuildStepToProject,
   updateBuildStepByStepId,
@@ -189,7 +190,7 @@ async function trySendBuildStartedEmail({
     console.log("trySendBuildStartedEmail error:", emailError?.message || emailError);
   }
 }
-
+//-----------------------------------------------------------------------
 /**
  * POST /api/builds/create  (depending on your router path)
  *
@@ -301,13 +302,23 @@ export async function createNewBuild(requestObject, responseObject) {
   }
 }
 
+//------------------------------------------------------------------------------
 /**
  * GET /api/builds/active
+ *
+ * Returns every active BuildProject for the authenticated user.
+ * For each project we also fetch the LOT_INTAKE step and attach its
+ * photo URLs so the frontend can render hero images in a single call
+ * (no N+1 per-build step fetches required).
+ *
+ * Response shape per build:
+ *   { ...BuildProject fields, lotPhotos: [ { url, thumbnailUrl, name } ] }
  */
 export async function getActiveBuilds(requestObject, responseObject) {
   try {
     const authenticatedUserId = requestObject.user?.userId;
 
+    // 1) Fetch all active projects for this user
     const activeBuildProjectsArray = await BuildProject.find({
       ownerUserId: authenticatedUserId,
       status: "active",
@@ -315,9 +326,49 @@ export async function getActiveBuilds(requestObject, responseObject) {
       .sort({ updatedAt: -1 })
       .lean();
 
+    // 2) Collect all project IDs so we can bulk-fetch LOT_INTAKE steps
+    const projectIdList = activeBuildProjectsArray.map(
+      (buildProjectObject) => buildProjectObject._id
+    );
+
+    // 3) One query: get the LOT_INTAKE step for every active project
+    const lotIntakeStepsArray = await BuildStep.find({
+      projectId: { $in: projectIdList },
+      stepType: "LOT_INTAKE",
+    })
+      .select("projectId photos")
+      .lean();
+
+    // 4) Build a lookup map:  projectId → photo array
+    const projectIdToLotPhotosMap = {};
+    for (const stepDocument of lotIntakeStepsArray) {
+      const projectIdStringValue = String(stepDocument.projectId);
+      const safePhotosArray = Array.isArray(stepDocument.photos)
+        ? stepDocument.photos
+        : [];
+
+      // Only send the fields the frontend actually needs
+      projectIdToLotPhotosMap[projectIdStringValue] = safePhotosArray.map(
+        (photoObject) => ({
+          url: photoObject.url || "",
+          thumbnailUrl: photoObject.thumbnailUrl || "",
+          name: photoObject.name || "",
+        })
+      );
+    }
+
+    // 5) Attach lotPhotos to each build before sending the response
+    const buildsWithPhotosArray = activeBuildProjectsArray.map(
+      (buildProjectObject) => ({
+        ...buildProjectObject,
+        lotPhotos:
+          projectIdToLotPhotosMap[String(buildProjectObject._id)] || [],
+      })
+    );
+
     return responseObject.status(200).json({
       success: true,
-      builds: activeBuildProjectsArray,
+      builds: buildsWithPhotosArray,
     });
   } catch (error) {
     console.log("getActiveBuilds error:", error);
