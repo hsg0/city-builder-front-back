@@ -25,6 +25,7 @@ import {
   selectIsTablet,
   selectIsMobile,
 } from "../../../../reduxToolKit/reduxState/globalState/screenSelectors";
+import { selectUser } from "../../../../reduxToolKit/reduxState/globalState/authSelectors";
 
 const LOGO = require("../../../../assets/images/City-Builder-assets/image.png");
 
@@ -221,11 +222,24 @@ export default function HomeBuilderLayout() {
   const insets = useSafeAreaInsets();
   const responsive = useResponsive();
 
+  // ── Auth info exposed as searchParams to ALL downstream pages ──
+  // Usage:  const { searchParams } = useHomeDrawer();
+  //         const { userId, name, email } = searchParams;
+  const authenticatedUser = useSelector(selectUser);
+  const searchParams = useMemo(
+    () => ({
+      userId: authenticatedUser?._id ?? null,
+      name: authenticatedUser?.name ?? null,
+      email: authenticatedUser?.email ?? null,
+    }),
+    [authenticatedUser?._id, authenticatedUser?.name, authenticatedUser?.email]
+  );
+
   const openDrawer = useCallback(() => setDrawerOpen(true), []);
   const closeDrawer = useCallback(() => setDrawerOpen(false), []);
 
   return (
-    <HomeDrawerContext.Provider value={{ openDrawer, closeDrawer, drawerOpen }}>
+    <HomeDrawerContext.Provider value={{ openDrawer, closeDrawer, drawerOpen, searchParams }}>
       <Drawer
         open={drawerOpen}
         onOpen={() => setDrawerOpen(true)}

@@ -1,44 +1,309 @@
 // app/(security)/(private)/(homebuilder)/(active)/inprogress.jsx
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { useTheme } from "../../../../../wrappers/providers/ThemeContext";
+//
+// ✅ Active builds screen — simple 2-column grid
+//
+// Grid math (no flexWrap, no gap, no FlatList numColumns):
+//   cardWidth = (screenWidth - 2×edge - spacing) / 2
+//   Each row is a plain flexDirection:"row" View with exactly 2 cards.
+//   Last odd card stays left-aligned.
+//
+// ────────────────────────────────────────────────────────────────
 
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  ActivityIndicator,
+  Image,
+  Pressable,
+  RefreshControl,
+  ScrollView,
+  Text,
+  useWindowDimensions,
+  View,
+} from "react-native";
+import { useRouter } from "expo-router";
+import { useFocusEffect } from "@react-navigation/native";
+import { Ionicons } from "@expo/vector-icons";
+
+import { useTheme } from "../../../../../wrappers/providers/ThemeContext";
+import callBackend from "../../../../../services/callBackend";
+
+// ── Layout constants ──────────────────────────────────────────
+const CAROUSEL_MS = 2000;
+const COLUMNS = 2;
+const EDGE = 16;      // screen edge → first card
+const SPACING = 12;   // gap between two cards
+const ROW_GAP = 14;   // vertical space between rows
+const RADIUS = 14;    // card border radius
+
+// ── Helpers ───────────────────────────────────────────────────
+const safe = (v) => String(v || "").trim();
+
+function detailRoute(id) {
+  return {
+    pathname: "/(security)/(private)/(homebuilder)/(active)/[selectABuild]",
+    params: { selectABuild: id },
+  };
+}
+
+function photosFromBuild(build) {
+  return (Array.isArray(build?.lotPhotos) ? build.lotPhotos : [])
+    .map((p) => safe(p?.url))
+    .filter(Boolean);
+}
+
+/** Chunk a flat array into rows of `size`. */
+function chunkArray(arr, size) {
+  const rows = [];
+  for (let i = 0; i < arr.length; i += size) {
+    rows.push(arr.slice(i, i + size));
+  }
+  return rows;
+}
+
+// ══════════════════════════════════════════════════════════════
+// ██  MAIN COMPONENT
+// ══════════════════════════════════════════════════════════════
 export default function InProgressScreen() {
   const { theme } = useTheme();
+  const router = useRouter();
+  const { width: screenWidth } = useWindowDimensions();
 
-  return (
-    <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
-      <View style={[styles.card, { backgroundColor: theme.colors.surface, borderColor: theme.colors.border }]}>
-        <Text style={[styles.title, { color: theme.colors.text }]}>Active</Text>
-        <Text style={[styles.subtitle, { color: theme.colors.textSecondary }]}>
-          Track your builds in progress
+  // ── Card width — exact pixel math ──────────────────────────
+  // screenWidth = EDGE + cardW + SPACING + cardW + EDGE
+  const cardWidth = Math.floor((screenWidth - EDGE * 2 - SPACING) / COLUMNS);
+  const imageHeight = Math.round(cardWidth * 0.78);
+
+  // ── State ──────────────────────────────────────────────────
+  const [builds, setBuilds] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
+  const [error, setError] = useState("");
+
+  // ── Carousel tick ──────────────────────────────────────────
+  const [tick, setTick] = useState(0);
+  const timerRef = useRef(null);
+
+  const startTimer = useCallback(() => {
+    if (timerRef.current) return;
+    timerRef.current = setInterval(() => setTick((t) => t + 1), CAROUSEL_MS);
+  }, []);
+
+  const stopTimer = useCallback(() => {
+    if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
+  }, []);
+
+  useEffect(() => () => stopTimer(), [stopTimer]);
+
+  // ── Fetch ──────────────────────────────────────────────────
+  const fetchBuilds = useCallback(
+    async ({ pull = false } = {}) => {
+      try {
+        setError("");
+        pull ? setRefreshing(true) : setLoading(true);
+
+        const res = await callBackend.get("/api/builds/active");
+        const list = res?.data?.builds ?? [];
+        setBuilds(list);
+        if (list.length) startTimer();
+      } catch (e) {
+        setError(e?.response?.data?.message || e?.message || "Could not load builds.");
+      } finally {
+        setLoading(false);
+        setRefreshing(false);
+      }
+    },
+    [startTimer]
+  );
+
+  useFocusEffect(useCallback(() => { fetchBuilds(); }, [fetchBuilds]));
+
+  // ── Chunk builds into rows of 2 ───────────────────────────
+  const rows = useMemo(() => chunkArray(builds, COLUMNS), [builds]);
+
+  // ─────────────── Loading ───────────────────────────────────
+  if (loading) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: theme.colors.background }}>
+        <ActivityIndicator size="large" color={theme.colors.primary} />
+        <Text style={{ marginTop: 12, fontSize: 15, fontWeight: "600", color: theme.colors.textSecondary }}>
+          Loading your builds…
         </Text>
       </View>
+    );
+  }
+
+  // ─────────────── Error ─────────────────────────────────────
+  if (error && builds.length === 0) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center", paddingHorizontal: 24, backgroundColor: theme.colors.background }}>
+        <Ionicons name="cloud-offline-outline" size={48} color={theme.colors.textSecondary} />
+        <Text style={{ marginTop: 16, fontSize: 18, fontWeight: "900", color: theme.colors.text }}>Something went wrong</Text>
+        <Text style={{ marginTop: 8, fontSize: 14, fontWeight: "600", textAlign: "center", color: theme.colors.textSecondary }}>{error}</Text>
+        <Pressable
+          onPress={() => fetchBuilds()}
+          style={({ pressed }) => ({
+            flexDirection: "row", alignItems: "center", marginTop: 20,
+            paddingHorizontal: 20, paddingVertical: 12, borderRadius: 16,
+            backgroundColor: theme.colors.primary, opacity: pressed ? 0.8 : 1,
+          })}
+        >
+          <Ionicons name="refresh" size={18} color="#fff" />
+          <Text style={{ marginLeft: 8, fontSize: 15, fontWeight: "900", color: "#fff" }}>Retry</Text>
+        </Pressable>
+      </View>
+    );
+  }
+
+  // ─────────────── Empty ─────────────────────────────────────
+  if (builds.length === 0) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center", paddingHorizontal: 24, backgroundColor: theme.colors.background }}>
+        <Ionicons name="hammer-outline" size={56} color={theme.colors.textSecondary} />
+        <Text style={{ marginTop: 16, fontSize: 20, fontWeight: "900", color: theme.colors.text }}>No Active Builds</Text>
+        <Text style={{ marginTop: 8, fontSize: 14, fontWeight: "600", textAlign: "center", color: theme.colors.textSecondary }}>
+          Start a new build to see it here.
+        </Text>
+      </View>
+    );
+  }
+
+  // ─────────────── Grid ──────────────────────────────────────
+  return (
+    <View style={{ flex: 1, backgroundColor: theme.colors.background }}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: 30 }}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={() => fetchBuilds({ pull: true })} tintColor={theme.colors.primary} />
+        }
+      >
+        {/* ── Header ─────────────────────────────────────── */}
+        <View style={{ paddingHorizontal: EDGE, paddingTop: 16, paddingBottom: 14 }}>
+          <Text style={{ fontSize: 24, fontWeight: "900", color: theme.colors.text }}>Active Builds</Text>
+          <Text style={{ marginTop: 4, fontSize: 14, fontWeight: "600", color: theme.colors.textSecondary }}>
+            {builds.length} {builds.length === 1 ? "project" : "projects"}
+          </Text>
+        </View>
+
+        {/* ── Rows ───────────────────────────────────────── */}
+        {rows.map((row, rowIdx) => (
+          <View
+            key={`row-${rowIdx}`}
+            style={{
+              flexDirection: "row",
+              paddingLeft: EDGE,
+              paddingRight: EDGE,
+              marginBottom: ROW_GAP,
+            }}
+          >
+            {row.map((build, colIdx) => {
+              const id = safe(build?._id);
+              const address = safe(build?.summary?.lotAddress) || "No address";
+              const photos = photosFromBuild(build);
+              const globalIdx = rowIdx * COLUMNS + colIdx;
+              const heroUrl = photos.length > 0 ? photos[(tick + globalIdx) % photos.length] : "";
+
+              return (
+                <View
+                  key={id}
+                  style={{
+                    width: cardWidth,
+                    marginLeft: colIdx === 0 ? 0 : SPACING,
+                  }}
+                >
+                  <Pressable
+                    onPress={() => router.push(detailRoute(id))}
+                    style={({ pressed }) => ({ opacity: pressed ? 0.85 : 1 })}
+                  >
+                    <View
+                      style={{
+                        borderRadius: RADIUS,
+                        overflow: "hidden",
+                        borderWidth: 1,
+                        borderColor: `${theme.colors.border}AA`,
+                        backgroundColor: theme.colors.surface,
+                      }}
+                    >
+                      {/* ── Image ──────────────────────────── */}
+                      {heroUrl ? (
+                        <Image
+                          source={{ uri: heroUrl }}
+                          style={{ width: cardWidth, height: imageHeight }}
+                          resizeMode="cover"
+                        />
+                      ) : (
+                        <View
+                          style={{
+                            width: cardWidth,
+                            height: imageHeight,
+                            alignItems: "center",
+                            justifyContent: "center",
+                            backgroundColor: `${theme.colors.primary}12`,
+                          }}
+                        >
+                          <Ionicons name="image-outline" size={28} color={theme.colors.primary} />
+                          <Text style={{ marginTop: 6, fontSize: 11, fontWeight: "700", color: theme.colors.primary }}>
+                            No photos yet
+                          </Text>
+                        </View>
+                      )}
+
+                      {/* ── Active badge (top-left) ────────── */}
+                      <View
+                        style={{
+                          position: "absolute", left: 8, top: 8,
+                          flexDirection: "row", alignItems: "center",
+                          paddingHorizontal: 8, paddingVertical: 3,
+                          borderRadius: 999, backgroundColor: `${theme.colors.primary}22`,
+                        }}
+                      >
+                        <View style={{ width: 7, height: 7, borderRadius: 4, backgroundColor: theme.colors.primary }} />
+                        <Text style={{ marginLeft: 4, fontSize: 10, fontWeight: "900", color: theme.colors.primary }}>Active</Text>
+                      </View>
+
+                      {/* ── Photo count badge (top-right) ──── */}
+                      {photos.length > 0 && (
+                        <View
+                          style={{
+                            position: "absolute", right: 8, top: 8,
+                            flexDirection: "row", alignItems: "center",
+                            paddingHorizontal: 7, paddingVertical: 3,
+                            borderRadius: 999, backgroundColor: "rgba(0,0,0,0.5)",
+                          }}
+                        >
+                          <Ionicons name="images-outline" size={12} color="#fff" />
+                          <Text style={{ marginLeft: 4, fontSize: 10, fontWeight: "900", color: "#fff" }}>{photos.length}</Text>
+                        </View>
+                      )}
+
+                      {/* ── Text area ──────────────────────── */}
+                      <View style={{ padding: 10 }}>
+                        <Text
+                          numberOfLines={2}
+                          style={{ fontSize: 13, fontWeight: "900", color: theme.colors.text, lineHeight: 18 }}
+                        >
+                          {address}
+                        </Text>
+                        <View style={{ flexDirection: "row", alignItems: "center", marginTop: 8 }}>
+                          <Ionicons name="arrow-forward-circle" size={15} color={theme.colors.success} />
+                          <Text style={{ marginLeft: 6, fontSize: 12, fontWeight: "900", color: theme.colors.success }}>
+                            Open build
+                          </Text>
+                        </View>
+                      </View>
+                    </View>
+                  </Pressable>
+                </View>
+              );
+            })}
+
+            {/* If odd row, add an invisible spacer so the left card doesn't stretch */}
+            {row.length < COLUMNS && (
+              <View style={{ width: cardWidth, marginLeft: SPACING }} />
+            )}
+          </View>
+        ))}
+      </ScrollView>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 20,
-  },
-  card: {
-    borderRadius: 16,
-    borderWidth: 1,
-    padding: 24,
-    alignItems: "center",
-    width: "100%",
-  },
-  title: {
-    fontSize: 22,
-    fontWeight: "800",
-    marginBottom: 8,
-  },
-  subtitle: {
-    fontSize: 14,
-    textAlign: "center",
-  },
-});
