@@ -113,7 +113,7 @@ export default function CompletedBuildDetailScreen() {
     const totalCost = steps.reduce((sum, s) => {
       const cost = s.costAmount > 0 ? s.costAmount : 0;
       return sum + cost;
-    }, build?.summary?.lotPrice ?? 0);
+    }, 0);
 
     const message = [
       `🏗️ City Builder — Completed Build`,
@@ -151,7 +151,7 @@ export default function CompletedBuildDetailScreen() {
   // ── Total cost across all steps ────────────────────────────
   const totalCost = steps.reduce((sum, s) => {
     return sum + (s.costAmount > 0 ? s.costAmount : 0);
-  }, build?.summary?.lotPrice ?? 0);
+  }, 0);
 
   // ─────────────── LOADING ───────────────────────────────────
   if (loading) {
