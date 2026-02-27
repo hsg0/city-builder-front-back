@@ -6,6 +6,7 @@ import { checkAuth } from "../../middleware/authMiddleware.js";
 import {
   createNewBuild,
   getActiveBuilds,
+  markBuildComplete,
   getBuildStepsByProjectId,
   addBuildStepToProject,
   updateBuildStepByStepId,
@@ -64,6 +65,12 @@ homeBuilderRouter.post(
   checkAuth,
   uploadPhotosToBuildStepByStepId
 );
+
+/**
+ * Mark a build as completed
+ * PATCH /:projectId/complete — must come BEFORE the /:projectId GET route
+ */
+homeBuilderRouter.patch("/:projectId/complete", checkAuth, markBuildComplete);
 
 /**
  * Get a single build project + all its steps

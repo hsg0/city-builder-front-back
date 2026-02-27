@@ -375,3 +375,67 @@ export async function getActiveBuilds(requestObject, responseObject) {
     return responseObject.status(500).json({ success: false, message: "Server error" });
   }
 }
+
+//------------------------------------------------------------------------------
+/**
+ * PATCH /api/builds/:projectId/complete
+ *
+ * Marks an active BuildProject as "completed".
+ * - Verifies the authenticated user owns the project.
+ * - Sets status → "completed" via findOneAndUpdate.
+ * - Returns the updated build document.
+ */
+export async function markBuildComplete(requestObject, responseObject) {
+  try {
+    const authenticatedUserId = requestObject.user?.userId;
+    const projectIdParam = requestObject.params?.projectId;
+
+    if (!projectIdParam) {
+      return responseObject
+        .status(400)
+        .json({ success: false, message: "projectId is required" });
+    }
+
+    console.log(
+      "[markBuildComplete] userId:",
+      authenticatedUserId,
+      "projectId:",
+      projectIdParam
+    );
+
+    // Atomic find + update — only if the caller owns it AND it's currently active
+    const updatedBuildDocument = await BuildProject.findOneAndUpdate(
+      {
+        _id: projectIdParam,
+        ownerUserId: authenticatedUserId,
+        status: "active",
+      },
+      { $set: { status: "completed" } },
+      { new: true }
+    );
+
+    if (!updatedBuildDocument) {
+      return responseObject.status(404).json({
+        success: false,
+        message:
+          "Build not found, not owned by you, or already completed/archived.",
+      });
+    }
+
+    console.log(
+      "[markBuildComplete] ✅ Build marked complete:",
+      updatedBuildDocument._id
+    );
+
+    return responseObject.status(200).json({
+      success: true,
+      message: "Build marked as completed.",
+      build: updatedBuildDocument,
+    });
+  } catch (error) {
+    console.log("markBuildComplete error:", error);
+    return responseObject
+      .status(500)
+      .json({ success: false, message: "Server error" });
+  }
+}

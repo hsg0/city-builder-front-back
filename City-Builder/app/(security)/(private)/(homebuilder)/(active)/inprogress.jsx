@@ -12,6 +12,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   ActivityIndicator,
+  Alert,
   Image,
   Pressable,
   RefreshControl,
@@ -72,6 +73,36 @@ export default function InProgressScreen() {
   // screenWidth = EDGE + cardW + SPACING + cardW + EDGE
   const cardWidth = Math.floor((screenWidth - EDGE * 2 - SPACING) / COLUMNS);
   const imageHeight = Math.round(cardWidth * 0.78);
+
+  // ── Neon accent palette ────────────────────────────────────
+  const NEON_YELLOW_BG15 = "rgba(250,204,21,0.15)";
+  const NEON_YELLOW_MUTED = "#facc15";
+
+  // ── Mark build complete handler ────────────────────────────
+  function handleMarkComplete(buildId, address) {
+    Alert.alert(
+      "Mark build as complete?",
+      `"${address}" will move from Active to Completed.`,
+      [
+        { text: "Cancel", style: "cancel" },
+        {
+          text: "Mark Complete",
+          style: "default",
+          onPress: async () => {
+            try {
+              await callBackend.patch(`/api/builds/${buildId}/complete`);
+              Alert.alert("Done ✅", "Build marked as completed.");
+              fetchBuilds();
+            } catch (e) {
+              const msg =
+                e?.response?.data?.message || e?.message || "Could not complete build.";
+              Alert.alert("Error", msg);
+            }
+          },
+        },
+      ]
+    );
+  }
 
   // ── State ──────────────────────────────────────────────────
   const [builds, setBuilds] = useState([]);
@@ -292,6 +323,36 @@ export default function InProgressScreen() {
                         </View>
                       </View>
                     </View>
+                  </Pressable>
+
+                  {/* ── Mark Complete button ──────────── */}
+                  <Pressable
+                    className="flex-row mt-3 border border-yellow-300 bg-grey-100 rounded-lg px-3 py-1 items-center"
+                    onPress={() => handleMarkComplete(id, address)}
+                    style={({ pressed }) => ({
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginTop: 8,
+                      paddingVertical: 8,
+                      borderRadius: 10,
+                      backgroundColor: NEON_YELLOW_BG15,
+                      borderWidth: 1,
+                      borderColor: "rgba(250,204,21,0.25)",
+                      opacity: pressed ? 0.8 : 1,
+                    })}
+                  >
+                    <Ionicons className="ml-2" name="checkmark-done" size={16} color={NEON_YELLOW_MUTED} />
+                    <Text
+                      style={{
+                        marginLeft: 10,
+                        fontSize: 11,
+                        fontWeight: "900",
+                        color: NEON_YELLOW_MUTED,
+                      }}
+                    >
+                      Mark Complete
+                    </Text>
                   </Pressable>
                 </View>
               );

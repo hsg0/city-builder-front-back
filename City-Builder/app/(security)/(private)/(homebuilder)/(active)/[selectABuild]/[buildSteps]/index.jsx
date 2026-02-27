@@ -234,37 +234,72 @@ export default function BuildStepDetailScreen() {
       >
         {/* ── Header ─────────────────────────────────────── */}
         <View style={{ paddingHorizontal: 20, paddingTop: 14, paddingBottom: 10 }}>
-          {/* Back button */}
-          <Pressable
-            className="flex-row mt-1 mb-4"
-            onPress={() => router.back()}
-            style={({ pressed }) => ({
+          {/* Back + Edit row */}
+          <View
+            style={{
               flexDirection: "row",
               alignItems: "center",
-              alignSelf: "flex-start",
-              paddingVertical: 8,
-              paddingRight: 16,
+              justifyContent: "space-between",
               marginBottom: 10,
-              opacity: pressed ? 0.6 : 1,
-            })}
+            }}
           >
-            <Ionicons
-              name="chevron-back"
-              size={30}
-              color={NEON.yellowMuted}
-            />
-            <Text
-              className="text-sm mt-1.5"
-              style={{
-                fontSize: 15,
-                fontWeight: "700",
-                color: NEON.yellowMuted,
-                marginLeft: 4,
-              }}
+            <Pressable
+              className="flex-row"
+              onPress={() => router.back()}
+              style={({ pressed }) => ({
+                flexDirection: "row",
+                alignItems: "center",
+                paddingVertical: 8,
+                paddingRight: 16,
+                opacity: pressed ? 0.6 : 1,
+              })}
             >
-              Back
-            </Text>
-          </Pressable>
+              <Ionicons name="chevron-back" size={30} color={NEON.yellowMuted} />
+              <Text
+                className="text-sm mt-1.5"
+                style={{
+                  fontSize: 15,
+                  fontWeight: "700",
+                  color: NEON.yellowMuted,
+                  marginLeft: 4,
+                }}
+              >
+                Back
+              </Text>
+            </Pressable>
+
+            {/* Edit button */}
+            <Pressable
+              onPress={() =>
+                router.push({
+                  pathname: `/(homebuilder)/(active)/${buildId}/${stepId}/edit`,
+                })
+              }
+              style={({ pressed }) => ({
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 6,
+                paddingHorizontal: 16,
+                paddingVertical: 10,
+                borderRadius: 14,
+                backgroundColor: NEON.yellowBg15,
+                borderWidth: 1,
+                borderColor: "rgba(250,204,21,0.25)",
+                opacity: pressed ? 0.7 : 1,
+              })}
+            >
+              <Ionicons name="create-outline" size={16} color={NEON.yellow} />
+              <Text
+                style={{
+                  fontSize: 14,
+                  fontWeight: "800",
+                  color: NEON.yellow,
+                }}
+              >
+                Edit
+              </Text>
+            </Pressable>
+          </View>
 
           {/* Step number badge + title */}
           <View style={{ flexDirection: "row", alignItems: "flex-start", gap: 12 }}>
@@ -328,7 +363,7 @@ export default function BuildStepDetailScreen() {
         </View>
 
         {/* ── Dates row ──────────────────────────────────── */}
-        {(hasStart || hasEnd) && (
+        {(hasStart || hasEnd) ? (
           <View
             style={{
               flexDirection: "row",
@@ -337,124 +372,20 @@ export default function BuildStepDetailScreen() {
               gap: 10,
             }}
           >
-            {hasStart && (
-              <View
-                style={{
-                  flex: 1,
-                  flexDirection: "row",
-                  alignItems: "center",
-                  gap: 8,
-                  padding: 12,
-                  borderRadius: 14,
-                  backgroundColor: theme.colors.surface,
-                  borderWidth: 1,
-                  borderColor: theme.colors.border,
-                }}
-              >
-                <Ionicons
-                  name="calendar-outline"
-                  size={18}
-                  color={NEON.yellowMuted}
-                />
-                <View>
-                  <Text
-                    style={{
-                      fontSize: 11,
-                      fontWeight: "700",
-                      color: theme.colors.textSecondary,
-                      textTransform: "uppercase",
-                      letterSpacing: 0.5,
-                    }}
-                  >
-                    Start
-                  </Text>
-                  <Text
-                    style={{
-                      fontSize: 14,
-                      fontWeight: "600",
-                      color: theme.colors.text,
-                      marginTop: 2,
-                    }}
-                  >
-                    {step.dateStart}
-                  </Text>
-                </View>
-              </View>
-            )}
-
-            {hasEnd && (
-              <View
-                style={{
-                  flex: 1,
-                  flexDirection: "row",
-                  alignItems: "center",
-                  gap: 8,
-                  padding: 12,
-                  borderRadius: 14,
-                  backgroundColor: theme.colors.surface,
-                  borderWidth: 1,
-                  borderColor: theme.colors.border,
-                }}
-              >
-                <Ionicons
-                  name="calendar-outline"
-                  size={18}
-                  color={NEON.green}
-                />
-                <View>
-                  <Text
-                    style={{
-                      fontSize: 11,
-                      fontWeight: "700",
-                      color: theme.colors.textSecondary,
-                      textTransform: "uppercase",
-                      letterSpacing: 0.5,
-                    }}
-                  >
-                    End
-                  </Text>
-                  <Text
-                    style={{
-                      fontSize: 14,
-                      fontWeight: "600",
-                      color: theme.colors.text,
-                      marginTop: 2,
-                    }}
-                  >
-                    {step.dateEnd}
-                  </Text>
-                </View>
-              </View>
-            )}
-          </View>
-        )}
-
-        {/* ── Cost card ──────────────────────────────────── */}
-        {hasCost && (
-          <View
-            style={{
-              marginHorizontal: 20,
-              marginTop: 14,
-              padding: 16,
-              borderRadius: 16,
-              backgroundColor: theme.colors.surface,
-              borderWidth: 1,
-              borderColor: theme.colors.border,
-            }}
-          >
-            <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
-              <View
-                style={{
-                  width: 36,
-                  height: 36,
-                  borderRadius: 18,
-                  backgroundColor: NEON.greenBg15,
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Ionicons name="cash-outline" size={18} color={NEON.green} />
-              </View>
+            <View
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 8,
+                padding: 12,
+                borderRadius: 14,
+                backgroundColor: theme.colors.surface,
+                borderWidth: 1,
+                borderColor: theme.colors.border,
+              }}
+            >
+              <Ionicons name="calendar-outline" size={18} color={NEON.yellowMuted} />
               <View>
                 <Text
                   style={{
@@ -465,103 +396,248 @@ export default function BuildStepDetailScreen() {
                     letterSpacing: 0.5,
                   }}
                 >
-                  Cost
+                  Start
                 </Text>
                 <Text
                   style={{
-                    fontSize: 20,
-                    fontWeight: "900",
+                    fontSize: 14,
+                    fontWeight: "600",
                     color: theme.colors.text,
                     marginTop: 2,
                   }}
                 >
-                  {formatCurrency(step.costAmount)}
+                  {hasStart ? step.dateStart : "Not set"}
+                </Text>
+              </View>
+            </View>
+
+            <View
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 8,
+                padding: 12,
+                borderRadius: 14,
+                backgroundColor: theme.colors.surface,
+                borderWidth: 1,
+                borderColor: theme.colors.border,
+              }}
+            >
+              <Ionicons name="calendar-outline" size={18} color={NEON.green} />
+              <View>
+                <Text
+                  style={{
+                    fontSize: 11,
+                    fontWeight: "700",
+                    color: theme.colors.textSecondary,
+                    textTransform: "uppercase",
+                    letterSpacing: 0.5,
+                  }}
+                >
+                  End
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 14,
+                    fontWeight: "600",
+                    color: theme.colors.text,
+                    marginTop: 2,
+                  }}
+                >
+                  {hasEnd ? step.dateEnd : "Not set"}
+                </Text>
+              </View>
+            </View>
+          </View>
+        ) : (
+          <View
+            style={{
+              flexDirection: "row",
+              marginHorizontal: 20,
+              marginTop: 14,
+              gap: 10,
+            }}
+          >
+            <View
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 8,
+                padding: 12,
+                borderRadius: 14,
+                backgroundColor: theme.colors.surface,
+                borderWidth: 1,
+                borderColor: theme.colors.border,
+              }}
+            >
+              <Ionicons name="calendar-outline" size={18} color={theme.colors.textSecondary} />
+              <View>
+                <Text style={{ fontSize: 11, fontWeight: "700", color: theme.colors.textSecondary, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                  Start
+                </Text>
+                <Text style={{ fontSize: 14, fontWeight: "600", color: theme.colors.textSecondary, marginTop: 2 }}>
+                  Not set
+                </Text>
+              </View>
+            </View>
+            <View
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 8,
+                padding: 12,
+                borderRadius: 14,
+                backgroundColor: theme.colors.surface,
+                borderWidth: 1,
+                borderColor: theme.colors.border,
+              }}
+            >
+              <Ionicons name="calendar-outline" size={18} color={theme.colors.textSecondary} />
+              <View>
+                <Text style={{ fontSize: 11, fontWeight: "700", color: theme.colors.textSecondary, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                  End
+                </Text>
+                <Text style={{ fontSize: 14, fontWeight: "600", color: theme.colors.textSecondary, marginTop: 2 }}>
+                  Not set
                 </Text>
               </View>
             </View>
           </View>
         )}
 
-        {/* ── Notes card ─────────────────────────────────── */}
-        {hasNotes && (
-          <View
-            style={{
-              marginHorizontal: 20,
-              marginTop: 14,
-              padding: 16,
-              borderRadius: 16,
-              backgroundColor: theme.colors.surface,
-              borderWidth: 1,
-              borderColor: theme.colors.border,
-            }}
-          >
+        {/* ── Cost card ──────────────────────────────────── */}
+        <View
+          style={{
+            marginHorizontal: 20,
+            marginTop: 14,
+            padding: 16,
+            borderRadius: 16,
+            backgroundColor: theme.colors.surface,
+            borderWidth: 1,
+            borderColor: theme.colors.border,
+          }}
+        >
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
             <View
               style={{
-                flexDirection: "row",
+                width: 36,
+                height: 36,
+                borderRadius: 18,
+                backgroundColor: NEON.greenBg15,
                 alignItems: "center",
-                gap: 8,
-                marginBottom: 10,
+                justifyContent: "center",
               }}
             >
-              <Ionicons
-                name="document-text-outline"
-                size={18}
-                color={NEON.yellowMuted}
-              />
+              <Ionicons name="cash-outline" size={18} color={NEON.green} />
+            </View>
+            <View>
               <Text
                 style={{
-                  fontSize: 14,
-                  fontWeight: "800",
-                  color: theme.colors.text,
+                  fontSize: 11,
+                  fontWeight: "700",
+                  color: theme.colors.textSecondary,
                   textTransform: "uppercase",
                   letterSpacing: 0.5,
                 }}
               >
-                Notes
+                Cost
+              </Text>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: "900",
+                  color: hasCost ? theme.colors.text : theme.colors.textSecondary,
+                  marginTop: 2,
+                }}
+              >
+                {hasCost ? formatCurrency(step.costAmount) : "No cost added"}
               </Text>
             </View>
+          </View>
+        </View>
+
+        {/* ── Notes card ─────────────────────────────────── */}
+        <View
+          style={{
+            marginHorizontal: 20,
+            marginTop: 14,
+            padding: 16,
+            borderRadius: 16,
+            backgroundColor: theme.colors.surface,
+            borderWidth: 1,
+            borderColor: theme.colors.border,
+          }}
+        >
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              gap: 8,
+              marginBottom: 10,
+            }}
+          >
+            <Ionicons
+              name="document-text-outline"
+              size={18}
+              color={NEON.yellowMuted}
+            />
             <Text
               style={{
                 fontSize: 14,
-                fontWeight: "500",
-                color: theme.colors.textSecondary,
-                lineHeight: 22,
+                fontWeight: "800",
+                color: theme.colors.text,
+                textTransform: "uppercase",
+                letterSpacing: 0.5,
               }}
             >
-              {step.notes}
+              Notes
             </Text>
           </View>
-        )}
+          <Text
+            style={{
+              fontSize: 14,
+              fontWeight: "500",
+              color: hasNotes ? theme.colors.textSecondary : theme.colors.textSecondary,
+              lineHeight: 22,
+              fontStyle: hasNotes ? "normal" : "italic",
+            }}
+          >
+            {hasNotes ? step.notes : "No notes added"}
+          </Text>
+        </View>
 
         {/* ── Photos grid ────────────────────────────────── */}
-        {photos.length > 0 && (
-          <View style={{ marginHorizontal: 20, marginTop: 18 }}>
-            <View
+        <View style={{ marginHorizontal: 20, marginTop: 18 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              gap: 8,
+              marginBottom: 12,
+            }}
+          >
+            <Ionicons
+              name="images-outline"
+              size={18}
+              color={NEON.yellowMuted}
+            />
+            <Text
               style={{
-                flexDirection: "row",
-                alignItems: "center",
-                gap: 8,
-                marginBottom: 12,
+                fontSize: 14,
+                fontWeight: "800",
+                color: theme.colors.text,
+                textTransform: "uppercase",
+                letterSpacing: 0.5,
               }}
             >
-              <Ionicons
-                name="images-outline"
-                size={18}
-                color={NEON.yellowMuted}
-              />
-              <Text
-                style={{
-                  fontSize: 14,
-                  fontWeight: "800",
-                  color: theme.colors.text,
-                  textTransform: "uppercase",
-                  letterSpacing: 0.5,
-                }}
-              >
-                Photos ({photos.length})
-              </Text>
-            </View>
+              Photos ({photos.length})
+            </Text>
+          </View>
 
+          {photos.length > 0 ? (
             <View
               style={{
                 flexDirection: "row",
@@ -583,8 +659,32 @@ export default function BuildStepDetailScreen() {
                 />
               ))}
             </View>
-          </View>
-        )}
+          ) : (
+            <View
+              style={{
+                padding: 20,
+                borderRadius: 14,
+                borderWidth: 1,
+                borderColor: theme.colors.border,
+                borderStyle: "dashed",
+                alignItems: "center",
+              }}
+            >
+              <Ionicons name="camera-outline" size={28} color={theme.colors.textSecondary} />
+              <Text
+                style={{
+                  marginTop: 8,
+                  fontSize: 13,
+                  fontWeight: "600",
+                  color: theme.colors.textSecondary,
+                  fontStyle: "italic",
+                }}
+              >
+                No photos added yet
+              </Text>
+            </View>
+          )}
+        </View>
 
         {/* ── Step metadata table ────────────────────────── */}
         <View

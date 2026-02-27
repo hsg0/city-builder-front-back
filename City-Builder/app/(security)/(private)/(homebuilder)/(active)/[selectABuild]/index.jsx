@@ -299,27 +299,10 @@ export default function BuildDetailScreen() {
     openAddStepModal();
   }
 
-  function handlePressMarkBuildComplete() {
-    Alert.alert(
-      "Mark build as complete?",
-      "This build will move from Active to Completed.",
-      [
-        { text: "Cancel", style: "cancel" },
-        {
-          text: "Mark Complete",
-          style: "default",
-          onPress: async () => {
-            // TODO: call API to mark complete
-            console.log("[BuildDetail] Mark complete:", buildId);
-          },
-        },
-      ]
-    );
-  }
-
   function handlePressEditStep(step) {
-    // TODO: navigate to edit-step screen
-    console.log("[BuildDetail] Edit step:", step._id);
+    router.push({
+      pathname: `/(homebuilder)/(active)/${buildId}/${step._id}/edit`,
+    });
   }
 
   function handlePressDeleteStep(step) {
@@ -443,22 +426,32 @@ export default function BuildDetailScreen() {
       : item.costAmount;
 
     return (
-      <Pressable
-        onPress={() =>
-          router.push({
-            pathname: `/(homebuilder)/(active)/${buildId}/${item._id}`,
-          })
-        }
-        style={({ pressed }) => ({
-          marginBottom: 12,
-          borderRadius: 16,
-          borderWidth: 1,
-          borderColor: theme.colors.border,
-          backgroundColor: theme.colors.surface,
-          padding: 14,
-          opacity: pressed ? 0.85 : 1,
-        })}
-      >
+      <View>
+        {/* Horizontal separator line */}
+        <View
+          style={{
+            height: StyleSheet.hairlineWidth,
+            backgroundColor: theme.colors.border,
+            marginBottom: 14,
+          }}
+        />
+
+        <Pressable
+          onPress={() =>
+            router.push({
+              pathname: `/(homebuilder)/(active)/${buildId}/${item._id}`,
+            })
+          }
+          style={({ pressed }) => ({
+            marginBottom: 12,
+            borderRadius: 16,
+            borderWidth: 1,
+            borderColor: theme.colors.border,
+            backgroundColor: theme.colors.surface,
+            padding: 14,
+            opacity: pressed ? 0.85 : 1,
+          })}
+        >
         <View
           style={{
             flexDirection: "row",
@@ -518,6 +511,27 @@ export default function BuildDetailScreen() {
                 {item.notes}
               </Text>
             ) : null}
+
+            {/* View Details hint */}
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginTop: 10,
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 13,
+                  fontWeight: "600",
+                  color: NEON.yellowMuted,
+                  marginRight: 4,
+                }}
+              >
+                View Details
+              </Text>
+              <Ionicons name="chevron-forward" size={14} color={NEON.yellowMuted} />
+            </View>
           </View>
 
           {/* Right — actions (stacked) */}
@@ -548,10 +562,11 @@ export default function BuildDetailScreen() {
             {/* Cost — right-aligned under Edit */}
             <View
               style={{
+                marginTop: 10,
                 flexDirection: "row",
                 alignItems: "center",
                 justifyContent: "flex-end",
-                gap: 4,
+                gap: 6,
                 paddingHorizontal: 4,
               }}
             >
@@ -590,31 +605,8 @@ export default function BuildDetailScreen() {
           </View>
         </View>
 
-        {/* View Details hint */}
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "flex-end",
-            marginTop: 10,
-            paddingTop: 8,
-            borderTopWidth: StyleSheet.hairlineWidth,
-            borderTopColor: theme.colors.border,
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 13,
-              fontWeight: "600",
-              color: NEON.yellowMuted,
-              marginRight: 4,
-            }}
-          >
-            View Details
-          </Text>
-          <Ionicons name="chevron-forward" size={14} color={NEON.yellowMuted} />
-        </View>
       </Pressable>
+      </View>
     );
   }
 
@@ -778,80 +770,6 @@ export default function BuildDetailScreen() {
 
       {/* ── Body ──────────────────────────────────────────── */}
       <View style={{ flex: 1, paddingHorizontal: 20 }}>
-        {/* Mark Build Complete banner */}
-        <Pressable
-          onPress={handlePressMarkBuildComplete}
-          accessibilityRole="button"
-          accessibilityLabel="Mark this build as completed"
-          style={({ pressed }) => ({
-            marginBottom: 18,
-            borderRadius: 20,
-            borderWidth: 1,
-            borderColor: NEON.yellowBg25,
-            backgroundColor: NEON.yellowBg15,
-            padding: 18,
-            opacity: pressed ? 0.9 : 1,
-          })}
-        >
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
-          >
-            <View
-              style={{ flexDirection: "row", alignItems: "center", gap: 12 }}
-            >
-              <View
-                style={{
-                  width: 56,
-                  height: 56,
-                  borderRadius: 16,
-                  borderWidth: 1,
-                  borderColor: NEON.yellowBg25,
-                  backgroundColor: NEON.yellowBg20,
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Ionicons
-                  name="checkmark-done"
-                  size={26}
-                  color={NEON.yellowMuted}
-                />
-              </View>
-              <View>
-                <Text
-                  style={{
-                    fontSize: 16,
-                    fontWeight: "900",
-                    color: theme.colors.text,
-                  }}
-                >
-                  Mark Build Completed
-                </Text>
-                <Text
-                  style={{
-                    fontSize: 13,
-                    fontWeight: "500",
-                    marginTop: 2,
-                    color: theme.colors.textSecondary,
-                  }}
-                >
-                  Moves this build to Completed
-                </Text>
-              </View>
-            </View>
-
-            <Ionicons
-              name="chevron-forward"
-              size={30}
-              color={NEON.yellowMuted}
-            />
-          </View>
-        </Pressable>
-
         {/* Section title */}
         <Text
           style={{
