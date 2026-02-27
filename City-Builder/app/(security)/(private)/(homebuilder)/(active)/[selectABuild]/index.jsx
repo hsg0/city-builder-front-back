@@ -436,6 +436,12 @@ export default function BuildDetailScreen() {
       safe(item.title) || safe(item.stepType).replace(/_/g, " ");
     const photoCount = Array.isArray(item.photos) ? item.photos.length : 0;
 
+    // For Step 1 (Lot Intake), pull lotPrice from the build summary
+    const isFirstStep = index === 0;
+    const stepCost = isFirstStep
+      ? (build?.summary?.lotPrice ?? item.costAmount)
+      : item.costAmount;
+
     return (
       <Pressable
         onPress={() =>
@@ -472,32 +478,6 @@ export default function BuildDetailScreen() {
             >
               Step {index + 1}: {title}
             </Text>
-
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                gap: 6,
-                marginTop: 8,
-              }}
-            >
-              <Ionicons
-                name="cash-outline"
-                size={16}
-                color={theme.colors.textSecondary}
-              />
-              <Text
-                style={{
-                  fontSize: 13,
-                  fontWeight: "500",
-                  color: theme.colors.textSecondary,
-                }}
-              >
-                {item.costAmount
-                  ? formatCurrency(item.costAmount)
-                  : "Cost not added"}
-              </Text>
-            </View>
 
             {photoCount > 0 && (
               <View
@@ -565,6 +545,33 @@ export default function BuildDetailScreen() {
               </Text>
             </Pressable>
 
+            {/* Cost — right-aligned under Edit */}
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "flex-end",
+                gap: 4,
+                paddingHorizontal: 4,
+              }}
+            >
+              <Ionicons
+                name="cash-outline"
+                size={14}
+                color={stepCost > 0 ? NEON.green : theme.colors.textSecondary}
+              />
+              <Text
+                style={{
+                  fontSize: 13,
+                  fontWeight: "700",
+                  color: stepCost > 0 ? NEON.green : theme.colors.textSecondary,
+                }}
+              >
+                {stepCost > 0 ? formatCurrency(stepCost) : "No cost"}
+              </Text>
+            </View>
+
+            {/* Delete button — hidden for now
             <Pressable
               onPress={() => handlePressDeleteStep(item)}
               accessibilityRole="button"
@@ -579,6 +586,7 @@ export default function BuildDetailScreen() {
                 Delete
               </Text>
             </Pressable>
+            */}
           </View>
         </View>
 
