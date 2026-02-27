@@ -245,12 +245,17 @@ export async function createNewBuild(requestObject, responseObject) {
     });
 
     // 2) Create LOT_INTAKE step with photos + data
+    //    Also persist lotPrice → costAmount and start date so the step
+    //    document is self-contained (no need for runtime enrichment on
+    //    newly-created builds).
     const createdLotIntakeStepDocument = await BuildStep.create({
       projectId: createdBuildProjectDocument._id,
       ownerUserId: authenticatedUserId,
       stepType: "LOT_INTAKE",
       title: "Lot Intake",
       status: "in_progress",
+      costAmount: lotPriceNumberValue,
+      dateStart: new Date().toISOString().split("T")[0],
       data: {
         lotTerrainType: lotTerrainTypeStringValue,
         hasOldHouseToDemolish: hasOldHouseToDemolishBooleanValue,
@@ -434,6 +439,134 @@ export async function markBuildComplete(requestObject, responseObject) {
     });
   } catch (error) {
     console.log("markBuildComplete error:", error);
+    return responseObject
+      .status(500)
+      .json({ success: false, message: "Server error" });
+  }
+}
+
+//------------------------------------------------------------------------------
+/**
+ * PATCH /api/builds/:projectId/reactivate
+ *
+ * Marks a completed BuildProject back to "active".
+ * - Verifies the authenticated user owns the project.
+ * - Sets status → "active" via findOneAndUpdate.
+ * - Returns the updated build document.
+ */
+export async function markBuildActive(requestObject, responseObject) {
+  try {
+    const authenticatedUserId = requestObject.user?.userId;
+    const projectIdParam = requestObject.params?.projectId;
+
+    if (!projectIdParam) {
+      return responseObject
+        .status(400)
+        .json({ success: false, message: "projectId is required" });
+    }
+
+    console.log(
+      "[markBuildActive] userId:",
+      authenticatedUserId,
+      "projectId:",
+      projectIdParam
+    );
+
+    const updatedBuildDocument = await BuildProject.findOneAndUpdate(
+      {
+        _id: projectIdParam,
+        ownerUserId: authenticatedUserId,
+        status: "completed",
+      },
+      { $set: { status: "active" } },
+      { new: true }
+    );
+
+    if (!updatedBuildDocument) {
+      return responseObject.status(404).json({
+        success: false,
+        message:
+          "Build not found, not owned by you, or not currently completed.",
+      });
+    }
+
+    console.log(
+      "[markBuildActive] ✅ Build reactivated:",
+      updatedBuildDocument._id
+    );
+
+    return responseObject.status(200).json({
+      success: true,
+      message: "Build marked as active.",
+      build: updatedBuildDocument,
+    });
+  } catch (error) {
+    console.log("markBuildActive error:", error);
+    return responseObject
+      .status(500)
+      .json({ success: false, message: "Server error" });
+  }
+}
+
+//------------------------------------------------------------------------------
+/**
+ * GET /api/builds/completed
+ *
+ * Returns every completed BuildProject for the authenticated user.
+ * Attaches LOT_INTAKE photos (same pattern as getActiveBuilds).
+ */
+export async function getCompletedBuilds(requestObject, responseObject) {
+  try {
+    const authenticatedUserId = requestObject.user?.userId;
+
+    const completedBuildProjectsArray = await BuildProject.find({
+      ownerUserId: authenticatedUserId,
+      status: "completed",
+    })
+      .sort({ updatedAt: -1 })
+      .lean();
+
+    const projectIdList = completedBuildProjectsArray.map(
+      (buildProjectObject) => buildProjectObject._id
+    );
+
+    const lotIntakeStepsArray = await BuildStep.find({
+      projectId: { $in: projectIdList },
+      stepType: "LOT_INTAKE",
+    })
+      .select("projectId photos")
+      .lean();
+
+    const projectIdToLotPhotosMap = {};
+    for (const stepDocument of lotIntakeStepsArray) {
+      const projectIdStringValue = String(stepDocument.projectId);
+      const safePhotosArray = Array.isArray(stepDocument.photos)
+        ? stepDocument.photos
+        : [];
+
+      projectIdToLotPhotosMap[projectIdStringValue] = safePhotosArray.map(
+        (photoObject) => ({
+          url: photoObject.url || "",
+          thumbnailUrl: photoObject.thumbnailUrl || "",
+          name: photoObject.name || "",
+        })
+      );
+    }
+
+    const buildsWithPhotosArray = completedBuildProjectsArray.map(
+      (buildProjectObject) => ({
+        ...buildProjectObject,
+        lotPhotos:
+          projectIdToLotPhotosMap[String(buildProjectObject._id)] || [],
+      })
+    );
+
+    return responseObject.status(200).json({
+      success: true,
+      builds: buildsWithPhotosArray,
+    });
+  } catch (error) {
+    console.log("getCompletedBuilds error:", error);
     return responseObject
       .status(500)
       .json({ success: false, message: "Server error" });

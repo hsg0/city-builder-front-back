@@ -33,10 +33,32 @@ export async function getBuildById(req, res) {
       .sort({ createdAt: 1 })
       .lean();
 
+    // 3) Enrich the LOT_INTAKE step with project-level data so every
+    //    frontend screen gets complete data without special-casing.
+    const enrichedSteps = steps.map((step) => {
+      if (step.stepType !== "LOT_INTAKE") return step;
+
+      const enriched = { ...step };
+
+      // Cost: use lotPrice from project if step has no cost
+      if (!(enriched.costAmount > 0) && buildProject.summary?.lotPrice > 0) {
+        enriched.costAmount = buildProject.summary.lotPrice;
+      }
+
+      // Start date: use homeBuildIntakeStartedAt if step has no dateStart
+      if (!enriched.dateStart && buildProject.homeBuildIntakeStartedAt) {
+        enriched.dateStart = new Date(buildProject.homeBuildIntakeStartedAt)
+          .toISOString()
+          .split("T")[0];
+      }
+
+      return enriched;
+    });
+
     return res.status(200).json({
       success: true,
       build: buildProject,
-      steps,
+      steps: enrichedSteps,
     });
   } catch (error) {
     console.log("getBuildById error:", error);

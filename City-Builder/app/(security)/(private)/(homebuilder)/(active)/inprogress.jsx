@@ -327,7 +327,7 @@ export default function InProgressScreen() {
 
                   {/* ── Mark Complete button ──────────── */}
                   <Pressable
-                    className="flex-row mt-3 border border-yellow-300 bg-grey-100 rounded-lg px-3 py-1 items-center"
+                    className="flex-row mt-3 border min-h-8 h-10 border-yellow-300 bg-grey-100 rounded-lg px-3 py-1 items-center"
                     onPress={() => handleMarkComplete(id, address)}
                     style={({ pressed }) => ({
                       flexDirection: "row",

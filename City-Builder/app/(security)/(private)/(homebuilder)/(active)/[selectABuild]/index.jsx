@@ -418,12 +418,7 @@ export default function BuildDetailScreen() {
     const title =
       safe(item.title) || safe(item.stepType).replace(/_/g, " ");
     const photoCount = Array.isArray(item.photos) ? item.photos.length : 0;
-
-    // For Step 1 (Lot Intake), pull lotPrice from the build summary
-    const isFirstStep = index === 0;
-    const stepCost = isFirstStep
-      ? (build?.summary?.lotPrice ?? item.costAmount)
-      : item.costAmount;
+    const stepCost = item.costAmount;
 
     return (
       <View>
