@@ -7,7 +7,7 @@ import axios from "axios";
 import { getToken } from "./secureStore";
 
 // ── Base URL (ngrok tunnel → backend) ──────────────────────────────
-const BASE_URL = "https://a86d-192-157-102-137.ngrok-free.app";
+const BASE_URL = process.env.EXPO_PUBLIC_BACKEND_URL;
 
 const callBackend = axios.create({
   baseURL: BASE_URL,

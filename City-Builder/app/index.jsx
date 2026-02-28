@@ -124,7 +124,7 @@ export default function Index() {
           </View>
 
           {/* Stats */}
-          <View
+          {/* <View
             style={{
               marginBottom: isTablet ? 26 : 18,
               flexDirection: "row",
@@ -149,7 +149,7 @@ export default function Index() {
             >
               <StatCard label="Clients" value="0" />
             </View>
-          </View>
+          </View> */}
 
           {/* Main card */}
           <View

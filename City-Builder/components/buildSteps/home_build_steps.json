@@ -1,0 +1,4166 @@
+{
+  "version": "1.0.0",
+  "count": 832,
+  "steps": [
+    {
+      "id": 1,
+      "title": "Define goals and scope",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 2,
+      "title": "Set target budget range",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 3,
+      "title": "Create must-have feature list",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 4,
+      "title": "Create nice-to-have feature list",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 5,
+      "title": "Choose build type (new build/teardown/addition/ADU)",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 6,
+      "title": "Choose delivery method (GC/design-build/owner-builder)",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 7,
+      "title": "Create preliminary schedule timeline",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 8,
+      "title": "Set quality and performance targets",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 9,
+      "title": "Decide number of stories and layout concept",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 10,
+      "title": "Select construction style (stick-built/modular/prefab/SIPs/ICF)",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 11,
+      "title": "Decide energy strategy (standard/high-performance/passive)",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 12,
+      "title": "Identify key risks and constraints",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 13,
+      "title": "Create decision log and change control plan",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 14,
+      "title": "Select project management tool and file storage",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 15,
+      "title": "Hire owner's rep (optional)",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 16,
+      "title": "Hire construction attorney (optional)",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 17,
+      "title": "Hire cost estimator (optional)",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 18,
+      "title": "Initial neighborhood/HOA research",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 19,
+      "title": "Initial utility availability research",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 20,
+      "title": "Initial environmental risk screening",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 21,
+      "title": "Confirm access for deliveries and cranes",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 22,
+      "title": "Confirm wildfire/flood/hazard considerations",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 23,
+      "title": "Confirm school district and services (optional)",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 24,
+      "title": "Select target move-in date",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 25,
+      "title": "Create communication plan with builder and trades",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 26,
+      "title": "Set documentation standards (photos, receipts, permits)",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 27,
+      "title": "Create contingency budget",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 28,
+      "title": "Identify temporary housing plan (if needed)",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 29,
+      "title": "Confirm material lead-time strategy",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 30,
+      "title": "Define finishes level (builder grade/mid/high-end)",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 31,
+      "title": "Decide accessibility needs (aging-in-place/ADA features)",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 32,
+      "title": "Decide smart home scope",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 33,
+      "title": "Decide outdoor scope (deck/patio/pool/ADU)",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 34,
+      "title": "Decide garage/shop needs",
+      "category": "Planning & Feasibility"
+    },
+    {
+      "id": 35,
+      "title": "Search for suitable lot",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 36,
+      "title": "Shortlist candidate properties",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 37,
+      "title": "Tour properties",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 38,
+      "title": "Request seller disclosures",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 39,
+      "title": "Review zoning and land use",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 40,
+      "title": "Review setbacks and height limits",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 41,
+      "title": "Review easements and rights-of-way",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 42,
+      "title": "Review deed restrictions/CC&Rs",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 43,
+      "title": "Check floodplain maps",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 44,
+      "title": "Check wildfire hazard zones",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 45,
+      "title": "Check landslide risk zones",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 46,
+      "title": "Check soil type maps",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 47,
+      "title": "Check access/driveway feasibility",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 48,
+      "title": "Check road dedication requirements",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 49,
+      "title": "Check snow load/wind exposure",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 50,
+      "title": "Order boundary survey",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 51,
+      "title": "Order topographic survey",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 52,
+      "title": "Order ALTA survey (optional)",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 53,
+      "title": "Order geotechnical/soil report",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 54,
+      "title": "Order percolation test (septic)",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 55,
+      "title": "Order wetland delineation (optional)",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 56,
+      "title": "Order arborist report (optional)",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 57,
+      "title": "Order environmental site assessment (Phase I) (optional)",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 58,
+      "title": "Order environmental remediation plan (if needed)",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 59,
+      "title": "Verify water rights (if applicable)",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 60,
+      "title": "Verify timber/mineral rights (if applicable)",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 61,
+      "title": "Verify shoreline/stream buffers (if applicable)",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 62,
+      "title": "Confirm utility distances and capacity",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 63,
+      "title": "Confirm power pole/transformer needs",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 64,
+      "title": "Confirm telecom/fiber availability",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 65,
+      "title": "Confirm water service availability",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 66,
+      "title": "Confirm sewer availability",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 67,
+      "title": "Confirm gas service availability",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 68,
+      "title": "Confirm hydrant proximity (fire flow)",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 69,
+      "title": "Negotiate purchase agreement",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 70,
+      "title": "Open escrow",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 71,
+      "title": "Title search and title insurance",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 72,
+      "title": "Obtain lender appraisal (if needed)",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 73,
+      "title": "Close on land purchase",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 74,
+      "title": "Record deed",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 75,
+      "title": "Set up property tax account",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 76,
+      "title": "Obtain landowner insurance",
+      "category": "Land & Acquisition"
+    },
+    {
+      "id": 77,
+      "title": "Select architect/designer",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 78,
+      "title": "Select stock plan (optional)",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 79,
+      "title": "Site plan concepting",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 80,
+      "title": "Concept floor plan options",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 81,
+      "title": "Concept exterior elevations",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 82,
+      "title": "Schematic design approval",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 83,
+      "title": "Design development phase",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 84,
+      "title": "Finalize room dimensions",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 85,
+      "title": "Kitchen layout planning",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 86,
+      "title": "Bathroom layout planning",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 87,
+      "title": "Stair design",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 88,
+      "title": "Roof design and pitch selection",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 89,
+      "title": "Window schedule planning",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 90,
+      "title": "Door schedule planning",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 91,
+      "title": "Select structural system",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 92,
+      "title": "Structural engineering design",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 93,
+      "title": "Civil engineering design (grading/drainage)",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 94,
+      "title": "MEP engineering design",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 95,
+      "title": "Truss engineering package",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 96,
+      "title": "Energy code compliance documentation",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 97,
+      "title": "HVAC load calculation (Manual J)",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 98,
+      "title": "Duct design (Manual D)",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 99,
+      "title": "Ventilation design (ERV/HRV)",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 100,
+      "title": "Plumbing design and fixture count",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 101,
+      "title": "Electrical load calculation",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 102,
+      "title": "Panel schedule design",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 103,
+      "title": "Lighting plan design",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 104,
+      "title": "Low-voltage plan design",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 105,
+      "title": "Fire sprinkler design (if required/desired)",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 106,
+      "title": "Septic system design (if needed)",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 107,
+      "title": "Well design (if needed)",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 108,
+      "title": "Retaining wall engineering (if needed)",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 109,
+      "title": "Deck/porch engineering (if needed)",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 110,
+      "title": "Pool engineering (if needed)",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 111,
+      "title": "Landscape design (optional)",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 112,
+      "title": "Irrigation design (optional)",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 113,
+      "title": "Interior design selections (optional)",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 114,
+      "title": "Finalize construction documents",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 115,
+      "title": "Prepare specification book",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 116,
+      "title": "Create finish schedule",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 117,
+      "title": "Create appliance schedule",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 118,
+      "title": "Create hardware schedule",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 119,
+      "title": "Create tile schedule",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 120,
+      "title": "Create paint schedule",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 121,
+      "title": "Create flooring schedule",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 122,
+      "title": "Create cabinetry drawings",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 123,
+      "title": "Create countertop templates (later)",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 124,
+      "title": "Create as-built plan baseline (set up)",
+      "category": "Design & Engineering"
+    },
+    {
+      "id": 125,
+      "title": "Pre-application meeting (planning)",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 126,
+      "title": "HOA/architectural review submission",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 127,
+      "title": "HOA approval received",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 128,
+      "title": "Apply for building permit",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 129,
+      "title": "Apply for demolition permit",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 130,
+      "title": "Apply for grading permit",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 131,
+      "title": "Apply for tree removal permit",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 132,
+      "title": "Apply for driveway/approach permit",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 133,
+      "title": "Apply for right-of-way permit",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 134,
+      "title": "Apply for septic permit",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 135,
+      "title": "Apply for well permit",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 136,
+      "title": "Apply for stormwater permit",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 137,
+      "title": "Apply for shoreline/stream permit",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 138,
+      "title": "Apply for environmental permit (if needed)",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 139,
+      "title": "Apply for utility connection permits",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 140,
+      "title": "Plan check review cycle",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 141,
+      "title": "Respond to plan check comments",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 142,
+      "title": "Resubmit revised plans",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 143,
+      "title": "Pay permit fees",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 144,
+      "title": "Permit issued",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 145,
+      "title": "Post permit card on site",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 146,
+      "title": "Schedule required inspections (baseline)",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 147,
+      "title": "Obtain temporary power permit",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 148,
+      "title": "Obtain temporary water permit (if needed)",
+      "category": "Permits & Approvals"
+    },
+    {
+      "id": 149,
+      "title": "Choose lender (construction loan)",
+      "category": "Financing & Insurance"
+    },
+    {
+      "id": 150,
+      "title": "Construction loan pre-approval",
+      "category": "Financing & Insurance"
+    },
+    {
+      "id": 151,
+      "title": "Finalize construction loan underwriting",
+      "category": "Financing & Insurance"
+    },
+    {
+      "id": 152,
+      "title": "Finalize draw schedule",
+      "category": "Financing & Insurance"
+    },
+    {
+      "id": 153,
+      "title": "Open construction escrow account",
+      "category": "Financing & Insurance"
+    },
+    {
+      "id": 154,
+      "title": "Set up lien release process",
+      "category": "Financing & Insurance"
+    },
+    {
+      "id": 155,
+      "title": "Set up payment approvals",
+      "category": "Financing & Insurance"
+    },
+    {
+      "id": 156,
+      "title": "Obtain builder’s risk insurance",
+      "category": "Financing & Insurance"
+    },
+    {
+      "id": 157,
+      "title": "Obtain general liability insurance",
+      "category": "Financing & Insurance"
+    },
+    {
+      "id": 158,
+      "title": "Obtain workers comp proof (as applicable)",
+      "category": "Financing & Insurance"
+    },
+    {
+      "id": 159,
+      "title": "Obtain flood insurance (if needed)",
+      "category": "Financing & Insurance"
+    },
+    {
+      "id": 160,
+      "title": "Obtain wildfire insurance (if needed)",
+      "category": "Financing & Insurance"
+    },
+    {
+      "id": 161,
+      "title": "Confirm warranty coverage terms",
+      "category": "Financing & Insurance"
+    },
+    {
+      "id": 162,
+      "title": "Set up contingency reserve account",
+      "category": "Financing & Insurance"
+    },
+    {
+      "id": 163,
+      "title": "Set up cost tracking spreadsheet/app",
+      "category": "Financing & Insurance"
+    },
+    {
+      "id": 164,
+      "title": "Secure performance bond (optional)",
+      "category": "Financing & Insurance"
+    },
+    {
+      "id": 165,
+      "title": "Select general contractor",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 166,
+      "title": "Sign construction contract",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 167,
+      "title": "Define allowances and alternates",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 168,
+      "title": "Define change order procedure",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 169,
+      "title": "Bid major trades",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 170,
+      "title": "Award excavation contract",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 171,
+      "title": "Award concrete contract",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 172,
+      "title": "Award framing contract",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 173,
+      "title": "Award roofing contract",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 174,
+      "title": "Award siding/exterior contract",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 175,
+      "title": "Award window/door supplier",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 176,
+      "title": "Award plumbing contract",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 177,
+      "title": "Award electrical contract",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 178,
+      "title": "Award HVAC contract",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 179,
+      "title": "Award insulation contract",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 180,
+      "title": "Award drywall contract",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 181,
+      "title": "Award painting contract",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 182,
+      "title": "Award flooring contract",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 183,
+      "title": "Award tile contract",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 184,
+      "title": "Award cabinetry contract",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 185,
+      "title": "Award countertop contract",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 186,
+      "title": "Award landscaping contract",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 187,
+      "title": "Award driveway contract",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 188,
+      "title": "Order long-lead windows",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 189,
+      "title": "Order trusses/joists",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 190,
+      "title": "Order structural steel (if any)",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 191,
+      "title": "Order garage door(s)",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 192,
+      "title": "Order exterior doors",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 193,
+      "title": "Order plumbing fixtures",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 194,
+      "title": "Order lighting fixtures",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 195,
+      "title": "Order electrical devices",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 196,
+      "title": "Order HVAC equipment",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 197,
+      "title": "Order ERV/HRV unit",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 198,
+      "title": "Order water heater",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 199,
+      "title": "Order appliances",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 200,
+      "title": "Order fireplace unit (if any)",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 201,
+      "title": "Order solar equipment (if any)",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 202,
+      "title": "Order battery storage (if any)",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 203,
+      "title": "Order smart home hubs (if any)",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 204,
+      "title": "Order security system (if any)",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 205,
+      "title": "Order elevator (if any)",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 206,
+      "title": "Order generator (if any)",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 207,
+      "title": "Order specialty glazing (if any)",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 208,
+      "title": "Confirm delivery schedule for all long-leads",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 209,
+      "title": "Create procurement tracker",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 210,
+      "title": "Confirm storage plan for deliveries",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 211,
+      "title": "Confirm returns/warranty policy with suppliers",
+      "category": "Procurement & Contracts"
+    },
+    {
+      "id": 212,
+      "title": "Install temporary fencing",
+      "category": "Site Setup & Safety"
+    },
+    {
+      "id": 213,
+      "title": "Install jobsite signage",
+      "category": "Site Setup & Safety"
+    },
+    {
+      "id": 214,
+      "title": "Set up jobsite rules and safety plan",
+      "category": "Site Setup & Safety"
+    },
+    {
+      "id": 215,
+      "title": "Deliver dumpster(s)",
+      "category": "Site Setup & Safety"
+    },
+    {
+      "id": 216,
+      "title": "Set up jobsite trailer (optional)",
+      "category": "Site Setup & Safety"
+    },
+    {
+      "id": 217,
+      "title": "Set up material laydown area",
+      "category": "Site Setup & Safety"
+    },
+    {
+      "id": 218,
+      "title": "Establish site access route",
+      "category": "Site Setup & Safety"
+    },
+    {
+      "id": 219,
+      "title": "Install construction entrance (rock pad)",
+      "category": "Site Setup & Safety"
+    },
+    {
+      "id": 220,
+      "title": "Install erosion control (silt fence)",
+      "category": "Site Setup & Safety"
+    },
+    {
+      "id": 221,
+      "title": "Install sediment basin (if needed)",
+      "category": "Site Setup & Safety"
+    },
+    {
+      "id": 222,
+      "title": "Set up temporary power pole",
+      "category": "Site Setup & Safety"
+    },
+    {
+      "id": 223,
+      "title": "Set up temporary power meter",
+      "category": "Site Setup & Safety"
+    },
+    {
+      "id": 224,
+      "title": "Set up temporary water supply",
+      "category": "Site Setup & Safety"
+    },
+    {
+      "id": 225,
+      "title": "Set up portable toilet",
+      "category": "Site Setup & Safety"
+    },
+    {
+      "id": 226,
+      "title": "Set up temporary internet (optional)",
+      "category": "Site Setup & Safety"
+    },
+    {
+      "id": 227,
+      "title": "Set up site lighting (optional)",
+      "category": "Site Setup & Safety"
+    },
+    {
+      "id": 228,
+      "title": "Establish survey control points",
+      "category": "Site Setup & Safety"
+    },
+    {
+      "id": 229,
+      "title": "Pre-construction walkthrough meeting",
+      "category": "Site Setup & Safety"
+    },
+    {
+      "id": 230,
+      "title": "Utility disconnects for demo",
+      "category": "Demolition & Remediation"
+    },
+    {
+      "id": 231,
+      "title": "Hazardous material survey (asbestos/lead)",
+      "category": "Demolition & Remediation"
+    },
+    {
+      "id": 232,
+      "title": "Asbestos abatement (if needed)",
+      "category": "Demolition & Remediation"
+    },
+    {
+      "id": 233,
+      "title": "Lead paint abatement (if needed)",
+      "category": "Demolition & Remediation"
+    },
+    {
+      "id": 234,
+      "title": "Mold remediation (if needed)",
+      "category": "Demolition & Remediation"
+    },
+    {
+      "id": 235,
+      "title": "Demolish existing structure",
+      "category": "Demolition & Remediation"
+    },
+    {
+      "id": 236,
+      "title": "Remove foundation (if needed)",
+      "category": "Demolition & Remediation"
+    },
+    {
+      "id": 237,
+      "title": "Remove underground tanks (if needed)",
+      "category": "Demolition & Remediation"
+    },
+    {
+      "id": 238,
+      "title": "Remove debris and haul-off",
+      "category": "Demolition & Remediation"
+    },
+    {
+      "id": 239,
+      "title": "Site contamination cleanup (if needed)",
+      "category": "Demolition & Remediation"
+    },
+    {
+      "id": 240,
+      "title": "Confirm compaction after removals",
+      "category": "Demolition & Remediation"
+    },
+    {
+      "id": 241,
+      "title": "Clear trees and brush",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 242,
+      "title": "Stump removal",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 243,
+      "title": "Grub topsoil and organics",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 244,
+      "title": "Strip and stockpile topsoil",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 245,
+      "title": "Rough grading",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 246,
+      "title": "Cut/fill operations",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 247,
+      "title": "Import fill (if needed)",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 248,
+      "title": "Export spoils (if needed)",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 249,
+      "title": "Rock excavation (if needed)",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 250,
+      "title": "Blasting (if needed)",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 251,
+      "title": "Install temporary drainage swales",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 252,
+      "title": "Install construction stormwater controls",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 253,
+      "title": "Excavate building pad",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 254,
+      "title": "Excavate for footings",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 255,
+      "title": "Excavate for basement (if any)",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 256,
+      "title": "Excavate for crawlspace (if any)",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 257,
+      "title": "Trench for utilities",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 258,
+      "title": "Install retaining wall subgrade (if needed)",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 259,
+      "title": "Compaction testing",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 260,
+      "title": "Proof roll subgrade",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 261,
+      "title": "Install temporary shoring (if needed)",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 262,
+      "title": "Install excavation dewatering (if needed)",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 263,
+      "title": "Install soil nails (if needed)",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 264,
+      "title": "Install slope stabilization matting (optional)",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 265,
+      "title": "Install construction access road (temporary)",
+      "category": "Clearing & Earthwork"
+    },
+    {
+      "id": 266,
+      "title": "Apply for electric service",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 267,
+      "title": "Install conduit for power service",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 268,
+      "title": "Set transformer/pull box locations",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 269,
+      "title": "Trench and install electrical service conduit",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 270,
+      "title": "Pull service conductors",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 271,
+      "title": "Install main service meter base",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 272,
+      "title": "Apply for gas service",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 273,
+      "title": "Trench and install gas line (if needed)",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 274,
+      "title": "Apply for municipal water service",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 275,
+      "title": "Trench and install water service line",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 276,
+      "title": "Install water meter box",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 277,
+      "title": "Apply for sewer connection",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 278,
+      "title": "Install sewer lateral",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 279,
+      "title": "Install cleanouts",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 280,
+      "title": "Install backwater valve (if needed)",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 281,
+      "title": "Install storm drain connection (if needed)",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 282,
+      "title": "Install onsite stormwater system (infiltration/rain garden)",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 283,
+      "title": "Drill well",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 284,
+      "title": "Install well casing",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 285,
+      "title": "Install well pump",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 286,
+      "title": "Install pressure tank",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 287,
+      "title": "Disinfect well",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 288,
+      "title": "Well flow test",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 289,
+      "title": "Well water quality test",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 290,
+      "title": "Install water treatment (softener/filtration/UV)",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 291,
+      "title": "Install cistern (optional)",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 292,
+      "title": "Install rainwater harvesting system (optional)",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 293,
+      "title": "Install septic tank",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 294,
+      "title": "Install drain field/leach field",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 295,
+      "title": "Install distribution box",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 296,
+      "title": "Install septic pump (if needed)",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 297,
+      "title": "Septic inspection and approval",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 298,
+      "title": "Install propane tank (if needed)",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 299,
+      "title": "Install standby generator (optional)",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 300,
+      "title": "Install battery storage (optional)",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 301,
+      "title": "Install off-grid inverter system (optional)",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 302,
+      "title": "Install telecom conduit",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 303,
+      "title": "Install fiber/cable drop",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 304,
+      "title": "Install satellite internet (optional)",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 305,
+      "title": "Install trenchless utility boring (optional)",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 306,
+      "title": "Install whole-house water shutoff (smart) (optional)",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 307,
+      "title": "Install graywater system (optional)",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 308,
+      "title": "Install composting toilet system (optional)",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 309,
+      "title": "Install wood stove chimney (optional)",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 310,
+      "title": "Install pellet stove venting (optional)",
+      "category": "Utilities & Off-Grid"
+    },
+    {
+      "id": 311,
+      "title": "Form footings",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 312,
+      "title": "Place footing rebar",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 313,
+      "title": "Footing inspection",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 314,
+      "title": "Pour footings",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 315,
+      "title": "Cure footings",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 316,
+      "title": "Form foundation walls",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 317,
+      "title": "Place wall rebar",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 318,
+      "title": "Install anchor bolts/hold-downs",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 319,
+      "title": "Foundation wall inspection",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 320,
+      "title": "Pour foundation walls",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 321,
+      "title": "Strip forms",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 322,
+      "title": "Damp-proof foundation",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 323,
+      "title": "Waterproof foundation (full)",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 324,
+      "title": "Install perimeter drain (weeping tile)",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 325,
+      "title": "Install drain rock and filter fabric",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 326,
+      "title": "Install sump pit and pump (if needed)",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 327,
+      "title": "Install radon rough-in (if needed)",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 328,
+      "title": "Install under-slab plumbing",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 329,
+      "title": "Install under-slab electrical grounding",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 330,
+      "title": "Install vapor barrier",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 331,
+      "title": "Install under-slab insulation",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 332,
+      "title": "Install slab reinforcement (rebar/mesh)",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 333,
+      "title": "Under-slab inspection",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 334,
+      "title": "Pour slab",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 335,
+      "title": "Finish slab surface",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 336,
+      "title": "Saw-cut control joints",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 337,
+      "title": "Cure slab",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 338,
+      "title": "Build crawlspace piers (if any)",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 339,
+      "title": "Install crawlspace vapor barrier (if any)",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 340,
+      "title": "Install crawlspace insulation (if any)",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 341,
+      "title": "Backfill foundation",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 342,
+      "title": "Final foundation elevation check",
+      "category": "Foundations & Concrete"
+    },
+    {
+      "id": 343,
+      "title": "Deliver framing lumber package",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 344,
+      "title": "Frame sill plates",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 345,
+      "title": "Frame first-floor system",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 346,
+      "title": "Install subfloor",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 347,
+      "title": "Frame exterior walls",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 348,
+      "title": "Frame interior walls",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 349,
+      "title": "Install beams and headers",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 350,
+      "title": "Install shear walls",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 351,
+      "title": "Install metal connectors and straps",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 352,
+      "title": "Set floor trusses/I-joists (if any)",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 353,
+      "title": "Frame second floor (if any)",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 354,
+      "title": "Set roof trusses",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 355,
+      "title": "Frame roof rafters (if any)",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 356,
+      "title": "Install roof sheathing",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 357,
+      "title": "Install wall sheathing",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 358,
+      "title": "Install house framing blocking",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 359,
+      "title": "Frame stairs",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 360,
+      "title": "Frame decks/porches (rough)",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 361,
+      "title": "Install framing punch corrections",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 362,
+      "title": "Framing inspection",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 363,
+      "title": "Structural engineer site visit (optional)",
+      "category": "Structural Framing"
+    },
+    {
+      "id": 364,
+      "title": "Install roof underlayment",
+      "category": "Roofing"
+    },
+    {
+      "id": 365,
+      "title": "Install ice & water shield",
+      "category": "Roofing"
+    },
+    {
+      "id": 366,
+      "title": "Install roof flashing (valleys/walls)",
+      "category": "Roofing"
+    },
+    {
+      "id": 367,
+      "title": "Install drip edge",
+      "category": "Roofing"
+    },
+    {
+      "id": 368,
+      "title": "Install roofing material (shingles)",
+      "category": "Roofing"
+    },
+    {
+      "id": 369,
+      "title": "Install roofing material (metal)",
+      "category": "Roofing"
+    },
+    {
+      "id": 370,
+      "title": "Install roofing material (tile)",
+      "category": "Roofing"
+    },
+    {
+      "id": 371,
+      "title": "Install ridge vent",
+      "category": "Roofing"
+    },
+    {
+      "id": 372,
+      "title": "Install roof vents",
+      "category": "Roofing"
+    },
+    {
+      "id": 373,
+      "title": "Install skylight rough openings",
+      "category": "Roofing"
+    },
+    {
+      "id": 374,
+      "title": "Install skylights",
+      "category": "Roofing"
+    },
+    {
+      "id": 375,
+      "title": "Install roof gutters",
+      "category": "Roofing"
+    },
+    {
+      "id": 376,
+      "title": "Install downspouts",
+      "category": "Roofing"
+    },
+    {
+      "id": 377,
+      "title": "Install rain chains (optional)",
+      "category": "Roofing"
+    },
+    {
+      "id": 378,
+      "title": "Install snow guards (optional)",
+      "category": "Roofing"
+    },
+    {
+      "id": 379,
+      "title": "Roofing inspection (if required)",
+      "category": "Roofing"
+    },
+    {
+      "id": 380,
+      "title": "Install WRB/housewrap",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 381,
+      "title": "Tape and seal WRB seams",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 382,
+      "title": "Install exterior air barrier membrane (optional)",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 383,
+      "title": "Install exterior rigid insulation (optional)",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 384,
+      "title": "Install furring/rainscreen battens",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 385,
+      "title": "Install exterior flashing tape",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 386,
+      "title": "Install window pan flashing prep",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 387,
+      "title": "Install exterior corner beads (as needed)",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 388,
+      "title": "Install exterior foam trim (optional)",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 389,
+      "title": "Install siding (fiber cement)",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 390,
+      "title": "Install siding (wood)",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 391,
+      "title": "Install siding (vinyl)",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 392,
+      "title": "Install siding (metal)",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 393,
+      "title": "Install stucco base coat",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 394,
+      "title": "Install stucco finish coat",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 395,
+      "title": "Install brick veneer",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 396,
+      "title": "Install stone veneer",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 397,
+      "title": "Install exterior trim",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 398,
+      "title": "Install soffit and fascia",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 399,
+      "title": "Install exterior caulking/sealants",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 400,
+      "title": "Install exterior vents (dryer/bath/hood)",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 401,
+      "title": "Install exterior hose bibbs",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 402,
+      "title": "Install exterior electrical boxes (rough)",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 403,
+      "title": "Install exterior paint/stain",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 404,
+      "title": "Install exterior masonry seal (optional)",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 405,
+      "title": "Install brick ties (brick veneer)",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 406,
+      "title": "Install weep screed (stucco)",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 407,
+      "title": "Install rainscreen vent strips",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 408,
+      "title": "Install exterior foam board seams taped",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 409,
+      "title": "Install kick-out flashing",
+      "category": "Exterior Envelope"
+    },
+    {
+      "id": 410,
+      "title": "Set windows",
+      "category": "Windows & Exterior Doors"
+    },
+    {
+      "id": 411,
+      "title": "Flash windows",
+      "category": "Windows & Exterior Doors"
+    },
+    {
+      "id": 412,
+      "title": "Air seal window gaps",
+      "category": "Windows & Exterior Doors"
+    },
+    {
+      "id": 413,
+      "title": "Install exterior doors",
+      "category": "Windows & Exterior Doors"
+    },
+    {
+      "id": 414,
+      "title": "Install door thresholds",
+      "category": "Windows & Exterior Doors"
+    },
+    {
+      "id": 415,
+      "title": "Install sliding/patio doors",
+      "category": "Windows & Exterior Doors"
+    },
+    {
+      "id": 416,
+      "title": "Install multi-panel door systems (optional)",
+      "category": "Windows & Exterior Doors"
+    },
+    {
+      "id": 417,
+      "title": "Install garage door tracks",
+      "category": "Windows & Exterior Doors"
+    },
+    {
+      "id": 418,
+      "title": "Install garage door opener",
+      "category": "Windows & Exterior Doors"
+    },
+    {
+      "id": 419,
+      "title": "Install storm doors (optional)",
+      "category": "Windows & Exterior Doors"
+    },
+    {
+      "id": 420,
+      "title": "Install window screens",
+      "category": "Windows & Exterior Doors"
+    },
+    {
+      "id": 421,
+      "title": "Install window trim (exterior)",
+      "category": "Windows & Exterior Doors"
+    },
+    {
+      "id": 422,
+      "title": "Layout plumbing runs",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 423,
+      "title": "Install DWV (drain/waste/vent) rough-in",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 424,
+      "title": "Install water supply rough-in (PEX/copper)",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 425,
+      "title": "Install tub/shower rough-ins",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 426,
+      "title": "Install toilet rough-ins",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 427,
+      "title": "Install hose bibb rough-ins",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 428,
+      "title": "Install gas piping rough-in (if applicable)",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 429,
+      "title": "Install manifold system (if applicable)",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 430,
+      "title": "Install pressure test plumbing",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 431,
+      "title": "Rough plumbing inspection",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 432,
+      "title": "Install exterior sewer line to main/septic",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 433,
+      "title": "Install cleanouts and vents through roof",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 434,
+      "title": "Install water heater rough location prep",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 435,
+      "title": "Install recirculation loop rough-in (optional)",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 436,
+      "title": "Install radiant floor piping (optional)",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 437,
+      "title": "Install fire sprinkler piping rough-in (if combined contractor)",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 438,
+      "title": "Rough-in plumbing for Kitchen",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 439,
+      "title": "Rough-in plumbing for Primary bath",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 440,
+      "title": "Rough-in plumbing for Guest bath",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 441,
+      "title": "Rough-in plumbing for Powder room",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 442,
+      "title": "Rough-in plumbing for Laundry",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 443,
+      "title": "Rough-in plumbing for Mudroom",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 444,
+      "title": "Rough-in plumbing for Garage",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 445,
+      "title": "Rough-in plumbing for Basement",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 446,
+      "title": "Rough-in plumbing for Attic",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 447,
+      "title": "Rough-in plumbing for Mechanical room",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 448,
+      "title": "Rough-in plumbing for Outdoor",
+      "category": "Rough Plumbing"
+    },
+    {
+      "id": 449,
+      "title": "Electrical layout and box placement",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 450,
+      "title": "Install service panel (rough)",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 451,
+      "title": "Install grounding and bonding",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 452,
+      "title": "Run branch circuit wiring",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 453,
+      "title": "Install receptacle boxes",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 454,
+      "title": "Install switch boxes",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 455,
+      "title": "Install ceiling fan boxes",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 456,
+      "title": "Install can light housings (as applicable)",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 457,
+      "title": "Install smoke/CO wiring",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 458,
+      "title": "Install exterior lighting rough boxes",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 459,
+      "title": "Install dedicated circuits (kitchen/laundry)",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 460,
+      "title": "Install EV charger rough-in (optional)",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 461,
+      "title": "Install subpanel (optional)",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 462,
+      "title": "Run wiring for appliances",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 463,
+      "title": "Run wiring for well pump (if applicable)",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 464,
+      "title": "Run wiring for septic pump (if applicable)",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 465,
+      "title": "Rough electrical inspection",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 466,
+      "title": "Temporary power to permanent cutover planning",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 467,
+      "title": "Rough-in electrical for Kitchen",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 468,
+      "title": "Rough-in electrical for Primary bath",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 469,
+      "title": "Rough-in electrical for Guest bath",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 470,
+      "title": "Rough-in electrical for Powder room",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 471,
+      "title": "Rough-in electrical for Laundry",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 472,
+      "title": "Rough-in electrical for Mudroom",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 473,
+      "title": "Rough-in electrical for Garage",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 474,
+      "title": "Rough-in electrical for Basement",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 475,
+      "title": "Rough-in electrical for Attic",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 476,
+      "title": "Rough-in electrical for Mechanical room",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 477,
+      "title": "Rough-in electrical for Outdoor",
+      "category": "Rough Electrical"
+    },
+    {
+      "id": 478,
+      "title": "HVAC equipment set (rough placement)",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 479,
+      "title": "Install ductwork rough-in",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 480,
+      "title": "Install duct chases and returns",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 481,
+      "title": "Install bath fan ducting",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 482,
+      "title": "Install kitchen hood ducting",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 483,
+      "title": "Install dryer vent ducting",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 484,
+      "title": "Install refrigerant linesets (mini-split)",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 485,
+      "title": "Install condensate drains",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 486,
+      "title": "Install ERV/HRV rough ducting",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 487,
+      "title": "Install thermostat wiring",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 488,
+      "title": "Install zoning dampers (optional)",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 489,
+      "title": "Rough HVAC inspection (if required)",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 490,
+      "title": "Rough-in ventilation for Kitchen",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 491,
+      "title": "Rough-in ventilation for Primary bath",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 492,
+      "title": "Rough-in ventilation for Guest bath",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 493,
+      "title": "Rough-in ventilation for Powder room",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 494,
+      "title": "Rough-in ventilation for Laundry",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 495,
+      "title": "Rough-in ventilation for Mudroom",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 496,
+      "title": "Rough-in ventilation for Garage",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 497,
+      "title": "Rough-in ventilation for Basement",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 498,
+      "title": "Rough-in ventilation for Attic",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 499,
+      "title": "Rough-in ventilation for Mechanical room",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 500,
+      "title": "Rough-in ventilation for Outdoor",
+      "category": "Rough HVAC"
+    },
+    {
+      "id": 501,
+      "title": "Run Cat6 ethernet drops",
+      "category": "Low Voltage & Smart Home"
+    },
+    {
+      "id": 502,
+      "title": "Run coax drops (optional)",
+      "category": "Low Voltage & Smart Home"
+    },
+    {
+      "id": 503,
+      "title": "Install structured media panel (rough)",
+      "category": "Low Voltage & Smart Home"
+    },
+    {
+      "id": 504,
+      "title": "Run speaker wire (whole-home audio)",
+      "category": "Low Voltage & Smart Home"
+    },
+    {
+      "id": 505,
+      "title": "Run doorbell wiring",
+      "category": "Low Voltage & Smart Home"
+    },
+    {
+      "id": 506,
+      "title": "Run security sensor wiring (doors/windows)",
+      "category": "Low Voltage & Smart Home"
+    },
+    {
+      "id": 507,
+      "title": "Run camera wiring",
+      "category": "Low Voltage & Smart Home"
+    },
+    {
+      "id": 508,
+      "title": "Run PoE switch wiring plan",
+      "category": "Low Voltage & Smart Home"
+    },
+    {
+      "id": 509,
+      "title": "Run smart shade wiring (optional)",
+      "category": "Low Voltage & Smart Home"
+    },
+    {
+      "id": 510,
+      "title": "Run intercom wiring (optional)",
+      "category": "Low Voltage & Smart Home"
+    },
+    {
+      "id": 511,
+      "title": "Run access control wiring (optional)",
+      "category": "Low Voltage & Smart Home"
+    },
+    {
+      "id": 512,
+      "title": "Run wifi access point wiring (ceiling)",
+      "category": "Low Voltage & Smart Home"
+    },
+    {
+      "id": 513,
+      "title": "Install conduit for future low-voltage expansion",
+      "category": "Low Voltage & Smart Home"
+    },
+    {
+      "id": 514,
+      "title": "Low-voltage rough-in walkthrough",
+      "category": "Low Voltage & Smart Home"
+    },
+    {
+      "id": 515,
+      "title": "Fire sprinkler rough-in (if applicable)",
+      "category": "Fire Protection"
+    },
+    {
+      "id": 516,
+      "title": "Fire sprinkler pressure test",
+      "category": "Fire Protection"
+    },
+    {
+      "id": 517,
+      "title": "Fire sprinkler inspection",
+      "category": "Fire Protection"
+    },
+    {
+      "id": 518,
+      "title": "Install fire-rated assemblies (as required)",
+      "category": "Fire Protection"
+    },
+    {
+      "id": 519,
+      "title": "Install fire caulking at penetrations",
+      "category": "Fire Protection"
+    },
+    {
+      "id": 520,
+      "title": "Install firestopping at chases",
+      "category": "Fire Protection"
+    },
+    {
+      "id": 521,
+      "title": "Install garage-to-house fire separation",
+      "category": "Fire Protection"
+    },
+    {
+      "id": 522,
+      "title": "Install fire-rated door (garage entry)",
+      "category": "Fire Protection"
+    },
+    {
+      "id": 523,
+      "title": "Install fire alarm system rough-in (optional)",
+      "category": "Fire Protection"
+    },
+    {
+      "id": 524,
+      "title": "Air seal penetrations",
+      "category": "Insulation & Air Sealing"
+    },
+    {
+      "id": 525,
+      "title": "Install draft stops",
+      "category": "Insulation & Air Sealing"
+    },
+    {
+      "id": 526,
+      "title": "Install fire blocking",
+      "category": "Insulation & Air Sealing"
+    },
+    {
+      "id": 527,
+      "title": "Install wall insulation (batts)",
+      "category": "Insulation & Air Sealing"
+    },
+    {
+      "id": 528,
+      "title": "Install wall insulation (spray foam)",
+      "category": "Insulation & Air Sealing"
+    },
+    {
+      "id": 529,
+      "title": "Install attic insulation",
+      "category": "Insulation & Air Sealing"
+    },
+    {
+      "id": 530,
+      "title": "Install crawlspace insulation",
+      "category": "Insulation & Air Sealing"
+    },
+    {
+      "id": 531,
+      "title": "Install rim joist insulation",
+      "category": "Insulation & Air Sealing"
+    },
+    {
+      "id": 532,
+      "title": "Install sound insulation (interior walls)",
+      "category": "Insulation & Air Sealing"
+    },
+    {
+      "id": 533,
+      "title": "Install vapor retarder (as required)",
+      "category": "Insulation & Air Sealing"
+    },
+    {
+      "id": 534,
+      "title": "Insulation inspection",
+      "category": "Insulation & Air Sealing"
+    },
+    {
+      "id": 535,
+      "title": "Blower door test (pre-drywall) (optional)",
+      "category": "Insulation & Air Sealing"
+    },
+    {
+      "id": 536,
+      "title": "Seal attic hatch",
+      "category": "Insulation & Air Sealing"
+    },
+    {
+      "id": 537,
+      "title": "Seal recessed lighting (if needed)",
+      "category": "Insulation & Air Sealing"
+    },
+    {
+      "id": 538,
+      "title": "Install exterior continuous insulation (optional)",
+      "category": "Insulation & Air Sealing"
+    },
+    {
+      "id": 539,
+      "title": "Install interior vapor barrier membrane (optional)",
+      "category": "Insulation & Air Sealing"
+    },
+    {
+      "id": 540,
+      "title": "Seal rim joists (spray foam) (optional)",
+      "category": "Insulation & Air Sealing"
+    },
+    {
+      "id": 541,
+      "title": "Install acoustic sealant at plates (optional)",
+      "category": "Insulation & Air Sealing"
+    },
+    {
+      "id": 542,
+      "title": "Install airtight electrical boxes (optional)",
+      "category": "Insulation & Air Sealing"
+    },
+    {
+      "id": 543,
+      "title": "Install drywall on ceilings",
+      "category": "Drywall & Interior Shell"
+    },
+    {
+      "id": 544,
+      "title": "Install drywall on walls",
+      "category": "Drywall & Interior Shell"
+    },
+    {
+      "id": 545,
+      "title": "Drywall screw inspection (optional)",
+      "category": "Drywall & Interior Shell"
+    },
+    {
+      "id": 546,
+      "title": "Tape drywall seams",
+      "category": "Drywall & Interior Shell"
+    },
+    {
+      "id": 547,
+      "title": "Apply first coat mud",
+      "category": "Drywall & Interior Shell"
+    },
+    {
+      "id": 548,
+      "title": "Apply second coat mud",
+      "category": "Drywall & Interior Shell"
+    },
+    {
+      "id": 549,
+      "title": "Apply finish coat mud",
+      "category": "Drywall & Interior Shell"
+    },
+    {
+      "id": 550,
+      "title": "Sand drywall",
+      "category": "Drywall & Interior Shell"
+    },
+    {
+      "id": 551,
+      "title": "Texture walls/ceilings (optional)",
+      "category": "Drywall & Interior Shell"
+    },
+    {
+      "id": 552,
+      "title": "Install corner bead",
+      "category": "Drywall & Interior Shell"
+    },
+    {
+      "id": 553,
+      "title": "Prime drywall",
+      "category": "Drywall & Interior Shell"
+    },
+    {
+      "id": 554,
+      "title": "Install interior doors (slabs)",
+      "category": "Interior Finishes"
+    },
+    {
+      "id": 555,
+      "title": "Install door jambs and casing",
+      "category": "Interior Finishes"
+    },
+    {
+      "id": 556,
+      "title": "Install baseboards",
+      "category": "Interior Finishes"
+    },
+    {
+      "id": 557,
+      "title": "Install window casing",
+      "category": "Interior Finishes"
+    },
+    {
+      "id": 558,
+      "title": "Install crown molding (optional)",
+      "category": "Interior Finishes"
+    },
+    {
+      "id": 559,
+      "title": "Install wainscoting (optional)",
+      "category": "Interior Finishes"
+    },
+    {
+      "id": 560,
+      "title": "Install built-in shelves (optional)",
+      "category": "Interior Finishes"
+    },
+    {
+      "id": 561,
+      "title": "Install closet systems (optional)",
+      "category": "Interior Finishes"
+    },
+    {
+      "id": 562,
+      "title": "Install stair treads/risers",
+      "category": "Interior Finishes"
+    },
+    {
+      "id": 563,
+      "title": "Install stair railing and balusters",
+      "category": "Interior Finishes"
+    },
+    {
+      "id": 564,
+      "title": "Install interior paint (walls)",
+      "category": "Interior Finishes"
+    },
+    {
+      "id": 565,
+      "title": "Install interior paint (ceilings)",
+      "category": "Interior Finishes"
+    },
+    {
+      "id": 566,
+      "title": "Install accent walls (optional)",
+      "category": "Interior Finishes"
+    },
+    {
+      "id": 567,
+      "title": "Install wallpaper (optional)",
+      "category": "Interior Finishes"
+    },
+    {
+      "id": 568,
+      "title": "Install handrail returns",
+      "category": "Interior Finishes"
+    },
+    {
+      "id": 569,
+      "title": "Deliver cabinets to site",
+      "category": "Cabinetry & Built-ins"
+    },
+    {
+      "id": 570,
+      "title": "Install kitchen base cabinets",
+      "category": "Cabinetry & Built-ins"
+    },
+    {
+      "id": 571,
+      "title": "Install kitchen wall cabinets",
+      "category": "Cabinetry & Built-ins"
+    },
+    {
+      "id": 572,
+      "title": "Install bathroom vanities",
+      "category": "Cabinetry & Built-ins"
+    },
+    {
+      "id": 573,
+      "title": "Install laundry cabinets (optional)",
+      "category": "Cabinetry & Built-ins"
+    },
+    {
+      "id": 574,
+      "title": "Install pantry built-ins (optional)",
+      "category": "Cabinetry & Built-ins"
+    },
+    {
+      "id": 575,
+      "title": "Install mudroom built-ins (optional)",
+      "category": "Cabinetry & Built-ins"
+    },
+    {
+      "id": 576,
+      "title": "Install garage cabinets (optional)",
+      "category": "Cabinetry & Built-ins"
+    },
+    {
+      "id": 577,
+      "title": "Install closet built-ins (optional)",
+      "category": "Cabinetry & Built-ins"
+    },
+    {
+      "id": 578,
+      "title": "Cabinet adjustment and leveling",
+      "category": "Cabinetry & Built-ins"
+    },
+    {
+      "id": 579,
+      "title": "Install cabinet hardware (pulls/knobs)",
+      "category": "Cabinetry & Built-ins"
+    },
+    {
+      "id": 580,
+      "title": "Template countertops",
+      "category": "Countertops & Surfaces"
+    },
+    {
+      "id": 581,
+      "title": "Fabricate countertops",
+      "category": "Countertops & Surfaces"
+    },
+    {
+      "id": 582,
+      "title": "Install countertops",
+      "category": "Countertops & Surfaces"
+    },
+    {
+      "id": 583,
+      "title": "Install backsplash (tile/stone)",
+      "category": "Countertops & Surfaces"
+    },
+    {
+      "id": 584,
+      "title": "Install undermount sink",
+      "category": "Countertops & Surfaces"
+    },
+    {
+      "id": 585,
+      "title": "Install sink faucet holes drilling (if needed)",
+      "category": "Countertops & Surfaces"
+    },
+    {
+      "id": 586,
+      "title": "Seal stone countertops (optional)",
+      "category": "Countertops & Surfaces"
+    },
+    {
+      "id": 587,
+      "title": "Install underlayment",
+      "category": "Flooring"
+    },
+    {
+      "id": 588,
+      "title": "Install hardwood flooring",
+      "category": "Flooring"
+    },
+    {
+      "id": 589,
+      "title": "Install engineered wood flooring",
+      "category": "Flooring"
+    },
+    {
+      "id": 590,
+      "title": "Install LVP/LVT flooring",
+      "category": "Flooring"
+    },
+    {
+      "id": 591,
+      "title": "Install laminate flooring",
+      "category": "Flooring"
+    },
+    {
+      "id": 592,
+      "title": "Install carpet padding",
+      "category": "Flooring"
+    },
+    {
+      "id": 593,
+      "title": "Install carpet",
+      "category": "Flooring"
+    },
+    {
+      "id": 594,
+      "title": "Install stair nosing",
+      "category": "Flooring"
+    },
+    {
+      "id": 595,
+      "title": "Install floor transitions",
+      "category": "Flooring"
+    },
+    {
+      "id": 596,
+      "title": "Install base shoe molding",
+      "category": "Flooring"
+    },
+    {
+      "id": 597,
+      "title": "Flooring punch and touch-ups",
+      "category": "Flooring"
+    },
+    {
+      "id": 598,
+      "title": "Waterproof shower pan",
+      "category": "Tile & Stone"
+    },
+    {
+      "id": 599,
+      "title": "Install shower wall waterproofing",
+      "category": "Tile & Stone"
+    },
+    {
+      "id": 600,
+      "title": "Install shower niche (optional)",
+      "category": "Tile & Stone"
+    },
+    {
+      "id": 601,
+      "title": "Tile shower walls",
+      "category": "Tile & Stone"
+    },
+    {
+      "id": 602,
+      "title": "Tile shower floor",
+      "category": "Tile & Stone"
+    },
+    {
+      "id": 603,
+      "title": "Tile bathroom floors",
+      "category": "Tile & Stone"
+    },
+    {
+      "id": 604,
+      "title": "Tile kitchen backsplash",
+      "category": "Tile & Stone"
+    },
+    {
+      "id": 605,
+      "title": "Tile laundry/mudroom floors",
+      "category": "Tile & Stone"
+    },
+    {
+      "id": 606,
+      "title": "Grout tile",
+      "category": "Tile & Stone"
+    },
+    {
+      "id": 607,
+      "title": "Seal grout (optional)",
+      "category": "Tile & Stone"
+    },
+    {
+      "id": 608,
+      "title": "Install stone thresholds",
+      "category": "Tile & Stone"
+    },
+    {
+      "id": 609,
+      "title": "Install tile trim edges",
+      "category": "Tile & Stone"
+    },
+    {
+      "id": 610,
+      "title": "Mask and protect surfaces",
+      "category": "Painting & Wall Finishes"
+    },
+    {
+      "id": 611,
+      "title": "Spray primer (interior)",
+      "category": "Painting & Wall Finishes"
+    },
+    {
+      "id": 612,
+      "title": "Spray paint (interior)",
+      "category": "Painting & Wall Finishes"
+    },
+    {
+      "id": 613,
+      "title": "Roll and cut-in (interior)",
+      "category": "Painting & Wall Finishes"
+    },
+    {
+      "id": 614,
+      "title": "Paint trim and doors",
+      "category": "Painting & Wall Finishes"
+    },
+    {
+      "id": 615,
+      "title": "Stain woodwork (optional)",
+      "category": "Painting & Wall Finishes"
+    },
+    {
+      "id": 616,
+      "title": "Touch-up paint",
+      "category": "Painting & Wall Finishes"
+    },
+    {
+      "id": 617,
+      "title": "Final caulking and paint touch-ups",
+      "category": "Painting & Wall Finishes"
+    },
+    {
+      "id": 618,
+      "title": "Install baseboards",
+      "category": "Trim & Doors"
+    },
+    {
+      "id": 619,
+      "title": "Install door casing",
+      "category": "Trim & Doors"
+    },
+    {
+      "id": 620,
+      "title": "Install window casing",
+      "category": "Trim & Doors"
+    },
+    {
+      "id": 621,
+      "title": "Install crown molding",
+      "category": "Trim & Doors"
+    },
+    {
+      "id": 622,
+      "title": "Install interior door hardware (handles/locks)",
+      "category": "Trim & Doors"
+    },
+    {
+      "id": 623,
+      "title": "Install closet door tracks (if any)",
+      "category": "Trim & Doors"
+    },
+    {
+      "id": 624,
+      "title": "Install pocket door hardware (if any)",
+      "category": "Trim & Doors"
+    },
+    {
+      "id": 625,
+      "title": "Install barn door hardware (optional)",
+      "category": "Trim & Doors"
+    },
+    {
+      "id": 626,
+      "title": "Install attic access trim",
+      "category": "Trim & Doors"
+    },
+    {
+      "id": 627,
+      "title": "Install stair trim",
+      "category": "Trim & Doors"
+    },
+    {
+      "id": 628,
+      "title": "Install toilets",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 629,
+      "title": "Install sinks and faucets",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 630,
+      "title": "Install tubs (final trim)",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 631,
+      "title": "Install shower trim",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 632,
+      "title": "Install bath accessories (towel bars, etc.)",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 633,
+      "title": "Install water heater",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 634,
+      "title": "Start up water heater",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 635,
+      "title": "Install water softener/filtration (if any)",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 636,
+      "title": "Install garbage disposal",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 637,
+      "title": "Install dishwasher hook-up",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 638,
+      "title": "Install final electrical devices (switches/outlets)",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 639,
+      "title": "Install lighting fixtures",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 640,
+      "title": "Install ceiling fans",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 641,
+      "title": "Install smoke/CO detectors",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 642,
+      "title": "Install thermostat(s)",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 643,
+      "title": "Install registers and grilles",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 644,
+      "title": "Install bath fans (final)",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 645,
+      "title": "HVAC system startup",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 646,
+      "title": "HVAC air balancing",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 647,
+      "title": "Commission ERV/HRV",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 648,
+      "title": "Plumbing final pressure/leak test",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 649,
+      "title": "Electrical final test and labeling",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 650,
+      "title": "Label electrical panel",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 651,
+      "title": "Install surge protection (optional)",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 652,
+      "title": "Install EV charger (final) (optional)",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 653,
+      "title": "Install generator transfer switch (final) (optional)",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 654,
+      "title": "Install final plumbing fixtures in Kitchen",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 655,
+      "title": "Install final plumbing fixtures in Primary bath",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 656,
+      "title": "Install final plumbing fixtures in Guest bath",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 657,
+      "title": "Install final plumbing fixtures in Powder room",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 658,
+      "title": "Install final plumbing fixtures in Laundry",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 659,
+      "title": "Install final plumbing fixtures in Mudroom",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 660,
+      "title": "Install final lighting in Kitchen",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 661,
+      "title": "Install final lighting in Primary bath",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 662,
+      "title": "Install final lighting in Guest bath",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 663,
+      "title": "Install final lighting in Powder room",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 664,
+      "title": "Install final lighting in Laundry",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 665,
+      "title": "Install final lighting in Mudroom",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 666,
+      "title": "Install final lighting in Garage",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 667,
+      "title": "Install final lighting in Basement",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 668,
+      "title": "Install final lighting in Attic",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 669,
+      "title": "Install final lighting in Mechanical room",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 670,
+      "title": "Install final lighting in Outdoor",
+      "category": "Fixtures & Final MEP"
+    },
+    {
+      "id": 671,
+      "title": "Deliver appliances",
+      "category": "Appliances"
+    },
+    {
+      "id": 672,
+      "title": "Install range/oven",
+      "category": "Appliances"
+    },
+    {
+      "id": 673,
+      "title": "Install cooktop",
+      "category": "Appliances"
+    },
+    {
+      "id": 674,
+      "title": "Install range hood",
+      "category": "Appliances"
+    },
+    {
+      "id": 675,
+      "title": "Install refrigerator",
+      "category": "Appliances"
+    },
+    {
+      "id": 676,
+      "title": "Install microwave",
+      "category": "Appliances"
+    },
+    {
+      "id": 677,
+      "title": "Install dishwasher",
+      "category": "Appliances"
+    },
+    {
+      "id": 678,
+      "title": "Install washer",
+      "category": "Appliances"
+    },
+    {
+      "id": 679,
+      "title": "Install dryer",
+      "category": "Appliances"
+    },
+    {
+      "id": 680,
+      "title": "Install wine fridge (optional)",
+      "category": "Appliances"
+    },
+    {
+      "id": 681,
+      "title": "Appliance testing and startup",
+      "category": "Appliances"
+    },
+    {
+      "id": 682,
+      "title": "Install solar racking",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 683,
+      "title": "Install solar panels",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 684,
+      "title": "Install solar inverter",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 685,
+      "title": "Install battery storage",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 686,
+      "title": "Solar commissioning",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 687,
+      "title": "Install radiant floor manifolds",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 688,
+      "title": "Radiant system pressure test",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 689,
+      "title": "Install boiler (radiant)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 690,
+      "title": "Commission radiant heat",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 691,
+      "title": "Install heat pump water heater (optional)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 692,
+      "title": "Install geothermal loop (optional)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 693,
+      "title": "Commission geothermal (optional)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 694,
+      "title": "Install elevator shaft framing",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 695,
+      "title": "Install elevator rails",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 696,
+      "title": "Install elevator cab",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 697,
+      "title": "Elevator inspection",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 698,
+      "title": "Install home automation hub",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 699,
+      "title": "Program smart lighting",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 700,
+      "title": "Program smart thermostats",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 701,
+      "title": "Program smart locks",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 702,
+      "title": "Install smart doorbell",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 703,
+      "title": "Install whole-home audio amps",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 704,
+      "title": "Install theater wiring and projector (optional)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 705,
+      "title": "Install security panel",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 706,
+      "title": "Install sensors and keypads",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 707,
+      "title": "Install cameras and NVR",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 708,
+      "title": "Security system commissioning",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 709,
+      "title": "Install central vacuum rough-in",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 710,
+      "title": "Install central vacuum unit",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 711,
+      "title": "Install water leak sensors (optional)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 712,
+      "title": "Install dehumidifier (whole-house) (optional)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 713,
+      "title": "Install humidifier (whole-house) (optional)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 714,
+      "title": "Install backup sump pump (optional)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 715,
+      "title": "Install radon fan (if needed)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 716,
+      "title": "Radon test (post-build)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 717,
+      "title": "Install lightning protection (optional)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 718,
+      "title": "Install CCTV signage (optional)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 719,
+      "title": "Install roof-mounted snow melt system (optional)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 720,
+      "title": "Install heated driveway system (optional)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 721,
+      "title": "Install radiant ceiling panels (optional)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 722,
+      "title": "Install sauna/steam room rough-in (optional)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 723,
+      "title": "Install home gym flooring (optional)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 724,
+      "title": "Install soundproofing package (optional)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 725,
+      "title": "Install smart glass/tint system (optional)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 726,
+      "title": "Install backup battery for sump (optional)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 727,
+      "title": "Install wildfire ember-resistant vents (optional)",
+      "category": "Specialty Systems"
+    },
+    {
+      "id": 728,
+      "title": "Build deck framing",
+      "category": "Outdoor Structures"
+    },
+    {
+      "id": 729,
+      "title": "Install deck boards",
+      "category": "Outdoor Structures"
+    },
+    {
+      "id": 730,
+      "title": "Install deck railing",
+      "category": "Outdoor Structures"
+    },
+    {
+      "id": 731,
+      "title": "Build covered porch",
+      "category": "Outdoor Structures"
+    },
+    {
+      "id": 732,
+      "title": "Install porch ceiling finish",
+      "category": "Outdoor Structures"
+    },
+    {
+      "id": 733,
+      "title": "Build pergola (optional)",
+      "category": "Outdoor Structures"
+    },
+    {
+      "id": 734,
+      "title": "Build gazebo (optional)",
+      "category": "Outdoor Structures"
+    },
+    {
+      "id": 735,
+      "title": "Build outdoor kitchen (optional)",
+      "category": "Outdoor Structures"
+    },
+    {
+      "id": 736,
+      "title": "Install outdoor grill gas line (optional)",
+      "category": "Outdoor Structures"
+    },
+    {
+      "id": 737,
+      "title": "Build detached garage (optional)",
+      "category": "Outdoor Structures"
+    },
+    {
+      "id": 738,
+      "title": "Build workshop/shed (optional)",
+      "category": "Outdoor Structures"
+    },
+    {
+      "id": 739,
+      "title": "Build ADU foundation (optional)",
+      "category": "Outdoor Structures"
+    },
+    {
+      "id": 740,
+      "title": "Build ADU framing (optional)",
+      "category": "Outdoor Structures"
+    },
+    {
+      "id": 741,
+      "title": "Build ADU finishes (optional)",
+      "category": "Outdoor Structures"
+    },
+    {
+      "id": 742,
+      "title": "Pool design finalization",
+      "category": "Pools & Water Features"
+    },
+    {
+      "id": 743,
+      "title": "Pool permit approval",
+      "category": "Pools & Water Features"
+    },
+    {
+      "id": 744,
+      "title": "Excavate pool",
+      "category": "Pools & Water Features"
+    },
+    {
+      "id": 745,
+      "title": "Install pool steel/rebar",
+      "category": "Pools & Water Features"
+    },
+    {
+      "id": 746,
+      "title": "Pool plumbing rough-in",
+      "category": "Pools & Water Features"
+    },
+    {
+      "id": 747,
+      "title": "Pool electrical rough-in",
+      "category": "Pools & Water Features"
+    },
+    {
+      "id": 748,
+      "title": "Shotcrete/gunite pool shell",
+      "category": "Pools & Water Features"
+    },
+    {
+      "id": 749,
+      "title": "Pool tile and coping",
+      "category": "Pools & Water Features"
+    },
+    {
+      "id": 750,
+      "title": "Pool decking installation",
+      "category": "Pools & Water Features"
+    },
+    {
+      "id": 751,
+      "title": "Install pool equipment (pump/filter/heater)",
+      "category": "Pools & Water Features"
+    },
+    {
+      "id": 752,
+      "title": "Pool startup and balancing",
+      "category": "Pools & Water Features"
+    },
+    {
+      "id": 753,
+      "title": "Install hot tub (optional)",
+      "category": "Pools & Water Features"
+    },
+    {
+      "id": 754,
+      "title": "Install pond/waterfall (optional)",
+      "category": "Pools & Water Features"
+    },
+    {
+      "id": 755,
+      "title": "Install fountain (optional)",
+      "category": "Pools & Water Features"
+    },
+    {
+      "id": 756,
+      "title": "Install retaining wall footing",
+      "category": "Hardscape & Landscaping"
+    },
+    {
+      "id": 757,
+      "title": "Build retaining wall (block)",
+      "category": "Hardscape & Landscaping"
+    },
+    {
+      "id": 758,
+      "title": "Build retaining wall (poured concrete)",
+      "category": "Hardscape & Landscaping"
+    },
+    {
+      "id": 759,
+      "title": "Install retaining wall drainage",
+      "category": "Hardscape & Landscaping"
+    },
+    {
+      "id": 760,
+      "title": "Install landscape drainage (French drains)",
+      "category": "Hardscape & Landscaping"
+    },
+    {
+      "id": 761,
+      "title": "Install yard grading",
+      "category": "Hardscape & Landscaping"
+    },
+    {
+      "id": 762,
+      "title": "Install topsoil",
+      "category": "Hardscape & Landscaping"
+    },
+    {
+      "id": 763,
+      "title": "Install sod",
+      "category": "Hardscape & Landscaping"
+    },
+    {
+      "id": 764,
+      "title": "Seed lawn",
+      "category": "Hardscape & Landscaping"
+    },
+    {
+      "id": 765,
+      "title": "Plant trees",
+      "category": "Hardscape & Landscaping"
+    },
+    {
+      "id": 766,
+      "title": "Plant shrubs",
+      "category": "Hardscape & Landscaping"
+    },
+    {
+      "id": 767,
+      "title": "Install mulch",
+      "category": "Hardscape & Landscaping"
+    },
+    {
+      "id": 768,
+      "title": "Install irrigation mainline",
+      "category": "Hardscape & Landscaping"
+    },
+    {
+      "id": 769,
+      "title": "Install irrigation valves",
+      "category": "Hardscape & Landscaping"
+    },
+    {
+      "id": 770,
+      "title": "Install irrigation sprinkler heads",
+      "category": "Hardscape & Landscaping"
+    },
+    {
+      "id": 771,
+      "title": "Program irrigation controller",
+      "category": "Hardscape & Landscaping"
+    },
+    {
+      "id": 772,
+      "title": "Install landscape lighting (optional)",
+      "category": "Hardscape & Landscaping"
+    },
+    {
+      "id": 773,
+      "title": "Install garden edging",
+      "category": "Hardscape & Landscaping"
+    },
+    {
+      "id": 774,
+      "title": "Install privacy screening (optional)",
+      "category": "Hardscape & Landscaping"
+    },
+    {
+      "id": 775,
+      "title": "Install driveway subbase",
+      "category": "Driveways & Access"
+    },
+    {
+      "id": 776,
+      "title": "Install gravel driveway",
+      "category": "Driveways & Access"
+    },
+    {
+      "id": 777,
+      "title": "Pour concrete driveway",
+      "category": "Driveways & Access"
+    },
+    {
+      "id": 778,
+      "title": "Install asphalt driveway",
+      "category": "Driveways & Access"
+    },
+    {
+      "id": 779,
+      "title": "Install paver driveway (optional)",
+      "category": "Driveways & Access"
+    },
+    {
+      "id": 780,
+      "title": "Install walkway pavers",
+      "category": "Driveways & Access"
+    },
+    {
+      "id": 781,
+      "title": "Pour concrete walkways",
+      "category": "Driveways & Access"
+    },
+    {
+      "id": 782,
+      "title": "Install steps and landings",
+      "category": "Driveways & Access"
+    },
+    {
+      "id": 783,
+      "title": "Install curb cut/approach",
+      "category": "Driveways & Access"
+    },
+    {
+      "id": 784,
+      "title": "Install gates (optional)",
+      "category": "Driveways & Access"
+    },
+    {
+      "id": 785,
+      "title": "Install fencing (optional)",
+      "category": "Driveways & Access"
+    },
+    {
+      "id": 786,
+      "title": "Survey as-built foundation (optional)",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 787,
+      "title": "Rough grading inspection (if required)",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 788,
+      "title": "Footing inspection",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 789,
+      "title": "Foundation wall inspection",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 790,
+      "title": "Under-slab inspection",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 791,
+      "title": "Framing inspection",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 792,
+      "title": "Shear/hold-down inspection (if required)",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 793,
+      "title": "Rough plumbing inspection",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 794,
+      "title": "Rough electrical inspection",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 795,
+      "title": "Rough HVAC inspection",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 796,
+      "title": "Insulation inspection",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 797,
+      "title": "Drywall inspection (if required)",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 798,
+      "title": "Fire sprinkler inspection",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 799,
+      "title": "Fire alarm inspection (optional)",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 800,
+      "title": "Blower door test (final) (if required)",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 801,
+      "title": "Duct leakage test (if required)",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 802,
+      "title": "Final plumbing inspection",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 803,
+      "title": "Final electrical inspection",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 804,
+      "title": "Final HVAC inspection",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 805,
+      "title": "Final building inspection",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 806,
+      "title": "Certificate of Occupancy issued",
+      "category": "Testing & Inspections"
+    },
+    {
+      "id": 807,
+      "title": "Create punch list",
+      "category": "Closeout & Handover"
+    },
+    {
+      "id": 808,
+      "title": "Complete punch list items",
+      "category": "Closeout & Handover"
+    },
+    {
+      "id": 809,
+      "title": "Final cleaning",
+      "category": "Closeout & Handover"
+    },
+    {
+      "id": 810,
+      "title": "Owner walkthrough",
+      "category": "Closeout & Handover"
+    },
+    {
+      "id": 811,
+      "title": "Deliver keys and access codes",
+      "category": "Closeout & Handover"
+    },
+    {
+      "id": 812,
+      "title": "Deliver manuals and warranties",
+      "category": "Closeout & Handover"
+    },
+    {
+      "id": 813,
+      "title": "Deliver as-built drawings (if provided)",
+      "category": "Closeout & Handover"
+    },
+    {
+      "id": 814,
+      "title": "Close permits",
+      "category": "Closeout & Handover"
+    },
+    {
+      "id": 815,
+      "title": "Finalize lien releases",
+      "category": "Closeout & Handover"
+    },
+    {
+      "id": 816,
+      "title": "Final payment",
+      "category": "Closeout & Handover"
+    },
+    {
+      "id": 817,
+      "title": "Move-in",
+      "category": "Closeout & Handover"
+    },
+    {
+      "id": 818,
+      "title": "Submit change order request",
+      "category": "Repairs & Change Orders"
+    },
+    {
+      "id": 819,
+      "title": "Approve change order",
+      "category": "Repairs & Change Orders"
+    },
+    {
+      "id": 820,
+      "title": "Schedule rework",
+      "category": "Repairs & Change Orders"
+    },
+    {
+      "id": 821,
+      "title": "Correct inspection deficiencies",
+      "category": "Repairs & Change Orders"
+    },
+    {
+      "id": 822,
+      "title": "Repair damaged materials",
+      "category": "Repairs & Change Orders"
+    },
+    {
+      "id": 823,
+      "title": "Address water intrusion issue",
+      "category": "Repairs & Change Orders"
+    },
+    {
+      "id": 824,
+      "title": "Address framing correction",
+      "category": "Repairs & Change Orders"
+    },
+    {
+      "id": 825,
+      "title": "Address drywall repair",
+      "category": "Repairs & Change Orders"
+    },
+    {
+      "id": 826,
+      "title": "Address paint touch-up",
+      "category": "Repairs & Change Orders"
+    },
+    {
+      "id": 827,
+      "title": "Address flooring repair",
+      "category": "Repairs & Change Orders"
+    },
+    {
+      "id": 828,
+      "title": "Address cabinet adjustment",
+      "category": "Repairs & Change Orders"
+    },
+    {
+      "id": 829,
+      "title": "Address countertop repair",
+      "category": "Repairs & Change Orders"
+    },
+    {
+      "id": 830,
+      "title": "Address HVAC callback",
+      "category": "Repairs & Change Orders"
+    },
+    {
+      "id": 831,
+      "title": "Address plumbing leak callback",
+      "category": "Repairs & Change Orders"
+    },
+    {
+      "id": 832,
+      "title": "Address electrical callback",
+      "category": "Repairs & Change Orders"
+    }
+  ]
+}

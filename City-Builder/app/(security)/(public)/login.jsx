@@ -1,5 +1,5 @@
 // City-Builder/app/(security)/(public)/login.jsx
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   View,
   Text,
@@ -14,7 +14,8 @@ import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context"
 import { useRouter } from "expo-router";
 import { useDispatch } from "react-redux";
 import { authSuccess } from "../../../reduxToolKit/reduxState/globalState/authSlice";
-import { apiLogin, extractErrorMessage } from "../../../services/authApi";
+import { apiLogin, apiGetUserInfo, extractErrorMessage } from "../../../services/authApi";
+import { getToken, getUser } from "../../../services/secureStore";
 import { useTheme } from "../../../wrappers/providers/ThemeContext";
 
 export default function Login() {
@@ -28,6 +29,37 @@ export default function Login() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [isCheckingToken, setIsCheckingToken] = useState(true);
+
+  // ── Auto-login: check if a valid token already exists ──────
+  useEffect(() => {
+    let cancelled = false;
+
+    const checkExistingToken = async () => {
+      try {
+        // 1. Read token from SecureStore
+        const token = await getToken();
+        if (!token) return;                       // no token → stay on login
+
+        // 2. Verify token is still valid by hitting a protected endpoint
+        const data = await apiGetUserInfo(token);  // GET /api/auth/get-user-info
+        if (cancelled) return;
+
+        // 3. Token is good — hydrate Redux and skip to dashboard
+        if (data?.success && data?.user) {
+          dispatch(authSuccess({ user: data.user, token }));
+          router.replace("/(security)/(private)/dashboard");
+        }
+      } catch {
+        // Token expired / invalid / network error → do nothing, show login
+      } finally {
+        if (!cancelled) setIsCheckingToken(false);
+      }
+    };
+
+    checkExistingToken();
+    return () => { cancelled = true; };
+  }, []);
 
   const styles = useMemo(() => {
     const cardBackground = theme.colors.cardBackground || theme.colors.surface;
@@ -208,6 +240,12 @@ export default function Login() {
 
   return (
     <SafeAreaView style={styles.screen}>
+      {/* While checking token, show a centered spinner instead of the login form */}
+      {isCheckingToken ? (
+        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+          <ActivityIndicator size="large" color={theme.colors.primary} />
+        </View>
+      ) : (
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === "ios" ? "padding" : undefined}
@@ -318,6 +356,7 @@ export default function Login() {
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
+      )}
     </SafeAreaView>
   );
 }
