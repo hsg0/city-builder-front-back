@@ -252,15 +252,21 @@ export default function CompletedBuildDetailScreen() {
           }}
         />
 
-        <View
-          style={{
+        <Pressable
+          onPress={() =>
+            router.push({
+              pathname: `/(homebuilder)/(completed)/${buildId}/${item._id}`,
+            })
+          }
+          style={({ pressed }) => ({
             marginBottom: 12,
             borderRadius: 16,
             borderWidth: 1,
             borderColor: theme.colors.border,
             backgroundColor: theme.colors.surface,
             padding: 14,
-          }}
+            opacity: pressed ? 0.85 : 1,
+          })}
         >
           <View
             style={{
@@ -402,7 +408,7 @@ export default function CompletedBuildDetailScreen() {
               </View>
             </View>
           </View>
-        </View>
+        </Pressable>
       </View>
     );
   }
@@ -532,7 +538,7 @@ export default function CompletedBuildDetailScreen() {
         {/* Section title */}
         <Text
           style={{
-            marginTop: 8,
+            marginTop: 0,
             fontSize: 17,
             fontWeight: "900",
             color: theme.colors.text,

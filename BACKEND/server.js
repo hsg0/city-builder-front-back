@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import universalMongoDB from './config/mongoDB.js';
 import authRouter from './routes/authroutes/auth.js';
 import newBuildIntakeRouter from './routes/buildroutes/newBuildIntake.js';
+import costRouter from './routes/buildroutes/costRoutes.js';
 
 //image setup
 import imageKitRouter from "./routes/imageKitRoutes.js";
@@ -72,6 +73,9 @@ app.use('/api/auth', authRouter);
 // new build intake route
 console.log('[server.js] 🔌 Mounting newBuildIntakeRouter at /api/builds');
 app.use('/api/builds', newBuildIntakeRouter);
+// cost overview routes
+console.log('[server.js] 🔌 Mounting costRouter at /api/costs');
+app.use('/api/costs', costRouter);
 
 // ── Catch-all: logs any request that didn't match a route ──
 app.use((req, res) => {
